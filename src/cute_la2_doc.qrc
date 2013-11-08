@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>doc/en/index.html</file>
+        <file>doc/ru/index.html</file>
+    </qresource>
+</RCC>
