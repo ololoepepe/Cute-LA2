@@ -27,6 +27,7 @@
 #include <QIcon>
 #include <QPalette>
 #include <QScreen>
+#include <QCursor>
 
 #include <QDebug>
 
@@ -439,6 +440,63 @@ void emulateKeyPress(const QKeySequence &key)
 void emulateKeyPress(const QString &key)
 {
     emulateKeyPress(QKeySequence(key));
+}
+
+void emulateMouseClick(Qt::MouseButton button, int x, int y)
+{
+    Q_UNUSED(button)
+    QPoint pos = QCursor::pos();
+    if (x >= 0)
+        pos.setX(x);
+    if (y >= 0)
+        pos.setY(y);
+    if (x >= 0 || y >= 0)
+        QCursor::setPos(pos);
+#if defined(Q_OS_WIN)
+    INPUT input;
+    input.type = INPUT_MOUSE;
+    input.mi.dx = 0;
+    input.mi.dy = 0;
+    input.mi.time = 0;
+    input.mi.dwExtraInfo = 0;
+    input.mi.mouseData = 0;
+    switch (button)
+    {
+    case Qt::LeftButton:
+        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTDOWN;
+        break;
+    case Qt::LeftButton:
+        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_RIGHTDOWN;
+        break;
+    case Qt::LeftButton:
+        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MIDDLEDOWN;
+        break;
+    default:
+        return;
+    }
+    SendInput(1, &input, sizeof(INPUT));
+    Sleep(50);
+    switch (button)
+    {
+    case Qt::LeftButton:
+        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTUP;
+        break;
+    case Qt::LeftButton:
+        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_RIGHTUP;
+        break;
+    case Qt::LeftButton:
+        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MIDDLEUP;
+        break;
+    default:
+        return;
+    }
+    SendInput(1, &input, sizeof(INPUT));
+#endif
+}
+
+void emulateMouseClick(Qt::MouseButton button, const QPoint &pos)
+{
+    emulateMouseClick(button, pos.x(), pos.y());
 }
 
 QImage grabDesktop(int x, int y, int w, int h)

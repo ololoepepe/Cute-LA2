@@ -38,6 +38,8 @@ enum SearchDirection
 QImage grabOlympiadMessage();
 void emulateKeyPress(const QKeySequence &key);
 void emulateKeyPress(const QString &key);
+void emulateMouseClick(Qt::MouseButton button, int x = -1, int y = -1);
+void emulateMouseClick(Qt::MouseButton button, const QPoint &pos);
 QImage grabDesktop(int x = 0, int y = 0, int w = -1, int h = -1);
 QImage grabDesktop(const QPoint &pos, int w = -1, int h = -1);
 QRgb getMainColor(const QImage &img);
