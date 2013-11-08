@@ -439,6 +439,7 @@ void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
         input.ki.wScan = MapVirtualKey(key, MAPVK_VK_TO_VSC);
         SendInput(1, &input, sizeof(INPUT));
     }
+    Sleep(1);
     if (m & UpOnly)
     {
         INPUT input;
@@ -498,16 +499,15 @@ void emulateKeyPress(const QKeySequence &key)
             {
                 kk &= ~m;
                 emulateKeyPress(modifierToVKey(m), DownOnly);
-                Sleep(50);
+                Sleep(10);
             }
         }
         emulateKeyPress(keyToVKey(kk));
-        Sleep(50);
         foreach (Qt::Modifier m, modifiers)
         {
             if (m & k)
             {
-                Sleep(50);
+                Sleep(10);
                 emulateKeyPress(modifierToVKey(m), UpOnly);
             }
         }
@@ -531,44 +531,34 @@ void emulateMouseClick(Qt::MouseButton button, int x, int y)
     if (x >= 0 || y >= 0)
         QCursor::setPos(pos);
 #if defined(Q_OS_WIN)
-    INPUT input;
-    input.type = INPUT_MOUSE;
-    input.mi.dx = 0;
-    input.mi.dy = 0;
-    input.mi.time = 0;
-    input.mi.dwExtraInfo = 0;
-    input.mi.mouseData = 0;
     switch (button)
     {
     case Qt::LeftButton:
-        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTDOWN;
+        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
         break;
     case Qt::RightButton:
-        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_RIGHTDOWN;
+        mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
         break;
     case Qt::MiddleButton:
-        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MIDDLEDOWN;
+        mouse_event(MOUSEEVENTF_MIDDLEDOWN, 0, 0, 0, 0);
         break;
     default:
         return;
     }
-    SendInput(1, &input, sizeof(INPUT));
-    Sleep(50);
     switch (button)
     {
     case Qt::LeftButton:
-        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTUP;
+        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         break;
     case Qt::RightButton:
-        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_RIGHTUP;
+        mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
         break;
     case Qt::MiddleButton:
-        input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MIDDLEUP;
+        mouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0);
         break;
     default:
         return;
     }
-    SendInput(1, &input, sizeof(INPUT));
 #endif
 }
 

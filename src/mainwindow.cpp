@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
                   fnt.setPointSize(40);
                   lblAutoManor->setFont(fnt);
                   lblAutoManor->setTextInteractionFlags(Qt::TextSelectableByMouse);
-                  lblAutoManor->setText("Press Start");
+                  lblAutoManor->setText(tr("Ready", "lbl text"));
                 vltam->addWidget(lblAutoManor);
                 QHBoxLayout *hltam = new QHBoxLayout;
                   hltam->addStretch();
@@ -188,8 +188,8 @@ void MainWindow::reloadInfo(InfoGroup gr)
     }
     if (gr | ManorInfo)
     {
-        inst->manorTimer.setInterval(inst->manorEtimer.isValid() ? Global::olympiadCheckInterval() :
-                                                                   Global::manorTimerInterval());
+        inst->manorTimer.setInterval(inst->manorEtimer.isValid() ? Global::manorTimerInterval() :
+                                                                   Global::olympiadCheckInterval());
         inst->chatRowCount = Global::chatRowCount();
     }
     if (gr | OlympiadMessageInfo)
@@ -380,7 +380,7 @@ void MainWindow::manorTimerTimeout()
             if (s.createAlphaMask() == olympiadMessageMask)
             {
                 btnManor->setEnabled(false);
-                manorTimerMsecs = 6 * BeQt::Minute + 100;
+                manorTimerMsecs = 6 * BeQt::Minute;
                 manorEtimer.start();
                 manorTimer.setInterval(Global::manorTimerInterval());
                 manorTimerTimeout();
@@ -406,11 +406,12 @@ void MainWindow::manorTimerTimeout()
         }
         else
         {
+            Global::emulateMouseClick(Qt::LeftButton, manorButtonPos);
             manorTimer.stop();
             manorEtimer.invalidate();
-            lblAutoManor->setText("The time has come!");
-            Global::emulateMouseClick(Qt::LeftButton, manorButtonPos);
+            lblAutoManor->setText(tr("Sold!", "lbl text"));
             btnManor->setEnabled(true);
+            btnManor->setText(trManorTurnOn);
         }
     }
 }
@@ -418,9 +419,15 @@ void MainWindow::manorTimerTimeout()
 void MainWindow::btnManorClicked()
 {
     if (manorTimer.isActive())
+    {
         manorTimer.stop();
+        lblAutoManor->setText(tr("Ready", "lbl text"));
+    }
     else
+    {
+        lblAutoManor->setText(tr("Activated", "lbl text"));
         manorTimer.start();
+    }
     btnManor->setText(manorTimer.isActive() ? trManorTurnOff : trManorTurnOn);
 }
 
@@ -518,7 +525,7 @@ void MainWindow::btnFishingClicked()
         return;
     fishing = true;
     int delay = Global::fishingStartDelay();
-    logFishing("Preparing to fish. Waiting for " + QString::number(delay) + " seconds...");
+    logFishing(tr("Preparing to fish. Waiting for") + " " + QString::number(delay) + " " + tr("seconds..."));
     waitMsecs(delay * BeQt::Second, loop);
     if (mustExit)
     {
@@ -530,15 +537,15 @@ void MainWindow::btnFishingClicked()
     if (!fishingActive)
     {
         fishing = false;
-        return logFishing("Fishing cancelled.");
+        return logFishing(tr("Fishing cancelled."));
     }
-    logFishing("Switching to fishing panel...");
+    logFishing(tr("Switching to fishing panel..."));
     Global::emulateKeyPress("Alt+F" + QString::number(Global::fishingPanelNumber()));
     if (!wait(1000))
         return;
     if (Global::fishingEquipBeforeStart())
     {
-        logFishing("Equipping fishing gear...");
+        logFishing(tr("Equipping fishing gear..."));
         Global::emulateKeyPress(fishingKey(EquipRod));
         if (!wait(1000))
             return;
@@ -548,45 +555,45 @@ void MainWindow::btnFishingClicked()
     }
     while (fishingActive)
     {
-        logFishing("<font color=blue>Starting fishing...</font>");
+        logFishing("<font color=blue>" + tr("Starting fishing...") + "</font>");
         Global::emulateKeyPress(fishingKey(UseFishing));
         volatile bool pecked = false;
-        logFishing("Waiting for a fish to peck...");
+        logFishing(tr("Waiting for a fish to peck..."));
         for (int i = 0; i < 200; ++i)
         {
             if (!wait(100))
                 return;
             if (testPecked())
             {
-                logFishing("<font color=blue>A fish pecked!</font>");
+                logFishing("<font color=blue>" + tr("A fish pecked!") + "</font>");
                 pecked = true;
                 break;
             }
         }
         if (!pecked)
         {
-            logFishing("<font color=red>No fish pecked.</font> Waiting a bit...");
+            logFishing("<font color=red>" + tr("No fish pecked.") + "</font> Waiting a bit...");
             if (!wait(2000))
                 return;
-            logFishing("<font color=green>Cycle finished.</font>");
+            logFishing("<font color=green>" + tr("Cycle finished.") + "</font>");
             continue;
         }
         if (!wait(1000))
             return;
         while (testPecked())
         {
-            logFishing("Deciding which skill to use...");
+            logFishing(tr("Deciding which skill to use..."));
             int prevHP = getFishHp();
             if (!wait(500))
                 return;
             if (!testPecked())
             {
-                logFishing("No need to use skills.");
+                logFishing(tr("No need to use skills."));
                 break;
             }
             if (getFishHp() > prevHP)
             {
-                logFishing("<font color=magenta>Using Reeling...</font>");
+                logFishing("<font color=magenta>" + tr("Using Reeling...") + "</font>");
                 useReeling();
                 if (!wait(1500))
                     return;
@@ -598,12 +605,12 @@ void MainWindow::btnFishingClicked()
                     return;
                 if (!testPecked())
                 {
-                    logFishing("No need to use skills.");
+                    logFishing(tr("No need to use skills."));
                     break;
                 }
                 if (getFishHp() > prevHP)
                 {
-                    logFishing("<font color=magenta>Using Reeling...</font>");
+                    logFishing("<font color=magenta>" + tr("Using Reeling...") + "</font>");
                     useReeling();
                     if (!wait(1500))
                         return;
@@ -612,39 +619,33 @@ void MainWindow::btnFishingClicked()
                 {
                     if (testPecked(false))
                     {
-                        logFishing("<font color=orange>Using Pumping...</font>");
+                        logFishing("<font color=orange>" + tr("Using Pumping...") + "</font>");
                         usePumping();
                     }
                     else
                     {
-                        logFishing("No need to use skills.");
+                        logFishing(tr("No need to use skills."));
                     }
                     if (!wait(1000))
                         return;
                 }
             }
         }
-        logFishing("<font color=green>Fishing finished!</font> Waiting for a possible attack...");
+        logFishing("<font color=green>" + tr("Fishing finished!") + "</font> "
+                   + tr("Waiting for a possible attack..."));
         if (!wait(2000))
             return;
         if (testTarget())
         {
-            logFishing("<font color=blue>A monster attacks!</font> Equipping arms and counterattacking...");
+            logFishing("<font color=blue>" + tr("A monster attacks!") + "</font> "
+                       + tr("Equipping arms and counterattacking..."));
             Global::emulateKeyPress(fishingKey(EquipWeapon) + "," + fishingKey(Attack));
             while (testTarget())
                 if (!wait(100))
                     return;
-            logFishing("<font color=blue>The monster is killed!</font> Equipping fishing gear...");
+            logFishing("<font color=blue>" + tr("The monster is killed!") + "</font> "
+                       + tr("Equipping fishing gear..."));
             //TODO: While collecting dropped items, a character may turn away from the water.
-            /*ptedt->appendPlainText("Collecting dropped items...");
-            for (int i = 0; i < 3; ++i)
-            {
-#if defined(Q_OS_WIN)
-                keybd_event(Qt::Key_5, 0, 0, 0);
-                keybd_event(Qt::Key_5, 0, KEYEVENTF_KEYUP, 0);
-#endif
-                waitMsecs(500);
-            }*/
             Global::emulateKeyPress(fishingKey(EquipRod));
             if (!wait(1000))
                 return;
@@ -661,13 +662,13 @@ void MainWindow::btnFishingClicked()
         }
         else
         {
-            logFishing("No monster. Waiting a bit...");
+            logFishing(tr("No monster. Waiting a bit..."));
         }
         if (!wait(2000))
             return;
-        logFishing("<font color=green>Cycle finished.</font>");
+        logFishing("<font color=green>" + tr("Cycle finished.") + "</font>");
     }
-    logFishing("Stopped fishing.");
+    logFishing(tr("Stopped fishing."));
     fishing = false;
 }
 
