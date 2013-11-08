@@ -465,10 +465,10 @@ void emulateMouseClick(Qt::MouseButton button, int x, int y)
     case Qt::LeftButton:
         input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTDOWN;
         break;
-    case Qt::LeftButton:
+    case Qt::RightButton:
         input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_RIGHTDOWN;
         break;
-    case Qt::LeftButton:
+    case Qt::MiddleButton:
         input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MIDDLEDOWN;
         break;
     default:
@@ -481,10 +481,10 @@ void emulateMouseClick(Qt::MouseButton button, int x, int y)
     case Qt::LeftButton:
         input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_LEFTUP;
         break;
-    case Qt::LeftButton:
+    case Qt::RightButton:
         input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_RIGHTUP;
         break;
-    case Qt::LeftButton:
+    case Qt::MiddleButton:
         input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MIDDLEUP;
         break;
     default:
