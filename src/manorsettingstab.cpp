@@ -57,6 +57,9 @@ ManorSettingsTab::ManorSettingsTab()
       btnGrablympiadMessage = new QPushButton(tr("Grab olympiad message", "btn text"));
         connect(btnGrablympiadMessage, SIGNAL(clicked()), this, SLOT(grabOlympiadMessage()));
       flt->addRow(tr("Olympiad message:", "lbl text"), btnGrablympiadMessage);
+      btnSelectManorButton = new QPushButton(tr("Select manor button position", "btn text"));
+        connect(btnSelectManorButton, SIGNAL(clicked()), this, SLOT(selectManorButton()));
+      flt->addRow(tr("Manor button:", "lbl text"), btnSelectManorButton);
 }
 
 /*============================== Public methods ============================*/
@@ -104,4 +107,13 @@ void ManorSettingsTab::grabOlympiadMessage()
     if (!img.save(fn, "png"))
         return;
     MainWindow::reloadInfo(MainWindow::OlympiadMessageInfo);
+}
+
+void ManorSettingsTab::selectManorButton()
+{
+    QPoint pos = Global::selectManorButtonPos(Global::manorButtonPos());
+    if (pos.x() <= 0 || pos.y() <= 0)
+        return;
+    Global::setManorButtonPos(pos);
+    MainWindow::reloadInfo(MainWindow::ManorButtonInfo);
 }

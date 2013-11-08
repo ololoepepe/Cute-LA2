@@ -42,7 +42,13 @@ class Frame : public QDialog
 {
     Q_DECLARE_TR_FUNCTIONS(Frame)
 public:
-    explicit Frame();
+    enum Shape
+    {
+        FrameShape,
+        SightShape
+    };
+public:
+    explicit Frame(Shape s);
 protected:
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
@@ -52,45 +58,105 @@ private:
     QPoint dpos;
 };
 
-Frame::Frame()
+Frame::Frame(Shape s)
 {
-    QHBoxLayout *hlt = new QHBoxLayout(this);
-      hlt->setContentsMargins(0, 0, 0, 0);
-      hlt->setSpacing(0);
-      QFrame *fr = new QFrame;
-        fr->setFrameShape(QFrame::Box);
-        fr->setLineWidth(4);
-        fr->setStyleSheet("background:transparent;");
-        fr->setAttribute(Qt::WA_TranslucentBackground);
-        QPalette p = fr->palette();
-        p.setColor(QPalette::Foreground, QColor("red"));
-        fr->setPalette(p);
-      hlt->addWidget(fr);
-      fr = new QFrame;
-        fr->setFrameShape(QFrame::VLine);
-        fr->setFixedWidth(12);
-        fr->setLineWidth(12);
-        fr->setPalette(p);
-      hlt->addWidget(fr);
-      QToolButton *tbtn = new QToolButton;
-        tbtn->setIconSize(QSize(12, 12));
-        tbtn->setToolTip(tr("Grab", "tbtn toolTip"));
-        tbtn->setIcon(BApplication::icon("ok"));
-        connect(tbtn, SIGNAL(clicked()), this, SLOT(accept()));
-      hlt->addWidget(tbtn);
-      tbtn = new QToolButton;
-        tbtn->setIconSize(QSize(12, 12));
-        tbtn->setToolTip(tr("Cancel", "tbtn toolTip"));
-        tbtn->setIcon(BApplication::icon("editdelete"));
-        connect(tbtn, SIGNAL(clicked()), this, SLOT(reject()));
-      hlt->addWidget(tbtn);
     pressed = false;
-    //setStyleSheet("background:transparent;");
-    setAttribute(Qt::WA_TranslucentBackground);
-    setWindowFlags(Qt::FramelessWindowHint);
-    //
-    setFixedSize(250, 23);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+    switch (s)
+    {
+    case FrameShape:
+    {
+        QHBoxLayout *hlt = new QHBoxLayout(this);
+          hlt->setContentsMargins(0, 0, 0, 0);
+          hlt->setSpacing(0);
+          QFrame *fr = new QFrame;
+            fr->setFrameShape(QFrame::Box);
+            fr->setLineWidth(4);
+            fr->setStyleSheet("background:transparent;");
+            fr->setAttribute(Qt::WA_TranslucentBackground);
+            QPalette p = fr->palette();
+            p.setColor(QPalette::Foreground, QColor("red"));
+            fr->setPalette(p);
+          hlt->addWidget(fr);
+          fr = new QFrame;
+            fr->setFrameShape(QFrame::VLine);
+            fr->setFixedWidth(12);
+            fr->setLineWidth(12);
+            fr->setPalette(p);
+          hlt->addWidget(fr);
+          QToolButton *tbtn = new QToolButton;
+            tbtn->setIconSize(QSize(12, 12));
+            tbtn->setToolTip(tr("Grab", "tbtn toolTip"));
+            tbtn->setIcon(BApplication::icon("ok"));
+            connect(tbtn, SIGNAL(clicked()), this, SLOT(accept()));
+          hlt->addWidget(tbtn);
+          tbtn = new QToolButton;
+            tbtn->setIconSize(QSize(12, 12));
+            tbtn->setToolTip(tr("Cancel", "tbtn toolTip"));
+            tbtn->setIcon(BApplication::icon("editdelete"));
+            connect(tbtn, SIGNAL(clicked()), this, SLOT(reject()));
+          hlt->addWidget(tbtn);
+        //setStyleSheet("background:transparent;");
+        setAttribute(Qt::WA_TranslucentBackground);
+        setWindowFlags(Qt::FramelessWindowHint);
+        //
+        setFixedSize(250, 23);
+        setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+        break;
+    }
+    case SightShape:
+    {
+        QVBoxLayout *vlt = new QVBoxLayout(this);
+          vlt->setContentsMargins(0, 0, 0, 0);
+          QHBoxLayout *hlt = new QHBoxLayout;
+            hlt->addStretch();
+            QToolButton *tbtn = new QToolButton;
+              tbtn->setIconSize(QSize(12, 12));
+              tbtn->setToolTip(tr("Select", "tbtn toolTip"));
+              tbtn->setIcon(BApplication::icon("ok"));
+              connect(tbtn, SIGNAL(clicked()), this, SLOT(accept()));
+            hlt->addWidget(tbtn);
+            tbtn = new QToolButton;
+              tbtn->setIconSize(QSize(12, 12));
+              tbtn->setToolTip(tr("Cancel", "tbtn toolTip"));
+              tbtn->setIcon(BApplication::icon("editdelete"));
+              connect(tbtn, SIGNAL(clicked()), this, SLOT(reject()));
+            hlt->addWidget(tbtn);
+          vlt->addLayout(hlt);
+          vlt->addStretch();
+          hlt = new QHBoxLayout;
+            hlt->addStretch();
+            QFrame *fr = new QFrame;
+              fr->setFrameShape(QFrame::Box);
+              fr->setLineWidth(20);
+              QPalette p = fr->palette();
+              p.setColor(QPalette::Foreground, QColor("red"));
+              fr->setPalette(p);
+              fr->setFixedSize(16, 16);
+            hlt->addWidget(fr);
+          vlt->addLayout(hlt);
+        fr = new QFrame(this);
+          fr->setFrameShape(QFrame::HLine);
+          fr->setLineWidth(4);
+          fr->setPalette(p);
+          fr->setFixedSize(100, 4);
+          fr->move(0, 50);
+        fr = new QFrame(this);
+          fr->setFrameShape(QFrame::VLine);
+          fr->setFixedWidth(12);
+          fr->setLineWidth(12);
+          fr->setPalette(p);
+          fr->setFixedSize(4, 100);
+          fr->move(50, 0);
+        //setStyleSheet("background:transparent;");
+        setAttribute(Qt::WA_TranslucentBackground);
+        setWindowFlags(Qt::FramelessWindowHint);
+        setFixedSize(100, 100);
+        setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+        break;
+    }
+    default:
+        break;
+    }
 }
 
 void Frame::mousePressEvent(QMouseEvent *e)
@@ -389,7 +455,7 @@ void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
 
 QImage grabOlympiadMessage()
 {
-    Frame *f = new Frame;
+    Frame *f = new Frame(Frame::FrameShape);
     f->exec();
     f->deleteLater();
     if (QDialog::Accepted != f->result())
@@ -398,6 +464,18 @@ QImage grabOlympiadMessage()
     QRgb rr = getMainColor(img);
     img = removeNoise(img, &rr);
     return cutExtraSpace(removeNoise(img, &rr), &rr);
+}
+
+QPoint selectManorButtonPos(const QPoint &previousPos)
+{
+    Frame *f = new Frame(Frame::SightShape);
+    if (previousPos.x() > 0 && previousPos.y() > 0)
+        f->move(previousPos + QPoint(-50, -50));
+    f->exec();
+    f->deleteLater();
+    if (QDialog::Accepted != f->result())
+        return QPoint(-1, -1);
+    return f->pos() + QPoint(50, 50);
 }
 
 void emulateKeyPress(const QKeySequence &key)
@@ -712,6 +790,11 @@ void setChatRowCount(int n)
     bSettings->setValue("Manor/chat_row_count", n);
 }
 
+void setManorButtonPos(const QPoint &pos)
+{
+    bSettings->setValue("Manor/button_pos", pos);
+}
+
 void setFishingEquipBeforeStart(bool b)
 {
     bSettings->setValue("Fishing/equip_before_start", b);
@@ -785,6 +868,11 @@ int chatRowCount()
     bool ok = false;
     int n = bSettings->value("Manor/chat_row_count", 4).toInt(&ok);
     return (ok && bRangeD(1, 28).contains(n)) ? n : 4;
+}
+
+QPoint manorButtonPos()
+{
+    return bSettings->value("Manor/button_pos", QPoint(-1, -1)).toPoint();
 }
 
 bool fishingEquipBeforeStart()

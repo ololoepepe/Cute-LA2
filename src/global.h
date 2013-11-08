@@ -36,6 +36,7 @@ enum SearchDirection
 };
 
 QImage grabOlympiadMessage();
+QPoint selectManorButtonPos(const QPoint &previousPos = QPoint(-1, -1));
 void emulateKeyPress(const QKeySequence &key);
 void emulateKeyPress(const QString &key);
 void emulateMouseClick(Qt::MouseButton button, int x = -1, int y = -1);
@@ -57,9 +58,11 @@ int detectionDelay();
 void setOlympiadCheckInterval(int msecs);
 void setManorTimerInterval(int msecs);
 void setChatRowCount(int n);
+void setManorButtonPos(const QPoint &pos);
 int olympiadCheckInterval();
 int manorTimerInterval();
 int chatRowCount();
+QPoint manorButtonPos();
 //
 void setFishingEquipBeforeStart(bool b);
 void setFishingStartDelay(int seconds);

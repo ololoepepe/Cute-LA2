@@ -197,6 +197,10 @@ void MainWindow::reloadInfo(InfoGroup gr)
         QString fn = BDirTools::findResource("olympiad_message.png", BDirTools::UserOnly);
         inst->olympiadMessageMask = QImage(fn).createAlphaMask();
     }
+    if (gr | ManorButtonInfo)
+    {
+        inst->manorButtonPos = Global::manorButtonPos();
+    }
     if (gr | FishingInfo)
     {
         inst->fishingKeys = Global::fishingKeyList();
@@ -405,7 +409,7 @@ void MainWindow::manorTimerTimeout()
             manorTimer.stop();
             manorEtimer.invalidate();
             lblAutoManor->setText("The time has come!");
-            Global::emulateKeyPress("Ctrl+Alt+C");
+            Global::emulateMouseClick(Qt::LeftButton, manorButtonPos);
             btnManor->setEnabled(true);
         }
     }

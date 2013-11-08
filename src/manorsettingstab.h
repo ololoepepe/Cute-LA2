@@ -32,11 +32,13 @@ public:
     bool saveSettings();
 private slots:
     void grabOlympiadMessage();
+    void selectManorButton();
 private:
     QSpinBox *sboxOlympiadCheckInterval;
     QSpinBox *sboxTimerInterval;
     QSpinBox *sboxChatRowCount;
     QPushButton *btnGrablympiadMessage;
+    QPushButton *btnSelectManorButton;
 private:
     Q_DISABLE_COPY(ManorSettingsTab)
 };

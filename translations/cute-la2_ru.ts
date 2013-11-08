@@ -91,16 +91,23 @@
 <context>
     <name>Frame</name>
     <message>
-        <location filename="../src/global.cpp" line="76"/>
+        <location filename="../src/global.cpp" line="88"/>
         <source>Grab</source>
         <comment>tbtn toolTip</comment>
         <translation>Захватить</translation>
     </message>
     <message>
-        <location filename="../src/global.cpp" line="82"/>
+        <location filename="../src/global.cpp" line="94"/>
+        <location filename="../src/global.cpp" line="120"/>
         <source>Cancel</source>
         <comment>tbtn toolTip</comment>
         <translation>Отменить</translation>
+    </message>
+    <message>
+        <location filename="../src/global.cpp" line="114"/>
+        <source>Select</source>
+        <comment>tbtn toolTip</comment>
+        <translation>Выбрать</translation>
     </message>
 </context>
 <context>
@@ -151,13 +158,13 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="327"/>
+        <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Quit</source>
         <comment>act text</comment>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="326"/>
+        <location filename="../src/mainwindow.cpp" line="330"/>
         <source>File</source>
         <comment>mnu title</comment>
         <translation>Файл</translation>
@@ -199,79 +206,79 @@
         <translation>Завершить рыбалку</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="265"/>
+        <location filename="../src/mainwindow.cpp" line="269"/>
         <source>Game area position:</source>
         <comment>lbl text</comment>
         <translation>Координаты игровой области:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="269"/>
+        <location filename="../src/mainwindow.cpp" line="273"/>
         <source>Not detected</source>
         <comment>lbl text</comment>
         <translation>Не обнаружено</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="328"/>
+        <location filename="../src/mainwindow.cpp" line="332"/>
         <source>Edit</source>
         <comment>mnu title</comment>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="332"/>
+        <location filename="../src/mainwindow.cpp" line="336"/>
         <source>Start</source>
         <comment>btn text</comment>
         <translation>Начать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="336"/>
+        <location filename="../src/mainwindow.cpp" line="340"/>
         <source>Stay on top</source>
         <comment>cbox text</comment>
         <translation>Поверх других окон</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="337"/>
+        <location filename="../src/mainwindow.cpp" line="341"/>
         <source>Detect game interface</source>
         <comment>btn text</comment>
         <translation>Обнаружить игровой интерфейс</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="339"/>
+        <location filename="../src/mainwindow.cpp" line="343"/>
         <source>Manor</source>
         <comment>twgt tab text</comment>
         <translation>Манор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="340"/>
+        <location filename="../src/mainwindow.cpp" line="344"/>
         <source>Timer</source>
         <comment>twgt tab text</comment>
         <translation>Таймер</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="341"/>
+        <location filename="../src/mainwindow.cpp" line="345"/>
         <source>Fishing</source>
         <comment>twgt tab text</comment>
         <translation>Рыбалка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="466"/>
+        <location filename="../src/mainwindow.cpp" line="470"/>
         <source>Confirmation</source>
         <comment>msgbox windowTitle</comment>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="468"/>
+        <location filename="../src/mainwindow.cpp" line="472"/>
         <source>The game interface is already detected. Do you want to detect it again?</source>
         <comment>msgbox text</comment>
         <translation>Игровой интерфейс уже обнаружен. Хотите запустить обнаружение повторно?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="475"/>
+        <location filename="../src/mainwindow.cpp" line="479"/>
         <source>Detecting game interface...</source>
         <comment>lbl text</comment>
         <translation>Обнаружение игрового интерфейса...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="329"/>
+        <location filename="../src/mainwindow.cpp" line="333"/>
         <source>Help</source>
         <comment>mnuTitle</comment>
         <translation>Справка</translation>
@@ -310,7 +317,19 @@
         <translation>Сообщение об олимпиаде:</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="66"/>
+        <location filename="../src/manorsettingstab.cpp" line="60"/>
+        <source>Select manor button position</source>
+        <comment>btn text</comment>
+        <translation>Выберите положение кнопки манора</translation>
+    </message>
+    <message>
+        <location filename="../src/manorsettingstab.cpp" line="62"/>
+        <source>Manor button:</source>
+        <comment>lbl text</comment>
+        <translation>Кнопка манора:</translation>
+    </message>
+    <message>
+        <location filename="../src/manorsettingstab.cpp" line="69"/>
         <source>Manor</source>
         <comment>title</comment>
         <translation>Манор</translation>

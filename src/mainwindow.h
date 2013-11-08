@@ -36,8 +36,9 @@ public:
         GeneralInfo = 1,
         ManorInfo = 2,
         OlympiadMessageInfo = 4,
-        FullManorInfo = ManorInfo | OlympiadMessageInfo,
-        FishingInfo = 8,
+        ManorButtonInfo = 8,
+        FullManorInfo = ManorInfo | OlympiadMessageInfo | ManorButtonInfo,
+        FishingInfo = 16,
         AllInfo = GeneralInfo | FullManorInfo | FishingInfo
     };
 public:
@@ -141,6 +142,7 @@ private:
     QPoint fishHpPos;
     QPoint targetClosePos;
     QPoint chatBottomPos;
+    QPoint manorButtonPos;
 };
 
 #endif // MAINWINDOW_H
