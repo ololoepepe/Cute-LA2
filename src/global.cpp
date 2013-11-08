@@ -361,7 +361,7 @@ UINT keyToVKey(int key)
 
 void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
 {
-    if (m | DownOnly)
+    if (m & DownOnly)
     {
         INPUT input;
         input.type = INPUT_KEYBOARD;
@@ -372,7 +372,7 @@ void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
         input.ki.wScan = MapVirtualKey(key, MAPVK_VK_TO_VSC);
         SendInput(1, &input, sizeof(INPUT));
     }
-    if (m | UpOnly)
+    if (m & UpOnly)
     {
         INPUT input;
         input.type = INPUT_KEYBOARD;

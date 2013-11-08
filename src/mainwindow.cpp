@@ -486,7 +486,7 @@ void MainWindow::btnDetectClicked()
     const QSettings option(Global::gameDir() + "/system/Option.ini", QSettings::IniFormat);
     int x = option.value("Video/GamePlayViewportX").toInt();
     int y = option.value("Video/GamePlayViewportY").toInt();
-    windowPos = Global::detectWindowPosition(Global::detectionDelay());
+    windowPos = Global::detectWindowPosition(Global::detectionDelay() * BeQt::Second);
     fishHpPos = windowPos;
     targetClosePos = windowPos;
     chatBottomPos = windowPos;

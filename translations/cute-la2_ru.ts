@@ -91,13 +91,13 @@
 <context>
     <name>Frame</name>
     <message>
-        <location filename="../src/global.cpp" line="75"/>
+        <location filename="../src/global.cpp" line="76"/>
         <source>Grab</source>
         <comment>tbtn toolTip</comment>
         <translation>Захватить</translation>
     </message>
     <message>
-        <location filename="../src/global.cpp" line="81"/>
+        <location filename="../src/global.cpp" line="82"/>
         <source>Cancel</source>
         <comment>tbtn toolTip</comment>
         <translation>Отменить</translation>
