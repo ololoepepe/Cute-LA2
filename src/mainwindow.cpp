@@ -232,8 +232,7 @@ void MainWindow::reloadInfo(InfoGroup gr)
     }
     if (gr | OlympiadMessageInfo)
     {
-        QString fn = BDirTools::findResource("olympiad_message.png", BDirTools::UserOnly);
-        inst->olympiadMessageMask = QImage(fn).createAlphaMask();
+        inst->olympiadMessageMask = Global::olympiadMessageMask();
     }
     if (gr | ManorButtonInfo)
     {
@@ -620,7 +619,7 @@ void MainWindow::btnFishingClicked()
         }
         if (!pecked)
         {
-            logFishing("<font color=red>" + tr("No fish pecked.") + "</font> Waiting a bit...");
+            logFishing("<font color=red>" + tr("No fish pecked.") + "</font> " + tr("Waiting a bit..."));
             if (!wait(2000))
                 return;
             logFishing("<font color=green>" + tr("Cycle finished.") + "</font>");
@@ -716,6 +715,8 @@ void MainWindow::btnFishingClicked()
             return;
         logFishing("<font color=green>" + tr("Cycle finished.") + "</font>");
     }
+    logFishing(tr("Switching to main panel..."));
+    Global::emulateKeyPress("Alt+F" + QString::number(Global::mainPanelNumber()));
     logFishing(tr("Stopped fishing."));
     fishing = false;
 }

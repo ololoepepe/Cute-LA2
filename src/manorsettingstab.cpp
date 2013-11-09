@@ -27,6 +27,8 @@
 #include <QSpinBox>
 #include <QFileDialog>
 #include <QImage>
+#include <QLabel>
+#include <QPixmap>
 
 /*============================================================================
 ================================ ManorSettingsTab ============================
@@ -54,12 +56,23 @@ ManorSettingsTab::ManorSettingsTab()
         sboxChatRowCount->setMaximum(28);
         sboxChatRowCount->setValue(Global::chatRowCount());
       flt->addRow(tr("Chat rows to check:", "lbl text"), sboxChatRowCount);
-      btnGrablympiadMessage = new QPushButton(tr("Grab olympiad message", "btn text"));
-        connect(btnGrablympiadMessage, SIGNAL(clicked()), this, SLOT(grabOlympiadMessage()));
-      flt->addRow(tr("Olympiad message:", "lbl text"), btnGrablympiadMessage);
-      btnSelectManorButton = new QPushButton(tr("Select manor button position", "btn text"));
-        connect(btnSelectManorButton, SIGNAL(clicked()), this, SLOT(selectManorButton()));
-      flt->addRow(tr("Manor button:", "lbl text"), btnSelectManorButton);
+      QHBoxLayout *hlt = new QHBoxLayout;
+        lblOlympiadMessageTemplate = new QLabel;
+          lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(Global::olympiadMessageMask()));
+        hlt->addWidget(lblOlympiadMessageTemplate);
+        btnGrabOlympiadMessage = new QPushButton(tr("Grab message", "btn text"));
+          connect(btnGrabOlympiadMessage, SIGNAL(clicked()), this, SLOT(grabOlympiadMessage()));
+        hlt->addWidget(btnGrabOlympiadMessage);
+      flt->addRow(tr("Olympiad message:", "lbl text"), hlt);
+      hlt = new QHBoxLayout;
+        lblManorButtonPos = new QLabel;
+          QPoint pos = Global::manorButtonPos();
+          lblManorButtonPos->setText("<b>(" + QString::number(pos.x()) + "; " + QString::number(pos.y()) +")</b>");
+        hlt->addWidget(lblManorButtonPos);
+        btnSelectManorButton = new QPushButton(tr("Select position", "btn text"));
+          connect(btnSelectManorButton, SIGNAL(clicked()), this, SLOT(selectManorButton()));
+        hlt->addWidget(btnSelectManorButton);
+      flt->addRow(tr("Manor button:", "lbl text"), hlt);
 }
 
 /*============================== Public methods ============================*/
@@ -103,9 +116,9 @@ void ManorSettingsTab::grabOlympiadMessage()
     QImage img = Global::grabOlympiadMessage();
     if (img.isNull())
         return;
-    QString fn = BApplication::location(BApplication::DataPath, BApplication::UserResources) + "/olympiad_message.png";
-    if (!img.save(fn, "png"))
+    if (!Global::setOlympiadMessageTemplate(img))
         return;
+    lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(Global::olympiadMessageMask()));
     MainWindow::reloadInfo(MainWindow::OlympiadMessageInfo);
 }
 
@@ -115,5 +128,6 @@ void ManorSettingsTab::selectManorButton()
     if (pos.x() <= 0 || pos.y() <= 0)
         return;
     Global::setManorButtonPos(pos);
+    lblManorButtonPos->setText("<b>(" + QString::number(pos.x()) + "; " + QString::number(pos.y()) +")</b>");
     MainWindow::reloadInfo(MainWindow::ManorButtonInfo);
 }

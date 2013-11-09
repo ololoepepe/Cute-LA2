@@ -29,6 +29,7 @@ private:
     QCheckBox *cboxEquip;
     QSpinBox *sboxDelay;
     QComboBox *cmboxPanel;
+    QComboBox *cmboxMainPanel;
     QList<QComboBox *> cmboxes;
 };
 

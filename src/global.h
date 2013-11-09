@@ -59,18 +59,22 @@ void setOlympiadCheckInterval(int msecs);
 void setManorTimerInterval(int msecs);
 void setChatRowCount(int n);
 void setManorButtonPos(const QPoint &pos);
+bool setOlympiadMessageTemplate(const QImage &src);
 int olympiadCheckInterval();
 int manorTimerInterval();
 int chatRowCount();
 QPoint manorButtonPos();
+QImage olympiadMessageMask();
 //
 void setFishingEquipBeforeStart(bool b);
 void setFishingStartDelay(int seconds);
 void setFishingPanelNumber(int n);
+void setMainPanelNumber(int n);
 void setFishingKeyList(const FishingKeyList &list);
 bool fishingEquipBeforeStart();
 int fishingStartDelay();
 int fishingPanelNumber();
+int mainPanelNumber();
 FishingKeyList fishingKeyList();
 //
 QPoint detectWindowPosition(int delayMsecs = 5 * BeQt::Second);

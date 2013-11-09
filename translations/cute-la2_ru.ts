@@ -23,66 +23,72 @@
     </message>
     <message>
         <location filename="../src/fishingsettingstab.cpp" line="40"/>
-        <source>Panel number:</source>
+        <source>Fishing panel number:</source>
         <comment>lbl text</comment>
-        <translation>Номер панели:</translation>
+        <translation>Номер панели рыбалки:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="52"/>
+        <location filename="../src/fishingsettingstab.cpp" line="45"/>
+        <source>Main panel number:</source>
+        <comment>lbl text</comment>
+        <translation>Номер основной панели:</translation>
+    </message>
+    <message>
+        <location filename="../src/fishingsettingstab.cpp" line="57"/>
         <source>Rod:</source>
         <comment>lbl text</comment>
         <translation>Удочка:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="53"/>
+        <location filename="../src/fishingsettingstab.cpp" line="58"/>
         <source>Bait:</source>
         <comment>lbl text</comment>
         <translation>Наживка:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="54"/>
+        <location filename="../src/fishingsettingstab.cpp" line="59"/>
         <source>Fishing:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="55"/>
+        <location filename="../src/fishingsettingstab.cpp" line="60"/>
         <source>Reeling:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="56"/>
+        <location filename="../src/fishingsettingstab.cpp" line="61"/>
         <source>Pumping:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="57"/>
+        <location filename="../src/fishingsettingstab.cpp" line="62"/>
         <source>Fishing shot:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="58"/>
+        <location filename="../src/fishingsettingstab.cpp" line="63"/>
         <source>Attack:</source>
         <comment>lbl text</comment>
         <translation>Атака:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="59"/>
+        <location filename="../src/fishingsettingstab.cpp" line="64"/>
         <source>Sit/stand:</source>
         <comment>lbl text</comment>
         <translation>Сесть/встать:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="60"/>
+        <location filename="../src/fishingsettingstab.cpp" line="65"/>
         <source>Weapon:</source>
         <comment>lbl text</comment>
         <translation>Оружие:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="67"/>
+        <location filename="../src/fishingsettingstab.cpp" line="72"/>
         <source>Fishing</source>
         <comment>title</comment>
         <translation>Рыбалка</translation>
@@ -158,13 +164,13 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="369"/>
+        <location filename="../src/mainwindow.cpp" line="368"/>
         <source>Quit</source>
         <comment>act text</comment>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="368"/>
+        <location filename="../src/mainwindow.cpp" line="367"/>
         <source>File</source>
         <comment>mnu title</comment>
         <translation>Файл</translation>
@@ -207,207 +213,217 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="127"/>
-        <location filename="../src/mainwindow.cpp" line="472"/>
+        <location filename="../src/mainwindow.cpp" line="471"/>
         <source>Ready</source>
         <comment>lbl text</comment>
         <translation>Готов</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="307"/>
+        <location filename="../src/mainwindow.cpp" line="306"/>
         <source>Game area position:</source>
         <comment>lbl text</comment>
         <translation>Координаты игровой области:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="311"/>
+        <location filename="../src/mainwindow.cpp" line="310"/>
         <source>Not detected</source>
         <comment>lbl text</comment>
         <translation>Не обнаружено</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="370"/>
+        <location filename="../src/mainwindow.cpp" line="369"/>
         <source>Edit</source>
         <comment>mnu title</comment>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="374"/>
+        <location filename="../src/mainwindow.cpp" line="373"/>
         <source>Start</source>
         <comment>btn text</comment>
         <translation>Начать</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="378"/>
+        <location filename="../src/mainwindow.cpp" line="377"/>
         <source>Stay on top</source>
         <comment>cbox text</comment>
         <translation>Поверх других окон</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="379"/>
+        <location filename="../src/mainwindow.cpp" line="378"/>
         <source>Detect game interface</source>
         <comment>btn text</comment>
         <translation>Обнаружить игровой интерфейс</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="381"/>
+        <location filename="../src/mainwindow.cpp" line="380"/>
         <source>Manor</source>
         <comment>twgt tab text</comment>
         <translation>Манор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="382"/>
+        <location filename="../src/mainwindow.cpp" line="381"/>
         <source>Timer</source>
         <comment>twgt tab text</comment>
         <translation>Таймер</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="383"/>
+        <location filename="../src/mainwindow.cpp" line="382"/>
         <source>Fishing</source>
         <comment>twgt tab text</comment>
         <translation>Рыбалка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="460"/>
+        <location filename="../src/mainwindow.cpp" line="459"/>
         <source>Sold!</source>
         <comment>lbl text</comment>
         <translation>Продано!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="476"/>
+        <location filename="../src/mainwindow.cpp" line="475"/>
         <source>Activated</source>
         <comment>lbl text</comment>
         <translation>Активирован</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="525"/>
+        <location filename="../src/mainwindow.cpp" line="524"/>
         <source>Confirmation</source>
         <comment>msgbox windowTitle</comment>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="527"/>
+        <location filename="../src/mainwindow.cpp" line="526"/>
         <source>The game interface is already detected. Do you want to detect it again?</source>
         <comment>msgbox text</comment>
         <translation>Игровой интерфейс уже обнаружен. Хотите запустить обнаружение повторно?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="534"/>
+        <location filename="../src/mainwindow.cpp" line="533"/>
         <source>Detecting game interface...</source>
         <comment>lbl text</comment>
         <translation>Обнаружение игрового интерфейса...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="575"/>
         <source>Preparing to fish. Waiting for</source>
         <translation>Готовимся рыбачить. Ждем</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="575"/>
         <source>seconds...</source>
         <translation>секунд...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="588"/>
+        <location filename="../src/mainwindow.cpp" line="587"/>
         <source>Fishing cancelled.</source>
         <translation>Рыбалка отменена.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="590"/>
+        <location filename="../src/mainwindow.cpp" line="589"/>
         <source>Switching to fishing panel...</source>
         <translation>Переключаемся на панель рыбалки...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="596"/>
-        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="595"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Equipping fishing gear...</source>
         <translation>Одеваем рыболовные снасти...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="605"/>
         <source>Starting fishing...</source>
         <translation>Начинаем рыбалку...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="609"/>
+        <location filename="../src/mainwindow.cpp" line="608"/>
         <source>Waiting for a fish to peck...</source>
         <translation>Ждем, пока рыба клюнет...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="616"/>
+        <location filename="../src/mainwindow.cpp" line="615"/>
         <source>A fish pecked!</source>
         <translation>Есть поклевка!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="623"/>
+        <location filename="../src/mainwindow.cpp" line="622"/>
         <source>No fish pecked.</source>
         <translation>Рыба не клюнула.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="626"/>
-        <location filename="../src/mainwindow.cpp" line="717"/>
+        <location filename="../src/mainwindow.cpp" line="622"/>
+        <source>Waiting a bit...</source>
+        <translation>Ждем некоторое время...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="625"/>
+        <location filename="../src/mainwindow.cpp" line="716"/>
         <source>Cycle finished.</source>
         <translation>Цикл завершен.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="633"/>
+        <location filename="../src/mainwindow.cpp" line="632"/>
         <source>Deciding which skill to use...</source>
         <translation>Решаем, какое умение сипользовать...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="639"/>
-        <location filename="../src/mainwindow.cpp" line="656"/>
-        <location filename="../src/mainwindow.cpp" line="675"/>
+        <location filename="../src/mainwindow.cpp" line="638"/>
+        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="674"/>
         <source>No need to use skills.</source>
         <translation>Использовать умения не требуется.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="644"/>
-        <location filename="../src/mainwindow.cpp" line="661"/>
+        <location filename="../src/mainwindow.cpp" line="643"/>
+        <location filename="../src/mainwindow.cpp" line="660"/>
         <source>Using Reeling...</source>
         <translation>Используем Reeling...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="670"/>
+        <location filename="../src/mainwindow.cpp" line="669"/>
         <source>Using Pumping...</source>
         <translation>Используем Pumping...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="682"/>
+        <location filename="../src/mainwindow.cpp" line="681"/>
         <source>Fishing finished!</source>
         <translation>Рыбалка завершена!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="683"/>
+        <location filename="../src/mainwindow.cpp" line="682"/>
         <source>Waiting for a possible attack...</source>
         <translation>Ожидаем возможной атаки...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="688"/>
+        <location filename="../src/mainwindow.cpp" line="687"/>
         <source>A monster attacks!</source>
         <translation>Монстр отакует!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="689"/>
+        <location filename="../src/mainwindow.cpp" line="688"/>
         <source>Equipping arms and counterattacking...</source>
         <translation>Одеваем оружие и контратакуем...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="694"/>
+        <location filename="../src/mainwindow.cpp" line="693"/>
         <source>The monster is killed!</source>
         <translation>Монстр убит!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="713"/>
+        <location filename="../src/mainwindow.cpp" line="712"/>
         <source>No monster. Waiting a bit...</source>
         <translation>Монстр не появился. Ждем немного...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="719"/>
+        <location filename="../src/mainwindow.cpp" line="718"/>
+        <source>Switching to main panel...</source>
+        <translation>Переключаемся на основную панель...</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="720"/>
         <source>Stopped fishing.</source>
         <translation>Закончили рыбачить.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/mainwindow.cpp" line="370"/>
         <source>Help</source>
         <comment>mnuTitle</comment>
         <translation>Справка</translation>
@@ -416,49 +432,49 @@
 <context>
     <name>ManorSettingsTab</name>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="45"/>
+        <location filename="../src/manorsettingstab.cpp" line="47"/>
         <source>Olympiad check interval (ms):</source>
         <comment>lbl text</comment>
         <translation>Интервал проверки олимпиады (мс):</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="51"/>
+        <location filename="../src/manorsettingstab.cpp" line="53"/>
         <source>Timer interval (ms):</source>
         <comment>lbl text</comment>
         <translation>Интервал таймера (мс):</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="56"/>
+        <location filename="../src/manorsettingstab.cpp" line="58"/>
         <source>Chat rows to check:</source>
         <comment>lbl text</comment>
         <translation>Проверять строк чата:</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="57"/>
-        <source>Grab olympiad message</source>
+        <location filename="../src/manorsettingstab.cpp" line="63"/>
+        <source>Grab message</source>
         <comment>btn text</comment>
-        <translation>Захватить сообщение об олимпиаде</translation>
+        <translation>Захватить сообщение</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="59"/>
+        <location filename="../src/manorsettingstab.cpp" line="72"/>
+        <source>Select position</source>
+        <comment>btn text</comment>
+        <translation>Выбрать положение</translation>
+    </message>
+    <message>
+        <location filename="../src/manorsettingstab.cpp" line="66"/>
         <source>Olympiad message:</source>
         <comment>lbl text</comment>
         <translation>Сообщение об олимпиаде:</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="60"/>
-        <source>Select manor button position</source>
-        <comment>btn text</comment>
-        <translation>Выберите положение кнопки манора</translation>
-    </message>
-    <message>
-        <location filename="../src/manorsettingstab.cpp" line="62"/>
+        <location filename="../src/manorsettingstab.cpp" line="75"/>
         <source>Manor button:</source>
         <comment>lbl text</comment>
         <translation>Кнопка манора:</translation>
     </message>
     <message>
-        <location filename="../src/manorsettingstab.cpp" line="69"/>
+        <location filename="../src/manorsettingstab.cpp" line="82"/>
         <source>Manor</source>
         <comment>title</comment>
         <translation>Манор</translation>

@@ -8,6 +8,7 @@ class QIcon;
 class QLineEdit;
 class QSpinBox;
 class QPushButton;
+class QLabel;
 
 #include <BAbstractSettingsTab>
 
@@ -37,7 +38,9 @@ private:
     QSpinBox *sboxOlympiadCheckInterval;
     QSpinBox *sboxTimerInterval;
     QSpinBox *sboxChatRowCount;
-    QPushButton *btnGrablympiadMessage;
+    QLabel *lblOlympiadMessageTemplate;
+    QPushButton *btnGrabOlympiadMessage;
+    QLabel *lblManorButtonPos;
     QPushButton *btnSelectManorButton;
 private:
     Q_DISABLE_COPY(ManorSettingsTab)

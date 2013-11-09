@@ -37,7 +37,12 @@ FishingSettingsTab::FishingSettingsTab()
         for (int i = 1; i <= 10; ++i)
             cmboxPanel->addItem(QString::number(i));
         cmboxPanel->setCurrentIndex(Global::fishingPanelNumber() - 1);
-      flt->addRow(tr("Panel number:", "lbl text"), cmboxPanel);
+      flt->addRow(tr("Fishing panel number:", "lbl text"), cmboxPanel);
+      cmboxMainPanel = new QComboBox;
+        for (int i = 1; i <= 10; ++i)
+            cmboxMainPanel->addItem(QString::number(i));
+        cmboxMainPanel->setCurrentIndex(Global::mainPanelNumber() - 1);
+      flt->addRow(tr("Main panel number:", "lbl text"), cmboxMainPanel);
       Global::FishingKeyList keys = Global::fishingKeyList();
       for (int i = 0; i < 9; ++i)
       {
@@ -88,6 +93,7 @@ bool FishingSettingsTab::saveSettings()
     Global::setFishingEquipBeforeStart(cboxEquip->isChecked());
     Global::setFishingStartDelay(sboxDelay->value());
     Global::setFishingPanelNumber(cmboxPanel->currentText().toInt());
+    Global::setMainPanelNumber(cmboxMainPanel->currentText().toInt());
     Global::FishingKeyList list;
     foreach (QComboBox *c, cmboxes)
         list << c->currentText().mid(1).toInt();

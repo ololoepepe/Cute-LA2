@@ -773,6 +773,17 @@ void setManorTimerInterval(int msecs)
     bSettings->setValue("Manor/timer_interval", msecs);
 }
 
+bool setOlympiadMessageTemplate(const QImage &src)
+{
+    QImage img = src;
+    if (img.width() > 300)
+        img = img.copy(0, 0, 300, img.height());
+    if (img.height() > 12)
+        img = img.copy(0, 0, img.width(), 12);
+    QString fn = BApplication::location(BApplication::DataPath, BApplication::UserResources) + "/olympiad_message.png";
+    return img.save(fn, "png");
+}
+
 void setChatRowCount(int n)
 {
     if (!bRangeD(1, 28).contains(n))
@@ -802,6 +813,13 @@ void setFishingPanelNumber(int n)
     if (!bRangeD(1, 10).contains(n))
         return;
     bSettings->setValue("Fishing/panel_number", n);
+}
+
+void setMainPanelNumber(int n)
+{
+    if (!bRangeD(1, 10).contains(n))
+        return;
+    bSettings->setValue("Fishing/main_panel_number", n);
 }
 
 void setFishingKeyList(const FishingKeyList &list)
@@ -865,6 +883,17 @@ QPoint manorButtonPos()
     return bSettings->value("Manor/button_pos", QPoint(-1, -1)).toPoint();
 }
 
+QImage olympiadMessageMask()
+{
+    QString fn = BDirTools::findResource("olympiad_message.png", BDirTools::UserOnly);
+    QImage img = QImage(fn).createAlphaMask();
+    if (img.width() > 300)
+        img = img.copy(0, 0, 300, img.height());
+    if (img.height() > 12)
+        img = img.copy(0, 0, img.width(), 12);
+    return img;
+}
+
 bool fishingEquipBeforeStart()
 {
     return bSettings->value("Fishing/equip_before_start", true).toBool();
@@ -881,6 +910,13 @@ int fishingPanelNumber()
 {
     bool ok = false;
     int n = bSettings->value("Fishing/panel_number", 1).toInt(&ok);
+    return (ok && bRangeD(1, 10).contains(n)) ? n : 1;
+}
+
+int mainPanelNumber()
+{
+    bool ok = false;
+    int n = bSettings->value("Fishing/main_panel_number", 1).toInt(&ok);
     return (ok && bRangeD(1, 10).contains(n)) ? n : 1;
 }
 
