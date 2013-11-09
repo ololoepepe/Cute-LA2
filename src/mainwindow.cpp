@@ -30,12 +30,50 @@
 #include <QSettings>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QFuture>
+#include <QFutureWatcher>
+#include <QtConcurrentMap>
 
 #include <QDebug>
 
 #if defined(Q_OS_WIN)
 #include "windows.h"
 #endif
+
+class MyBool
+{
+public:
+    MyBool() {bb = false;}
+    MyBool(bool b) {bb = b;}
+public:
+    MyBool operatorOR(const MyBool &other) const {return bb || other.bb;}
+public:
+    bool operator=(const MyBool &other) {return bb = other.bb;}
+    operator bool() {return bb;}
+private:
+    bool bb;
+};
+
+struct DetectParameters
+{
+    const QImage *src;
+    int lineNumber;
+    int width;
+    const QImage *mask;
+};
+
+static MyBool detectOlympiadMessage(const DetectParameters &p)
+{
+    QImage img = p.src->copy(0, 15 * p.lineNumber, p.width, 11);
+    QRgb rr = Global::getMainColor(img);
+    img = Global::cutExtraSpace(Global::removeNoise(img, &rr), &rr);
+    return img.createAlphaMask() == *p.mask;
+}
+
+static void reduceFunction(MyBool &finalResut, const MyBool &intermediateResult)
+{
+    finalResut = finalResut.operatorOR(intermediateResult);
+}
 
 static void waitMsecs(int msecs, QEventLoop *&el)
 {
@@ -370,22 +408,32 @@ void MainWindow::manorTimerTimeout()
 {
     if (!manorEtimer.isValid())
     {
-        for (int i = 0; i < chatRowCount; ++i)
+        QElapsedTimer eee;
+        eee.start();
+        QPoint pos = chatBottomPos + QPoint(0, -12) + QPoint(0, -15 * (chatRowCount - 1));
+        int w = olympiadMessageMask.width();
+        QImage s = Global::grabDesktop(pos, w, 15 * (chatRowCount - 1) + 12);
+        DetectParameters p;
+        p.src = &s;
+        p.width = w;
+        p.mask = &olympiadMessageMask;
+        QList<DetectParameters> list;
+        foreach (int i, bRangeD(0, chatRowCount))
         {
-            QPoint p = chatBottomPos + QPoint(0, -12) + QPoint(0, -15 * i);
-            int w = olympiadMessageMask.width();
-            QImage s = Global::grabDesktop(p, w, 11);
-            QRgb rr = Global::getMainColor(s);
-            s = Global::cutExtraSpace(Global::removeNoise(s, &rr), &rr);
-            if (s.createAlphaMask() == olympiadMessageMask)
-            {
-                btnManor->setEnabled(false);
-                manorTimerMsecs = 6 * BeQt::Minute;
-                manorEtimer.start();
-                manorTimer.setInterval(Global::manorTimerInterval());
-                manorTimerTimeout();
-                break;
-            }
+            p.lineNumber = i;
+            list << p;
+        }
+        QFuture<MyBool> f = QtConcurrent::mappedReduced(list, &detectOlympiadMessage, &reduceFunction);
+        QFutureWatcher<MyBool> fw;
+        fw.setFuture(f);
+        BeQt::waitNonBlocking(&fw, SIGNAL(finished()));
+        if (f.result())
+        {
+            btnManor->setEnabled(false);
+            manorTimerMsecs = 6 * BeQt::Minute;
+            manorEtimer.start();
+            manorTimer.setInterval(Global::manorTimerInterval());
+            manorTimerTimeout();
         }
     }
     else
