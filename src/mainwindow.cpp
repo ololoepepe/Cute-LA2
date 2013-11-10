@@ -85,6 +85,31 @@ static void waitMsecs(int msecs, QEventLoop *&el)
     l.exec();
 }
 
+enum BasicColor
+{
+    Red = 1,
+    Green = 2,
+    Blue = 4
+};
+
+static int colorWeight(const QImage &img, int color)
+{
+    int weight = 0;
+    for (int x = 0; x < img.width(); ++x)
+    {
+        for (int y = 0; y < img.height(); ++y)
+        {
+            if (Red & color)
+                weight += qRed(img.pixel(x, y));
+            if (Green & color)
+                weight += qGreen(img.pixel(x, y));
+            if (Blue & color)
+                weight += qBlue(img.pixel(x, y));
+        }
+    }
+    return weight;
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -259,7 +284,7 @@ void MainWindow::closeEvent(QCloseEvent *e)
 bool MainWindow::testPecked(bool anyHp)
 {
     QImage s = Global::grabDesktop(fishHpPos, 1, 11);
-    return s == fishHp || (anyHp && s == fishHpBackground);
+    return (colorWeight(s, Blue) >= 700) || (anyHp && (colorWeight(s, Red) >= 300));
 }
 
 bool MainWindow::testTarget()
@@ -272,7 +297,7 @@ int MainWindow::getFishHp()
 {
     QImage s = Global::grabDesktop(fishHpPos, 230, 11);
     for (int i = 0; i < 230; ++i)
-        if (s.copy(i, 0, 1, 11) == fishHpBackground)
+        if (colorWeight(s.copy(i, 0, 1, 11), Red) >= 300)
             return i;
     return 230;
 }
