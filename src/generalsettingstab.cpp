@@ -16,6 +16,7 @@
 #include <QPushButton>
 #include <QFileDialog>
 #include <QSpinBox>
+#include <QCheckBox>
 
 /*============================================================================
 ================================ GeneralSettingsTab ==========================
@@ -50,6 +51,9 @@ GeneralSettingsTab::GeneralSettingsTab() :
       sboxDelay->setMaximum(60);
       sboxDelay->setValue(Global::detectionDelay());
     flt->addRow(tr("Detection delay (seconds):", "lbl text"), sboxDelay);
+    cboxDetectWindow = new QCheckBox;
+      cboxDetectWindow->setChecked(Global::detectWindowID());
+    flt->addRow(tr("Detect window ID:", "lbl text"), cboxDetectWindow);
 }
 
 /*============================== Public methods ============================*/
@@ -82,6 +86,7 @@ bool GeneralSettingsTab::saveSettings()
     Global::setGameDir(ledtGameDir->text());
     Global::setTimerInterval(sboxTimerInterval->value());
     Global::setDetectionDelay(sboxDelay->value());
+    Global::setDetectWindowID(cboxDetectWindow->isChecked());
     MainWindow::reloadInfo(MainWindow::GeneralInfo);
     return true;
 }

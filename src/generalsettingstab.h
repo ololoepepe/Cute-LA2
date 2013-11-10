@@ -5,6 +5,7 @@ class QString;
 class QIcon;
 class QLineEdit;
 class QSpinBox;
+class QCheckBox;
 
 class BLocaleComboBox;
 
@@ -34,6 +35,7 @@ private:
     QLineEdit *ledtGameDir;
     QSpinBox *sboxTimerInterval;
     QSpinBox *sboxDelay;
+    QCheckBox *cboxDetectWindow;
 private:
     Q_DISABLE_COPY(GeneralSettingsTab)
 };

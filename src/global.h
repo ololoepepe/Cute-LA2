@@ -51,9 +51,11 @@ QPoint positionIn(const QImage &search, const QImage &templ, SearchDirection dir
 void setGameDir(const QString &dir);
 void setTimerInterval(int msecs);
 void setDetectionDelay(int seconds);
+void setDetectWindowID(bool b);
 QString gameDir();
 int timerInterval();
 int detectionDelay();
+bool detectWindowID();
 //
 void setOlympiadCheckInterval(int msecs);
 void setManorTimerInterval(int msecs);

@@ -122,6 +122,7 @@ private:
     BTranslation trFishingStart;
     BTranslation trFishingStop;
     //
+    WId windowID;
     Global::FishingKeyList fishingKeys;
     QImage targetClose;
     QImage olympiadMessageMask;

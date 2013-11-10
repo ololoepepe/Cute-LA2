@@ -759,6 +759,11 @@ void setDetectionDelay(int seconds)
 
 }
 
+void setDetectWindowID(bool b)
+{
+    bSettings->setValue("Syatem/detectwindow_id", b);
+}
+
 void setOlympiadCheckInterval(int msecs)
 {
     if (!bRangeD(1, 1000).contains(msecs))
@@ -855,6 +860,11 @@ int detectionDelay()
     bool ok = false;
     int seconds = bSettings->value("System/detection_delay", 5).toInt(&ok);
     return (ok && bRangeD(1, 60).contains(seconds)) ? seconds : 5;
+}
+
+bool detectWindowID()
+{
+    return bSettings->value("System/detect_window_id", false).toBool();
 }
 
 int olympiadCheckInterval()

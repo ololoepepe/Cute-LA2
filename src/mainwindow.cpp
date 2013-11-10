@@ -113,6 +113,7 @@ static int colorWeight(const QImage &img, int color)
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
+    windowID = 0;
     QString fn = BDirTools::findResource("pixmaps/target_close.png", BDirTools::GlobalOnly);
     targetClose = QImage(fn).convertToFormat(QImage::Format_RGB32);
     fishingActive = false;
@@ -504,6 +505,10 @@ void MainWindow::btnManorClicked()
     {
         lblAutoManor->setText(tr("Activated", "lbl text"));
         manorTimer.start();
+#if defined(Q_OS_WIN)
+        if (windowID)
+            SwitchToThisWindow(windowID, FALSE);
+#endif
     }
     btnManor->setText(manorTimer.isActive() ? trManorTurnOff : trManorTurnOn);
 }
@@ -574,7 +579,16 @@ void MainWindow::btnDetectClicked()
     const QSettings option(Global::gameDir() + "/system/Option.ini", QSettings::IniFormat);
     int x = option.value("Video/GamePlayViewportX").toInt();
     int y = option.value("Video/GamePlayViewportY").toInt();
+#if defined(Q_OS_WIN)
+    bool b = Global::detectWindowID();
+#endif
     windowPos = Global::detectWindowPosition(Global::detectionDelay() * BeQt::Second);
+#if defined(Q_OS_WIN)
+    if (b)
+        windowID = GetActiveWindow();
+    else
+        windowID = 0;
+#endif
     fishHpPos = windowPos;
     targetClosePos = windowPos;
     chatBottomPos = windowPos;
@@ -603,6 +617,10 @@ void MainWindow::btnFishingClicked()
     fishing = true;
     int delay = Global::fishingStartDelay();
     logFishing(tr("Preparing to fish. Waiting for") + " " + QString::number(delay) + " " + tr("seconds..."));
+#if defined(Q_OS_WIN)
+    if (windowID)
+        SwitchToThisWindow(windowID, FALSE);
+#endif
     waitMsecs(delay * BeQt::Second, loop);
     if (mustExit)
     {
