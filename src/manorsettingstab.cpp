@@ -117,6 +117,8 @@ bool ManorSettingsTab::saveSettings()
     Global::setOlympiadCheckInterval(sboxOlympiadCheckInterval->value());
     Global::setManorTimerInterval(sboxTimerInterval->value());
     Global::setChatRowCount(sboxChatRowCount->value());
+    Global::setManorAutoStartEnabled(cboxStartAuto->isChecked());
+    Global::setManorAutoStartTime(tmedtStartAuto->time());
     MainWindow::reloadInfo(MainWindow::ManorInfo);
     return true;
 }
