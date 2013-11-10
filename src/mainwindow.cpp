@@ -280,7 +280,16 @@ void MainWindow::closeEvent(QCloseEvent *e)
 bool MainWindow::testPecked(bool anyHp)
 {
     QImage s = Global::grabDesktop(fishHpPos, 1, 11);
-    return (colorWeight(s, Blue) >= 1400) || (anyHp && (colorWeight(s, Red) >= 580));
+    if (colorWeight(s, Blue) >= 1400)
+        return true;
+    if (anyHp)
+    {
+        if (colorWeight(s, Red) < 600)
+            return false;
+        s = Global::grabDesktop(fishHpPos + QPoint(150, -232), 1, 12);
+        return colorWeight(s, Blue) >= 1400;
+    }
+    return false;
 }
 
 bool MainWindow::testTarget()
@@ -293,7 +302,7 @@ int MainWindow::getFishHp()
 {
     QImage s = Global::grabDesktop(fishHpPos, 230, 11);
     for (int i = 0; i < 230; ++i)
-        if (colorWeight(s.copy(i, 0, 1, 11), Red) >= 580)
+        if (colorWeight(s.copy(i, 0, 1, 11), Red) >= 600)
             return i;
     return 230;
 }
@@ -633,7 +642,7 @@ void MainWindow::btnFishingClicked()
         {
             if (!wait(100))
                 return;
-            if (testPecked())
+            if (testPecked(false))
             {
                 logFishing("<font color=blue>" + tr("A fish pecked!") + "</font>");
                 pecked = true;
