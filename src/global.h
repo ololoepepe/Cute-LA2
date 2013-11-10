@@ -63,6 +63,7 @@ void setManorTimerInterval(int msecs);
 void setChatRowCount(int n);
 void setManorAutoStartEnabled(bool enabled);
 void setManorAutoStartTime(const QTime &t);
+void setManorTimeCorrection(int msecs);
 void setManorButtonPos(const QPoint &pos);
 bool setOlympiadMessageTemplate(const QImage &src);
 int olympiadCheckInterval();
@@ -70,6 +71,7 @@ int manorTimerInterval();
 int chatRowCount();
 bool manorAutoStartEnabled();
 QTime manorAutoStartTime();
+int manorTimeCorrection();
 QPoint manorButtonPos();
 QImage olympiadMessageMask();
 //

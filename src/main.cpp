@@ -52,7 +52,6 @@ int main(int argc, char **argv)
 #endif
         Application bapp;
         Q_UNUSED(bapp)
-        bSettings->setValue("Global/version", BVersion(QCoreApplication::applicationVersion()));
         BApplication::setThemedIconsEnabled(false);
         BApplication::setPreferredIconFormats(QStringList() << "png");
         QApplication::setWindowIcon(BApplication::icon("cute-la2"));

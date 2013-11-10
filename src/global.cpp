@@ -807,6 +807,13 @@ void setManorAutoStartTime(const QTime &t)
     bSettings->setValue("Manor/auto_start_time", t);
 }
 
+void setManorTimeCorrection(int msecs)
+{
+    if (!bRangeD(-1000, 1000).contains(msecs))
+        return;
+    bSettings->setValue("Manor/time_correction", msecs);
+}
+
 void setManorButtonPos(const QPoint &pos)
 {
     bSettings->setValue("Manor/button_pos", pos);
@@ -907,6 +914,13 @@ bool manorAutoStartEnabled()
 QTime manorAutoStartTime()
 {
     return bSettings->value("Manor/auto_start_time", QTime(20, 00)).toTime();
+}
+
+int manorTimeCorrection()
+{
+    bool ok = false;
+    int msecs = bSettings->value("Manor/time_correction", 0).toInt(&ok);
+    return (ok && bRangeD(-1000, 1000).contains(msecs)) ? msecs : 0;
 }
 
 QPoint manorButtonPos()

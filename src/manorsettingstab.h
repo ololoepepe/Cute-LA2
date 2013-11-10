@@ -42,6 +42,7 @@ private:
     QSpinBox *sboxChatRowCount;
     QCheckBox *cboxStartAuto;
     QTimeEdit *tmedtStartAuto;
+    QSpinBox *sboxTimeCorrection;
     QLabel *lblOlympiadMessageTemplate;
     QPushButton *btnGrabOlympiadMessage;
     QLabel *lblManorButtonPos;

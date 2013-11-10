@@ -257,6 +257,7 @@ void MainWindow::reloadInfo(InfoGroup gr)
         inst->manorAutoStartEnabled = Global::manorAutoStartEnabled();
         inst->manorAutoStartTime = Global::manorAutoStartTime();
         inst->manorAutoStartTimerTimeout();
+        inst->manorTimeCorrection = Global::manorTimeCorrection();
     }
     if (gr | OlympiadMessageInfo)
     {
@@ -473,7 +474,7 @@ void MainWindow::manorTimerTimeout()
         if (f.result())
         {
             btnManor->setEnabled(false);
-            manorTimerMsecs = 6 * BeQt::Minute;
+            manorTimerMsecs = 6 * BeQt::Minute + manorTimeCorrection;
             manorEtimer.start();
             manorTimer.setInterval(Global::manorTimerInterval());
             manorTimerTimeout();

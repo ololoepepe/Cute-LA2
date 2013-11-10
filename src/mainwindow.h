@@ -134,6 +134,7 @@ private:
     int chatRowCount;
     bool manorAutoStartEnabled;
     QTime manorAutoStartTime;
+    int manorTimeCorrection;
     QTimer manorAutoStartTimer;
     QTimer timer;
     QTimer manorTimer;

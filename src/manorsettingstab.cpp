@@ -33,6 +33,8 @@
 #include <QTime>
 #include <QTimeEdit>
 
+#include <QDebug>
+
 /*============================================================================
 ================================ ManorSettingsTab ============================
 ============================================================================*/
@@ -68,6 +70,12 @@ ManorSettingsTab::ManorSettingsTab()
           tmedtStartAuto->setTime(Global::manorAutoStartTime());
         hlt->addWidget(tmedtStartAuto);
       flt->addRow(tr("Start automatically:", "lbl text"), hlt);
+      sboxTimeCorrection = new QSpinBox;
+        sboxTimeCorrection->setMinimum(-1000);
+        sboxTimeCorrection->setMaximum(1000);
+        sboxTimeCorrection->setSingleStep(1);
+        sboxTimeCorrection->setValue(Global::manorTimeCorrection());
+      flt->addRow(tr("Correction (ms):", "lbl text"), sboxTimeCorrection);
       hlt = new QHBoxLayout;
         lblOlympiadMessageTemplate = new QLabel;
           lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(Global::olympiadMessageMask()));
@@ -119,6 +127,7 @@ bool ManorSettingsTab::saveSettings()
     Global::setChatRowCount(sboxChatRowCount->value());
     Global::setManorAutoStartEnabled(cboxStartAuto->isChecked());
     Global::setManorAutoStartTime(tmedtStartAuto->time());
+    Global::setManorTimeCorrection(sboxTimeCorrection->value());
     MainWindow::reloadInfo(MainWindow::ManorInfo);
     return true;
 }
