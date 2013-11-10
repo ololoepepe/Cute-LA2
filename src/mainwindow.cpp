@@ -115,10 +115,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     QString fn = BDirTools::findResource("pixmaps/target_close.png", BDirTools::GlobalOnly);
     targetClose = QImage(fn).convertToFormat(QImage::Format_RGB32);
-    //fn = BDirTools::findResource("pixmaps/fish_hp.png", BDirTools::GlobalOnly);
-    //fishHp = QImage(fn).convertToFormat(QImage::Format_RGB32);
-    //fn = BDirTools::findResource("pixmaps/fish_hp_background.png", BDirTools::GlobalOnly);
-    //fishHpBackground = QImage(fn).convertToFormat(QImage::Format_RGB32);
     fishingActive = false;
     fishing = false;
     loop = 0;
@@ -284,7 +280,7 @@ void MainWindow::closeEvent(QCloseEvent *e)
 bool MainWindow::testPecked(bool anyHp)
 {
     QImage s = Global::grabDesktop(fishHpPos, 1, 11);
-    return (colorWeight(s, Blue) >= 1400) || (anyHp && (colorWeight(s, Red) >= 600));
+    return (colorWeight(s, Blue) >= 1400) || (anyHp && (colorWeight(s, Red) >= 580));
 }
 
 bool MainWindow::testTarget()
@@ -297,7 +293,7 @@ int MainWindow::getFishHp()
 {
     QImage s = Global::grabDesktop(fishHpPos, 230, 11);
     for (int i = 0; i < 230; ++i)
-        if (colorWeight(s.copy(i, 0, 1, 11), Red) >= 300)
+        if (colorWeight(s.copy(i, 0, 1, 11), Red) >= 580)
             return i;
     return 230;
 }
@@ -631,7 +627,9 @@ void MainWindow::btnFishingClicked()
         Global::emulateKeyPress(fishingKey(UseFishing));
         volatile bool pecked = false;
         logFishing(tr("Waiting for a fish to peck..."));
-        for (int i = 0; i < 200; ++i)
+        if (!wait(5000))
+            return;
+        for (int i = 0; i < 150; ++i)
         {
             if (!wait(100))
                 return;
