@@ -507,7 +507,7 @@ void MainWindow::btnManorClicked()
         manorTimer.start();
 #if defined(Q_OS_WIN)
         if (windowID)
-            SwitchToThisWindow(windowID, FALSE);
+            SwitchToThisWindow((HWND) windowID, FALSE);
 #endif
     }
     btnManor->setText(manorTimer.isActive() ? trManorTurnOff : trManorTurnOn);
@@ -585,7 +585,7 @@ void MainWindow::btnDetectClicked()
     windowPos = Global::detectWindowPosition(Global::detectionDelay() * BeQt::Second);
 #if defined(Q_OS_WIN)
     if (b)
-        windowID = GetActiveWindow();
+        windowID = (WId) GetForegroundWindow();
     else
         windowID = 0;
 #endif
@@ -619,7 +619,7 @@ void MainWindow::btnFishingClicked()
     logFishing(tr("Preparing to fish. Waiting for") + " " + QString::number(delay) + " " + tr("seconds..."));
 #if defined(Q_OS_WIN)
     if (windowID)
-        SwitchToThisWindow(windowID, FALSE);
+        SwitchToThisWindow((HWND) windowID, TRUE);
 #endif
     waitMsecs(delay * BeQt::Second, loop);
     if (mustExit)

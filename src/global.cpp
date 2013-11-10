@@ -755,13 +755,13 @@ void setDetectionDelay(int seconds)
 {
     if (!bRangeD(1, 60).contains(seconds))
         return;
-    bSettings->setValue("Syatem/detection_delay", seconds);
+    bSettings->setValue("System/detection_delay", seconds);
 
 }
 
 void setDetectWindowID(bool b)
 {
-    bSettings->setValue("Syatem/detectwindow_id", b);
+    bSettings->setValue("System/detect_window_id", b);
 }
 
 void setOlympiadCheckInterval(int msecs)
