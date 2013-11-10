@@ -9,6 +9,8 @@ class QLineEdit;
 class QSpinBox;
 class QPushButton;
 class QLabel;
+class QCheckBox;
+class QTimeEdit;
 
 #include <BAbstractSettingsTab>
 
@@ -38,6 +40,8 @@ private:
     QSpinBox *sboxOlympiadCheckInterval;
     QSpinBox *sboxTimerInterval;
     QSpinBox *sboxChatRowCount;
+    QCheckBox *cboxStartAuto;
+    QTimeEdit *tmedtStartAuto;
     QLabel *lblOlympiadMessageTemplate;
     QPushButton *btnGrabOlympiadMessage;
     QLabel *lblManorButtonPos;

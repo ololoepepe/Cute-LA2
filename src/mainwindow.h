@@ -23,6 +23,7 @@ class QSplitter;
 #include <QTimer>
 #include <QElapsedTimer>
 #include <QPoint>
+#include <QTime>
 
 class MainWindow : public QMainWindow
 {
@@ -71,6 +72,7 @@ private:
     QString fishingKey(FishingAction a);
 private slots:
     void retranslateUi();
+    void manorAutoStartTimerTimeout();
     void timerTimeout();
     void manorTimerTimeout();
     void btnManorClicked();
@@ -130,6 +132,9 @@ private:
     bool fishing;
     bool mustExit;
     int chatRowCount;
+    bool manorAutoStartEnabled;
+    QTime manorAutoStartTime;
+    QTimer manorAutoStartTimer;
     QTimer timer;
     QTimer manorTimer;
     QElapsedTimer etimer;

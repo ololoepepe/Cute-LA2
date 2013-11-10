@@ -33,6 +33,7 @@
 #include <QFuture>
 #include <QFutureWatcher>
 #include <QtConcurrentMap>
+#include <QTime>
 
 #include <QDebug>
 
@@ -116,12 +117,14 @@ MainWindow::MainWindow(QWidget *parent) :
     windowID = 0;
     QString fn = BDirTools::findResource("pixmaps/target_close.png", BDirTools::GlobalOnly);
     targetClose = QImage(fn).convertToFormat(QImage::Format_RGB32);
+    manorAutoStartTimer.start(BeQt::Minute);
     fishingActive = false;
     fishing = false;
     loop = 0;
     mustExit = false;
     manorEtimer.invalidate();
     windowPos = QPoint(-1, -1);
+    connect(&manorAutoStartTimer, SIGNAL(timeout()), this, SLOT(manorAutoStartTimerTimeout()));
     connect(&timer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
     connect(&manorTimer, SIGNAL(timeout()), this, SLOT(manorTimerTimeout()));
     //
@@ -251,6 +254,8 @@ void MainWindow::reloadInfo(InfoGroup gr)
         inst->manorTimer.setInterval(inst->manorEtimer.isValid() ? Global::manorTimerInterval() :
                                                                    Global::olympiadCheckInterval());
         inst->chatRowCount = Global::chatRowCount();
+        inst->manorAutoStartEnabled = Global::manorAutoStartEnabled();
+        inst->manorAutoStartTime = Global::manorAutoStartTime();
     }
     if (gr | OlympiadMessageInfo)
     {
@@ -413,6 +418,13 @@ void MainWindow::retranslateUi()
     twgtBots->setTabText(0, tr("Fishing", "twgt tab text"));
     //
     btnFishing->setText(fishingActive ? trFishingStop : trFishingStart);
+}
+
+void MainWindow::manorAutoStartTimerTimeout()
+{
+    if (btnManor->isEnabled() && !manorTimer.isActive()
+            && manorAutoStartEnabled && QTime::currentTime() >= manorAutoStartTime)
+        btnManor->animateClick();
 }
 
 void MainWindow::timerTimeout()

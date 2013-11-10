@@ -28,6 +28,7 @@
 #include <QPalette>
 #include <QScreen>
 #include <QCursor>
+#include <QTime>
 
 #include <QDebug>
 
@@ -796,6 +797,16 @@ void setChatRowCount(int n)
     bSettings->setValue("Manor/chat_row_count", n);
 }
 
+void setManorAutoStartEnabled(bool enabled)
+{
+    bSettings->setValue("Manor/auto_start_enabled", enabled);
+}
+
+void setManorAutoStartTime(const QTime &t)
+{
+    bSettings->setValue("Manor/auto_start_time", t);
+}
+
 void setManorButtonPos(const QPoint &pos)
 {
     bSettings->setValue("Manor/button_pos", pos);
@@ -886,6 +897,16 @@ int chatRowCount()
     bool ok = false;
     int n = bSettings->value("Manor/chat_row_count", 4).toInt(&ok);
     return (ok && bRangeD(1, 28).contains(n)) ? n : 4;
+}
+
+bool manorAutoStartEnabled()
+{
+    return bSettings->value("Manor/auto_start_enabled", false).toBool();
+}
+
+QTime manorAutoStartTime()
+{
+    return bSettings->value("Manor/auto_start_time", QTime(20, 00)).toTime();
 }
 
 QPoint manorButtonPos()

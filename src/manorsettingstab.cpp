@@ -29,6 +29,9 @@
 #include <QImage>
 #include <QLabel>
 #include <QPixmap>
+#include <QCheckBox>
+#include <QTime>
+#include <QTimeEdit>
 
 /*============================================================================
 ================================ ManorSettingsTab ============================
@@ -57,6 +60,15 @@ ManorSettingsTab::ManorSettingsTab()
         sboxChatRowCount->setValue(Global::chatRowCount());
       flt->addRow(tr("Chat rows to check:", "lbl text"), sboxChatRowCount);
       QHBoxLayout *hlt = new QHBoxLayout;
+        cboxStartAuto = new QCheckBox;
+          cboxStartAuto->setChecked(Global::manorAutoStartEnabled());
+        hlt->addWidget(cboxStartAuto);
+        tmedtStartAuto = new QTimeEdit;
+          tmedtStartAuto->setDisplayFormat("hh:mm");
+          tmedtStartAuto->setTime(Global::manorAutoStartTime());
+        hlt->addWidget(tmedtStartAuto);
+      flt->addRow(tr("Start automatically:", "lbl text"), hlt);
+      hlt = new QHBoxLayout;
         lblOlympiadMessageTemplate = new QLabel;
           lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(Global::olympiadMessageMask()));
         hlt->addWidget(lblOlympiadMessageTemplate);

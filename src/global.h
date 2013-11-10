@@ -9,6 +9,7 @@
 class QPoint;
 class QString;
 class QKeySequence;
+class QTime;
 
 namespace Global
 {
@@ -60,11 +61,15 @@ bool detectWindowID();
 void setOlympiadCheckInterval(int msecs);
 void setManorTimerInterval(int msecs);
 void setChatRowCount(int n);
+void setManorAutoStartEnabled(bool enabled);
+void setManorAutoStartTime(const QTime &t);
 void setManorButtonPos(const QPoint &pos);
 bool setOlympiadMessageTemplate(const QImage &src);
 int olympiadCheckInterval();
 int manorTimerInterval();
 int chatRowCount();
+bool manorAutoStartEnabled();
+QTime manorAutoStartTime();
 QPoint manorButtonPos();
 QImage olympiadMessageMask();
 //
