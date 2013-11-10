@@ -256,6 +256,7 @@ void MainWindow::reloadInfo(InfoGroup gr)
         inst->chatRowCount = Global::chatRowCount();
         inst->manorAutoStartEnabled = Global::manorAutoStartEnabled();
         inst->manorAutoStartTime = Global::manorAutoStartTime();
+        inst->manorAutoStartTimerTimeout();
     }
     if (gr | OlympiadMessageInfo)
     {
@@ -617,6 +618,7 @@ void MainWindow::btnDetectClicked()
     else
         chatBottomPos = QPoint(-1, -1);
     resetInterface(isInterfaceDetected());
+    manorAutoStartTimerTimeout();
     btnDetect->setEnabled(true);
 }
 
