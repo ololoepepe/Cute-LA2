@@ -124,8 +124,8 @@ private:
     //
     Global::FishingKeyList fishingKeys;
     QImage targetClose;
-    QImage fishHp;
-    QImage fishHpBackground;
+    //QImage fishHp;
+    //QImage fishHpBackground;
     QImage olympiadMessageMask;
     bool fishingActive;
     bool fishing;

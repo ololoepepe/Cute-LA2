@@ -115,10 +115,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     QString fn = BDirTools::findResource("pixmaps/target_close.png", BDirTools::GlobalOnly);
     targetClose = QImage(fn).convertToFormat(QImage::Format_RGB32);
-    fn = BDirTools::findResource("pixmaps/fish_hp.png", BDirTools::GlobalOnly);
-    fishHp = QImage(fn).convertToFormat(QImage::Format_RGB32);
-    fn = BDirTools::findResource("pixmaps/fish_hp_background.png", BDirTools::GlobalOnly);
-    fishHpBackground = QImage(fn).convertToFormat(QImage::Format_RGB32);
+    //fn = BDirTools::findResource("pixmaps/fish_hp.png", BDirTools::GlobalOnly);
+    //fishHp = QImage(fn).convertToFormat(QImage::Format_RGB32);
+    //fn = BDirTools::findResource("pixmaps/fish_hp_background.png", BDirTools::GlobalOnly);
+    //fishHpBackground = QImage(fn).convertToFormat(QImage::Format_RGB32);
     fishingActive = false;
     fishing = false;
     loop = 0;
@@ -284,7 +284,7 @@ void MainWindow::closeEvent(QCloseEvent *e)
 bool MainWindow::testPecked(bool anyHp)
 {
     QImage s = Global::grabDesktop(fishHpPos, 1, 11);
-    return (colorWeight(s, Blue) >= 700) || (anyHp && (colorWeight(s, Red) >= 300));
+    return (colorWeight(s, Blue) >= 1400) || (anyHp && (colorWeight(s, Red) >= 600));
 }
 
 bool MainWindow::testTarget()
