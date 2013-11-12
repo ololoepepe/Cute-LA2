@@ -519,12 +519,12 @@ void MainWindow::btnManorClicked()
     {
         lblAutoManor->setText(tr("Activated", "lbl text"));
         manorTimer.start();
+    }
+    btnManor->setText(manorTimer.isActive() ? trManorTurnOff : trManorTurnOn);
 #if defined(Q_OS_WIN)
         if (windowID)
             SwitchToThisWindow((HWND) windowID, FALSE);
 #endif
-    }
-    btnManor->setText(manorTimer.isActive() ? trManorTurnOff : trManorTurnOn);
 }
 
 void MainWindow::btnTimerStartClicked()
@@ -628,7 +628,13 @@ void MainWindow::btnFishingClicked()
     fishingActive = !fishingActive;
     btnFishing->setText(fishingActive ? trFishingStop : trFishingStart);
     if (!fishingActive || fishing)
+    {
+#if defined(Q_OS_WIN)
+        if (windowID)
+            SwitchToThisWindow((HWND) windowID, FALSE);
+#endif
         return;
+    }
     fishing = true;
     int delay = Global::fishingStartDelay();
     logFishing(tr("Preparing to fish. Waiting for") + " " + QString::number(delay) + " " + tr("seconds..."));
