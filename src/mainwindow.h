@@ -75,6 +75,7 @@ private slots:
     void manorAutoStartTimerTimeout();
     void timerTimeout();
     void manorTimerTimeout();
+    void cboxManorStartAutoToggled(bool b);
     void btnManorClicked();
     void btnTimerStartClicked();
     void btnTimerPauseClicked();
@@ -90,6 +91,7 @@ private:
           QWidget *wgtAutoManor;
             QLabel *lblAutoManor;
             //hlt
+              QCheckBox *cboxManorStartAuto;
               QPushButton *btnManor;
           //vlt
             QLabel *lblTimer;

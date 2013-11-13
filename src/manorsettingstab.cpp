@@ -69,7 +69,7 @@ ManorSettingsTab::ManorSettingsTab()
           tmedtStartAuto->setDisplayFormat("hh:mm");
           tmedtStartAuto->setTime(Global::manorAutoStartTime());
         hlt->addWidget(tmedtStartAuto);
-      flt->addRow(tr("Start automatically:", "lbl text"), hlt);
+      flt->addRow(tr("Activate automatically:", "lbl text"), hlt);
       sboxTimeCorrection = new QSpinBox;
         sboxTimeCorrection->setMinimum(-1000);
         sboxTimeCorrection->setMaximum(1000);

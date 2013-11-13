@@ -153,6 +153,9 @@ MainWindow::MainWindow(QWidget *parent) :
                 vltam->addWidget(lblAutoManor);
                 QHBoxLayout *hltam = new QHBoxLayout;
                   hltam->addStretch();
+                  cboxManorStartAuto = new QCheckBox;
+                    connect(cboxManorStartAuto, SIGNAL(toggled(bool)), this, SLOT(cboxManorStartAutoToggled(bool)));
+                  hltam->addWidget(cboxManorStartAuto);
                   btnManor = new QPushButton;
                     connect(btnManor, SIGNAL(clicked()), this, SLOT(btnManorClicked()));
                   hltam->addWidget(btnManor);
@@ -258,6 +261,7 @@ void MainWindow::reloadInfo(InfoGroup gr)
         inst->manorAutoStartTime = Global::manorAutoStartTime();
         inst->manorAutoStartTimerTimeout();
         inst->manorTimeCorrection = Global::manorTimeCorrection();
+        inst->cboxManorStartAuto->setChecked(inst->manorAutoStartEnabled);
     }
     if (gr | OlympiadMessageInfo)
     {
@@ -407,6 +411,7 @@ void MainWindow::retranslateUi()
     mmnuEdit->setTitle(tr("Edit", "mnu title"));
     mmnuHelp->setTitle(tr("Help", "mnuTitle"));
     //
+    cboxManorStartAuto->setText(tr("Activate automatically", "cbox text"));
     btnManor->setText(manorTimer.isActive() ? trManorTurnOff : trManorTurnOn);
     btnTimerStart->setText(tr("Start", "btn text"));
     btnTimerPause->setText(timer.isActive() ? trTimerPause : trTimerUnpause);
@@ -473,6 +478,8 @@ void MainWindow::manorTimerTimeout()
         BeQt::waitNonBlocking(&fw, SIGNAL(finished()));
         if (f.result())
         {
+            if (cboxManorStartAuto->isChecked())
+                cboxManorStartAuto->setChecked(false);
             btnManor->setEnabled(false);
             manorTimerMsecs = 6 * BeQt::Minute + manorTimeCorrection;
             manorEtimer.start();
@@ -506,6 +513,13 @@ void MainWindow::manorTimerTimeout()
             btnManor->setText(trManorTurnOn);
         }
     }
+}
+
+void MainWindow::cboxManorStartAutoToggled(bool b)
+{
+    manorAutoStartEnabled = b;
+    Global::setManorAutoStartEnabled(b);
+    cboxManorStartAuto->setChecked(b);
 }
 
 void MainWindow::btnManorClicked()
