@@ -117,7 +117,6 @@ MainWindow::MainWindow(QWidget *parent) :
     windowID = 0;
     QString fn = BDirTools::findResource("pixmaps/target_close.png", BDirTools::GlobalOnly);
     targetClose = QImage(fn).convertToFormat(QImage::Format_RGB32);
-    manorAutoStartTimer.start(BeQt::Minute);
     fishingActive = false;
     fishing = false;
     loop = 0;
@@ -520,6 +519,15 @@ void MainWindow::cboxManorStartAutoToggled(bool b)
     manorAutoStartEnabled = b;
     Global::setManorAutoStartEnabled(b);
     cboxManorStartAuto->setChecked(b);
+    if (b)
+    {
+        manorAutoStartTimerTimeout();
+        manorAutoStartTimer.start(BeQt::Minute);
+    }
+    else
+    {
+        manorAutoStartTimer.stop();
+    }
 #if defined(Q_OS_WIN)
     if (windowID)
         SwitchToThisWindow((HWND) windowID, FALSE);
