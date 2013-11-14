@@ -146,7 +146,8 @@ void ManorWidget::timeout()
             if (cbox->isChecked())
                 cbox->setChecked(false);
             btn->setEnabled(false);
-            msecs = 6 * BeQt::Minute + Global::manorTimeCorrection();
+            msecs = 6 * BeQt::Minute + Global::manorTimeCorrection() - 10;
+            //10 ms is the delay between moving the cursor and clicking
             etimer.start();
             timer.setInterval(Global::manorTimerInterval());
             timeout();

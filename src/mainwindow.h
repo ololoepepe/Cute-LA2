@@ -41,6 +41,7 @@ private slots:
 private:
     QSplitter *spltr;
       QTabWidget *twgtManor;
+        QWidget *wgtManor;
       //vlt
         QLabel *lblInfo;
         //hlt

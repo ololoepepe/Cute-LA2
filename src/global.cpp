@@ -402,6 +402,7 @@ void emulateMouseClick(Qt::MouseButton button, int x, int y)
     if (x >= 0 || y >= 0)
         QCursor::setPos(pos);
 #if defined(Q_OS_WIN)
+    Sleep(10);
     switch (button)
     {
     case Qt::LeftButton:

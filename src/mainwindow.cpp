@@ -49,7 +49,9 @@ MainWindow::MainWindow(QWidget *parent) :
         QVBoxLayout *vlt = new QVBoxLayout(wgt);
           twgtManor = new QTabWidget;
             twgtManor->setTabPosition(QTabWidget::West);
-            twgtManor->addTab(new ManorWidget, "");
+            wgtManor = new ManorWidget;
+              wgtManor->setEnabled(false);
+            twgtManor->addTab(wgtManor, "");
             twgtManor->addTab(new TimerWidget, "");
           vlt->addWidget(twgtManor);
         spltr->addWidget(wgt);
@@ -116,6 +118,7 @@ void MainWindow::closeEvent(QCloseEvent *e)
 void MainWindow::resetInterface(bool enabled)
 {
     twgtBots->widget(0)->setEnabled(enabled);
+    wgtManor->setEnabled(enabled);
     wgtFishing->setEnabled(enabled);
     QString s = tr("Game area position:", "lbl text") + " ";
     QPoint pos = Global::windowPos();
