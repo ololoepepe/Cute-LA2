@@ -619,20 +619,20 @@ bool detectGameInterface()
     const QSettings option(vGameDir + "/system/Option.ini", QSettings::IniFormat);
     int x = option.value("Video/GamePlayViewportX").toInt();
     int y = option.value("Video/GamePlayViewportY").toInt();
-    const QSettings info(Global::gameDir() + "/system/WindowsInfo.ini", QSettings::IniFormat);
+    const QSettings info(vGameDir + "/system/WindowsInfo.ini", QSettings::IniFormat);
     int fishX = info.value("FishViewportWnd/posX").toInt();
     int fishY = info.value("FishViewportWnd/posY").toInt();
     int targetX = info.value("TargetStatusWnd/posX").toInt();
     int targetY = info.value("TargetStatusWnd/posY").toInt();
     int targetW = info.value("TargetStatusWnd/width").toInt();
     int targetH = info.value("TargetStatusWnd/height").toInt();
-    if (x < 0 || y < 0 || fishX <= 0 || fishY <= 0 || targetX <= 0 || targetY <= 0 || targetW <= 0 || targetH <= 0)
+    if (x < 0 || y < 0 || fishX <= 0 || fishY <= 0 || targetX < 0 || targetY < 0 || targetW <= 0 || targetH <= 0)
     {
         vWindowPos = QPoint(-1, -1);
         return false;
     }
     if (vDetectionDelay > 0)
-        BeQt::waitNonBlocking(vDetectionDelay);
+        BeQt::waitNonBlocking(vDetectionDelay * BeQt::Second);
     QImage img = grabDesktop();
     QPoint p = positionIn(img, chatSettingsIcon);
     if (p.x() < 0 || p.y() < 0)
@@ -972,10 +972,10 @@ FishingKeyList fishingKeyList()
 QString fishingKey(FishingAction a)
 {
     if (a >= vFishingKeyList.size())
-        return QKeySequence();
+        return QString();
     int k = vFishingKeyList.at(a);
     if (!k)
-        return QKeySequence();
+        return QString();
     return "F" + QString::number(k);
 }
 
