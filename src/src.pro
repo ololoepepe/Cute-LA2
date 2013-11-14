@@ -22,7 +22,10 @@ HEADERS += \
     global.h \
     generalsettingstab.h \
     manorsettingstab.h \
-    fishingsettingstab.h
+    fishingsettingstab.h \
+    timerwidget.h \
+    manorwidget.h \
+    fishingwidget.h
 
 SOURCES += \
     application.cpp \
@@ -31,7 +34,10 @@ SOURCES += \
     global.cpp \
     generalsettingstab.cpp \
     manorsettingstab.cpp \
-    fishingsettingstab.cpp
+    fishingsettingstab.cpp \
+    timerwidget.cpp \
+    manorwidget.cpp \
+    fishingwidget.cpp
 
 TRANSLATIONS += \
     ../translations/cute-la2_ru.ts

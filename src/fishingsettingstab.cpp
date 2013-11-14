@@ -98,7 +98,6 @@ bool FishingSettingsTab::saveSettings()
     foreach (QComboBox *c, cmboxes)
         list << c->currentText().mid(1).toInt();
     Global::setFishingKeyList(list);
-    MainWindow::reloadInfo(MainWindow::FishingInfo);
     return true;
 }
 

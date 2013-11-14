@@ -1,5 +1,7 @@
 #include "global.h"
 #include "mainwindow.h"
+#include "timerwidget.h"
+#include "manorwidget.h"
 
 #include <BeQtGlobal>
 #include <BeQt>
@@ -188,167 +190,30 @@ enum KeyPressMode
     DownAndUp = DownOnly | UpOnly
 };
 
-QPoint positionInLeftToRightTopToBottom(const QImage &search, const QImage &templ)
-{
-    for (int x = 0; x <= search.width() - templ.width(); ++x)
-    {
-        for (int y = 0; y <= search.height() - templ.height(); ++y)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInRightToLeftTopToBottom(const QImage &search, const QImage &templ)
-{
-    for (int x = search.width() - templ.width(); x >= 0 ; --x)
-    {
-        for (int y = 0; y <= search.height() - templ.height(); ++y)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInLeftToRightBottomToTop(const QImage &search, const QImage &templ)
-{
-    for (int x = 0; x <= search.width() - templ.width(); ++x)
-    {
-        for (int y = search.height() - templ.height(); y >= 0; --y)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInRightToLeftBottomToTop(const QImage &search, const QImage &templ)
-{
-    for (int x = search.width() - templ.width(); x >= 0 ; --x)
-    {
-        for (int y = search.height() - templ.height(); y >= 0; --y)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInTopToBottomLeftToRight(const QImage &search, const QImage &templ)
-{
-    for (int y = 0; y <= search.height() - templ.height(); ++y)
-    {
-        for (int x = 0; x <= search.width() - templ.width(); ++x)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInBottomToTopLeftToRight(const QImage &search, const QImage &templ)
-{
-    for (int y = search.height() - templ.height(); y >= 0; --y)
-    {
-        for (int x = 0; x <= search.width() - templ.width(); ++x)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInTopToBottomRightToLeft(const QImage &search, const QImage &templ)
-{
-    for (int y = 0; y <= search.height() - templ.height(); ++y)
-    {
-        for (int x = search.width() - templ.width(); x >= 0 ; --x)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInBottomToTopRightToLeft(const QImage &search, const QImage &templ)
-{
-    for (int y = search.height() - templ.height(); y >= 0; --y)
-    {
-        for (int x = search.width() - templ.width(); x >= 0 ; --x)
-        {
-            if (search.copy(x, y, templ.width(), templ.height()) == templ)
-                return QPoint(x, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-/*QPoint positionInUpperLeftToBottomRightTopToBottom(const QImage &search, const QImage &templ)
-{
-    for (int x = 0; x <= search.width() - templ.width(); ++x)
-    {
-        for (int xx = x; xx <= qMin(search.height() - templ.height(), search.width() - templ.width()); --xx)
-        {
-            int y = x - xx;
-            if (search.copy(xx, y, templ.width(), templ.height()) == templ)
-                return QPoint(xx, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInUpperLeftToBottomRightBottomToTop(const QImage &search, const QImage &templ)
-{
-    for (int x = 0; x <= search.width() - templ.width(); ++x)
-    {
-        for (int xx = x; xx <= qMin(search.height() - templ.height(), search.width() - templ.width()); --xx)
-        {
-            int y = x - xx;
-            if (search.copy(xx, y, templ.width(), templ.height()) == templ)
-                return QPoint(xx, y);
-        }
-    }
-    return QPoint(-1, -1);
-}
-
-QPoint positionInUpperRightToBottomLeftTopToBottom(const QImage &search, const QImage &templ)
-{
-    //
-}
-
-QPoint positionInUpperRightToBottomLeftBottomToTop(const QImage &search, const QImage &templ)
-{
-    //
-}
-
-QPoint positionInBottomLeftToUpperRightTopToBottom(const QImage &search, const QImage &templ)
-{
-    //
-}
-
-QPoint positionInBottomLeftToUpperRightBottomToTop(const QImage &search, const QImage &templ)
-{
-    //
-}
-
-QPoint positionInBottomRightToUpperLeftTopToBottom(const QImage &search, const QImage &templ)
-{
-    //
-}
-
-QPoint positionInBottomRightToUpperLeftBottomToTop(const QImage &search, const QImage &templ)
-{
-    //
-}*/
+QString vGameDir = "C:/Program files (x86)/NCSoft";
+int vTimerInterval = 100;
+int vDetectionDelay = 5;
+bool vDetectWindowID = false;
+int vOlympiadCheckInterval = 10;
+int vManorTimerInterval = 50;
+int vChatRowCount = 4;
+bool vManorAutoStartEnabled = false;
+QTime vManorAutoStartTime;
+int vManorTimeCorrection = 0;
+QPoint vManorButtonPos;
+bool vFishingEquipBeforeStart = true;
+int vFishingStartDelay = 5;
+int vFishingPanelNumber = 1;
+int vMainPanelNumber = 1;
+FishingKeyList vFishingKeyList = FishingKeyList() << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0;
+QImage vOlympiadMessageMask;
+#if defined(Q_OS_WIN)
+HWND vWindowID = 0;
+#endif
+QPoint vWindowPos = QPoint(-1, -1);
+QPoint vFishHpPos = QPoint(-1, -1);
+QPoint vTargetClosePos = QPoint(-1, -1);
+QPoint vChatBottomPos = QPoint(-1, -1);
 
 #if defined(Q_OS_WIN)
 UINT modifierToVKey(Qt::Modifier m)
@@ -455,29 +320,34 @@ void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
 }
 #endif
 
-QImage grabOlympiadMessage()
+bool grabOlympiadMessage()
 {
     Frame *f = new Frame(Frame::FrameShape);
     f->exec();
     f->deleteLater();
     if (QDialog::Accepted != f->result())
-        return QImage();
+        return false;
     QImage img = grabDesktop(f->pos() + QPoint(4, 4), 186, 15);
     QRgb rr = getMainColor(img);
-    img = removeNoise(img, &rr);
-    return cutExtraSpace(removeNoise(img, &rr), &rr);
+    img = cutExtraSpace(removeNoise(img, &rr), &rr);
+    QString fn = BApplication::location(BApplication::DataPath, BApplication::UserResources) + "/olympiad_message.png";
+    bool b = img.save(fn, "png");
+    if (b)
+        vOlympiadMessageMask = img.createAlphaMask();
+    return b;
 }
 
-QPoint selectManorButtonPos(const QPoint &previousPos)
+bool selectManorButtonPos()
 {
     Frame *f = new Frame(Frame::SightShape);
-    if (previousPos.x() > 0 && previousPos.y() > 0)
-        f->move(previousPos + QPoint(-50, -50));
+    if (vManorButtonPos.x() > 0 && vManorButtonPos.y() > 0)
+        f->move(vManorButtonPos + QPoint(-50, -50));
     f->exec();
     f->deleteLater();
     if (QDialog::Accepted != f->result())
-        return QPoint(-1, -1);
-    return f->pos() + QPoint(50, 50);
+        return false;
+    vManorButtonPos = f->pos() + QPoint(50, 50);
+    return true;
 }
 
 void emulateKeyPress(const QKeySequence &key)
@@ -709,140 +579,304 @@ QImage cutExtraSpace(const QImage &img, QRgb *mainColor)
     return img.copy(oddLeft, oddTop, img.width() - oddLeft - oddRight, img.height() - oddTop - oddBottom);
 }
 
-QPoint positionIn(const QImage &search, const QImage &templ, SearchDirection direction)
+QPoint positionIn(const QImage &search, const QImage &templ)
 {
     if (search.size() == templ.size())
         return (search == templ) ? QPoint(0, 0) : QPoint(-1, -1);
     if (search.height() < templ.height() || search.width() < templ.width())
         return QPoint(-1, -1);
-    typedef QPoint (*PositionInFunction)(const QImage &, const QImage &);
-    typedef QMap<SearchDirection, PositionInFunction> PositionInFunctionMap;
-    init_once(PositionInFunctionMap, positionInFunctionMap, PositionInFunctionMap())
+    for (int x = 0; x <= search.width() - templ.width(); ++x)
     {
-        positionInFunctionMap.insert(LeftToRightTopToBottom, &positionInLeftToRightTopToBottom);
-        positionInFunctionMap.insert(RightToLeftTopToBottom, &positionInRightToLeftTopToBottom);
-        positionInFunctionMap.insert(LeftToRightBottomToTop, &positionInLeftToRightBottomToTop);
-        positionInFunctionMap.insert(RightToLeftBottomToTop, &positionInRightToLeftBottomToTop);
-        positionInFunctionMap.insert(TopToBottomLeftToRight, &positionInTopToBottomLeftToRight);
-        positionInFunctionMap.insert(BottomToTopLeftToRight, &positionInBottomToTopLeftToRight);
-        positionInFunctionMap.insert(TopToBottomRightToLeft, &positionInTopToBottomRightToLeft);
-        positionInFunctionMap.insert(BottomToTopRightToLeft, &positionInBottomToTopRightToLeft);
-        /*positionInFunctionMap.insert(UpperLeftToBottomRightTopToBottom, &positionInUpperLeftToBottomRightTopToBottom);
-        positionInFunctionMap.insert(UpperLeftToBottomRightBottomToTop, &positionInUpperLeftToBottomRightBottomToTop);
-        positionInFunctionMap.insert(UpperRightToBottomLeftTopToBottom, &positionInUpperRightToBottomLeftTopToBottom);
-        positionInFunctionMap.insert(UpperRightToBottomLeftBottomToTop, &positionInUpperRightToBottomLeftBottomToTop);
-        positionInFunctionMap.insert(BottomLeftToUpperRightTopToBottom, &positionInBottomLeftToUpperRightTopToBottom);
-        positionInFunctionMap.insert(BottomLeftToUpperRightBottomToTop, &positionInBottomLeftToUpperRightBottomToTop);
-        positionInFunctionMap.insert(BottomRightToUpperLeftTopToBottom, &positionInBottomRightToUpperLeftTopToBottom);
-        positionInFunctionMap.insert(BottomRightToUpperLeftBottomToTop, &positionInBottomRightToUpperLeftBottomToTop);*/
+        for (int y = search.height() - templ.height(); y >= 0; --y)
+        {
+            if (search.copy(x, y, templ.width(), templ.height()) == templ)
+                return QPoint(x, y);
+        }
     }
-    PositionInFunction f = positionInFunctionMap.value(direction);
-    return f ? f(search, templ) : QPoint(-1, -1);
+    return QPoint(-1, -1);
+}
+
+bool detectGameInterface()
+{
+    init_once(QImage, chatSettingsIcon, QImage())
+    {
+        QString fn = BDirTools::findResource("pixmaps/chat_settings.png", BDirTools::GlobalOnly);
+        chatSettingsIcon = QImage(fn).convertToFormat(QImage::Format_RGB32);
+    }
+    static const QPoint FishHPOffset = QPoint(13, 236);
+    static const QPoint TargetCloseOffset = QPoint(-25, 6);
+    static const QPoint ChatOffset = QPoint(24, -55);
+    if (chatSettingsIcon.isNull())
+    {
+        vWindowPos = QPoint(-1, -1);
+        return false;
+    }
+    if (vGameDir.isEmpty())
+    {
+        vWindowPos = QPoint(-1, -1);
+        return false;
+    }
+    const QSettings option(vGameDir + "/system/Option.ini", QSettings::IniFormat);
+    int x = option.value("Video/GamePlayViewportX").toInt();
+    int y = option.value("Video/GamePlayViewportY").toInt();
+    const QSettings info(Global::gameDir() + "/system/WindowsInfo.ini", QSettings::IniFormat);
+    int fishX = info.value("FishViewportWnd/posX").toInt();
+    int fishY = info.value("FishViewportWnd/posY").toInt();
+    int targetX = info.value("TargetStatusWnd/posX").toInt();
+    int targetY = info.value("TargetStatusWnd/posY").toInt();
+    int targetW = info.value("TargetStatusWnd/width").toInt();
+    int targetH = info.value("TargetStatusWnd/height").toInt();
+    if (x < 0 || y < 0 || fishX <= 0 || fishY <= 0 || targetX <= 0 || targetY <= 0 || targetW <= 0 || targetH <= 0)
+    {
+        vWindowPos = QPoint(-1, -1);
+        return false;
+    }
+    if (vDetectionDelay > 0)
+        BeQt::waitNonBlocking(vDetectionDelay);
+    QImage img = grabDesktop();
+    QPoint p = positionIn(img, chatSettingsIcon);
+    if (p.x() < 0 || p.y() < 0)
+    {
+        vWindowPos = QPoint(-1, -1);
+        return false;
+    }
+    p.rx() -= 5;
+    p.ry() += 66;
+    p.ry() -= y;
+    vWindowPos = p;
+#if defined(Q_OS_WIN)
+    vWindowID = vDetectWindowID ? GetForegroundWindow() : 0;
+#endif
+    vFishHpPos = vWindowPos;
+    vTargetClosePos = vWindowPos;
+    vChatBottomPos = vWindowPos;
+    vFishHpPos += FishHPOffset + QPoint(fishX, fishY);
+    vTargetClosePos += TargetCloseOffset + QPoint(targetX, targetY) + QPoint(targetW, 0);
+    vChatBottomPos += QPoint(0, y) + ChatOffset;
+    return true;
+}
+
+bool isGameInterfaceDetected()
+{
+    return vWindowPos.x() > 0 && vWindowPos.y() > 0;
+}
+
+QPoint windowPos()
+{
+    return isGameInterfaceDetected() ? vWindowPos : QPoint(-1, -1);
+}
+
+QPoint fishHpPos()
+{
+    return isGameInterfaceDetected() ? vFishHpPos : QPoint(-1, -1);
+}
+
+QPoint targetClosePos()
+{
+    return isGameInterfaceDetected() ? vTargetClosePos : QPoint(-1, -1);
+}
+
+QPoint chatBottomPos()
+{
+    return isGameInterfaceDetected() ? vChatBottomPos : QPoint(-1, -1);
+}
+
+void switchToWindow()
+{
+#if defined(Q_OS_WIN)
+    if (vWindowID)
+        SwitchToThisWindow(vWindowID, FALSE);
+#endif
+}
+
+void loadSettings()
+{
+    vGameDir = bSettings->value("System/game_dir", "C:/Program files (x86)/NCSoft").toString();
+    bool ok = false;
+    int msecs = bSettings->value("System/timer_interval", 100).toInt(&ok);
+    vTimerInterval = (ok && bRangeD(1, 1000).contains(msecs)) ? msecs : 100;
+    ok = false;
+    int seconds = bSettings->value("System/detection_delay", 5).toInt(&ok);
+    vDetectionDelay = (ok && bRangeD(1, 60).contains(seconds)) ? seconds : 5;
+    vDetectWindowID = bSettings->value("System/detect_window_id", false).toBool();
+    ok = false;
+    msecs = bSettings->value("Manor/olympiad_check_interval", 10).toInt(&ok);
+    vOlympiadCheckInterval = (ok && bRangeD(1, 1000).contains(msecs)) ? msecs : 10;
+    ok = false;
+    msecs = bSettings->value("Manor/timer_interval", 50).toInt(&ok);
+    vManorTimerInterval = (ok && bRangeD(1, 1000).contains(msecs)) ? msecs : 50;
+    ok = false;
+    int n = bSettings->value("Manor/chat_row_count", 4).toInt(&ok);
+    vChatRowCount = (ok && bRangeD(1, 28).contains(n)) ? n : 4;
+    vManorAutoStartEnabled = bSettings->value("Manor/auto_start_enabled", false).toBool();
+    vManorAutoStartTime = bSettings->value("Manor/auto_start_time", QTime(20, 00)).toTime();
+    ok = false;
+    msecs = bSettings->value("Manor/time_correction", 0).toInt(&ok);
+    vManorTimeCorrection = (ok && bRangeD(-1000, 1000).contains(msecs)) ? msecs : 0;
+    vManorButtonPos = bSettings->value("Manor/button_pos", QPoint(-1, -1)).toPoint();
+    vFishingEquipBeforeStart = bSettings->value("Fishing/equip_before_start", true).toBool();
+    ok = false;
+    seconds = bSettings->value("Fishing/start_delay", 5).toInt(&ok);
+    vFishingStartDelay = (ok && bRangeD(1, 60).contains(seconds)) ? seconds : 5;
+    ok = false;
+    n = bSettings->value("Fishing/panel_number", 1).toInt(&ok);
+    vFishingPanelNumber = (ok && bRangeD(1, 10).contains(n)) ? n : 1;
+    ok = false;
+    n = bSettings->value("Fishing/main_panel_number", 1).toInt(&ok);
+    vMainPanelNumber = (ok && bRangeD(1, 10).contains(n)) ? n : 1;
+    FishingKeyList list;
+    int sz = bSettings->beginReadArray("Fishing/keys");
+    foreach (int i, bRangeD(0, sz - 1))
+    {
+        bSettings->setArrayIndex(i);
+        ok = false;
+        int k = bSettings->value("key", 0).toInt(&ok);
+        list << ((ok && bRangeD(0, 12).contains(k)) ? k : 0);
+    }
+    bSettings->endArray();
+    if (list.size() == 9)
+    {
+        bool b = true;
+        foreach (int k, list)
+        {
+            if (k > 0 && list.count(k) > 1)
+            {
+                b = false;
+                break;
+            }
+        }
+        if (b)
+            vFishingKeyList = list;
+    }
+    QString fn = BDirTools::findResource("olympiad_message.png", BDirTools::UserOnly);
+    QImage img = QImage(fn).createAlphaMask();
+    if (img.width() > 300)
+        img = img.copy(0, 0, 300, img.height());
+    if (img.height() > 12)
+        img = img.copy(0, 0, img.width(), 12);
+    vOlympiadMessageMask = img;
+}
+
+void saveSettings()
+{
+    bSettings->setValue("System/game_dir", vGameDir);
+    bSettings->setValue("System/timer_interval", vTimerInterval);
+    bSettings->setValue("System/detection_delay", vDetectionDelay);
+    bSettings->setValue("System/detect_window_id", vDetectWindowID);
+    bSettings->setValue("Manor/olympiad_check_interval", vOlympiadCheckInterval);
+    bSettings->setValue("Manor/timer_interval", vManorTimerInterval);
+    bSettings->setValue("Manor/chat_row_count", vChatRowCount);
+    bSettings->setValue("Manor/auto_start_enabled", vManorAutoStartEnabled);
+    bSettings->setValue("Manor/auto_start_time", vManorAutoStartTime);
+    bSettings->setValue("Manor/time_correction", vManorTimeCorrection);
+    bSettings->setValue("Manor/button_pos", vManorButtonPos);
+    bSettings->setValue("Fishing/equip_before_start", vFishingEquipBeforeStart);
+    bSettings->setValue("Fishing/start_delay", vFishingStartDelay);
+    bSettings->setValue("Fishing/panel_number", vFishingPanelNumber);
+    bSettings->setValue("Fishing/main_panel_number", vMainPanelNumber);
+    bSettings->beginWriteArray("Fishing/keys", 9);
+    foreach (int i, bRangeD(0, 8))
+    {
+        bSettings->setArrayIndex(i);
+        bSettings->setValue("key", vFishingKeyList.at(i));
+    }
+    bSettings->endArray();
 }
 
 void setGameDir(const QString &dir)
 {
-    bSettings->setValue("System/game_dir", dir);
+    vGameDir = dir;
 }
 
 void setTimerInterval(int msecs)
 {
     if (!bRangeD(1, 1000).contains(msecs))
         return;
-    bSettings->setValue("System/timer_interval", msecs);
+    bool b = msecs != vTimerInterval;
+    vTimerInterval = msecs;
+    if (b)
+        TimerWidget::resetTimerInterval();
 }
 
 void setDetectionDelay(int seconds)
 {
     if (!bRangeD(1, 60).contains(seconds))
         return;
-    bSettings->setValue("System/detection_delay", seconds);
-
+    vDetectionDelay = seconds;
 }
 
 void setDetectWindowID(bool b)
 {
-    bSettings->setValue("System/detect_window_id", b);
+    vDetectWindowID = b;
 }
 
 void setOlympiadCheckInterval(int msecs)
 {
     if (!bRangeD(1, 1000).contains(msecs))
         return;
-    bSettings->setValue("Manor/olympiad_check_interval", msecs);
+    vOlympiadCheckInterval = msecs;
 }
 
 void setManorTimerInterval(int msecs)
 {
     if (!bRangeD(1, 1000).contains(msecs))
         return;
-    bSettings->setValue("Manor/timer_interval", msecs);
-}
-
-bool setOlympiadMessageTemplate(const QImage &src)
-{
-    QImage img = src;
-    if (img.width() > 300)
-        img = img.copy(0, 0, 300, img.height());
-    if (img.height() > 12)
-        img = img.copy(0, 0, img.width(), 12);
-    QString fn = BApplication::location(BApplication::DataPath, BApplication::UserResources) + "/olympiad_message.png";
-    return img.save(fn, "png");
+    vManorTimerInterval = msecs;
+    ManorWidget::resetTimerInterval();
 }
 
 void setChatRowCount(int n)
 {
     if (!bRangeD(1, 28).contains(n))
         return;
-    bSettings->setValue("Manor/chat_row_count", n);
+    vChatRowCount = n;
 }
 
 void setManorAutoStartEnabled(bool enabled)
 {
-    bSettings->setValue("Manor/auto_start_enabled", enabled);
+    if (enabled == vManorAutoStartEnabled)
+        return;
+    vManorAutoStartEnabled = enabled;
+    ManorWidget::resetAutoStartEnabled();
 }
 
 void setManorAutoStartTime(const QTime &t)
 {
-    bSettings->setValue("Manor/auto_start_time", t);
+    vManorAutoStartTime = t;
+    ManorWidget::resetAutoStart();
 }
 
 void setManorTimeCorrection(int msecs)
 {
     if (!bRangeD(-1000, 1000).contains(msecs))
         return;
-    bSettings->setValue("Manor/time_correction", msecs);
-}
-
-void setManorButtonPos(const QPoint &pos)
-{
-    bSettings->setValue("Manor/button_pos", pos);
+    vManorTimeCorrection = msecs;
 }
 
 void setFishingEquipBeforeStart(bool b)
 {
-    bSettings->setValue("Fishing/equip_before_start", b);
+    vFishingEquipBeforeStart = b;
 }
 
 void setFishingStartDelay(int seconds)
 {
     if (!bRangeD(1, 60).contains(seconds))
         return;
-    bSettings->setValue("Fishing/start_delay", seconds);
+    vFishingStartDelay = seconds;
 }
 
 void setFishingPanelNumber(int n)
 {
     if (!bRangeD(1, 10).contains(n))
         return;
-    bSettings->setValue("Fishing/panel_number", n);
+    vFishingPanelNumber = n;
 }
 
 void setMainPanelNumber(int n)
 {
     if (!bRangeD(1, 10).contains(n))
         return;
-    bSettings->setValue("Fishing/main_panel_number", n);
+    vMainPanelNumber = n;
 }
 
 void setFishingKeyList(const FishingKeyList &list)
@@ -852,166 +886,102 @@ void setFishingKeyList(const FishingKeyList &list)
     foreach (int k, list)
         if (!bRangeD(0, 12).contains(k) || (k > 0 && list.count(k) > 1))
             return;
-    bSettings->beginWriteArray("Fishing/keys", 9);
-    foreach (int i, bRangeD(0, 8))
-    {
-        bSettings->setArrayIndex(i);
-        bSettings->setValue("key", list.at(i));
-    }
-    bSettings->endArray();
+    vFishingKeyList = list;
 }
 
 QString gameDir()
 {
-    return bSettings->value("System/game_dir", "C:/Program files (x86)/NCSoft").toString();
+    return vGameDir;
 }
 
 int timerInterval()
 {
-    bool ok = false;
-    int msecs = bSettings->value("System/timer_interval", 100).toInt(&ok);
-    return (ok && bRangeD(1, 1000).contains(msecs)) ? msecs : 100;
+    return vTimerInterval;
 }
 
 int detectionDelay()
 {
-    bool ok = false;
-    int seconds = bSettings->value("System/detection_delay", 5).toInt(&ok);
-    return (ok && bRangeD(1, 60).contains(seconds)) ? seconds : 5;
+    return vDetectionDelay;
 }
 
 bool detectWindowID()
 {
-    return bSettings->value("System/detect_window_id", false).toBool();
+    return vDetectWindowID;
 }
 
 int olympiadCheckInterval()
 {
-    bool ok = false;
-    int msecs = bSettings->value("Manor/olympiad_check_interval", 10).toInt(&ok);
-    return (ok && bRangeD(1, 1000).contains(msecs)) ? msecs : 10;
+    return vOlympiadCheckInterval;
 }
 
 int manorTimerInterval()
 {
-    bool ok = false;
-    int msecs = bSettings->value("Manor/timer_interval", 50).toInt(&ok);
-    return (ok && bRangeD(1, 1000).contains(msecs)) ? msecs : 50;
+    return vManorTimerInterval;
 }
 
 int chatRowCount()
 {
-    bool ok = false;
-    int n = bSettings->value("Manor/chat_row_count", 4).toInt(&ok);
-    return (ok && bRangeD(1, 28).contains(n)) ? n : 4;
+    return vChatRowCount;
 }
 
 bool manorAutoStartEnabled()
 {
-    return bSettings->value("Manor/auto_start_enabled", false).toBool();
+    return vManorAutoStartEnabled;
 }
 
 QTime manorAutoStartTime()
 {
-    return bSettings->value("Manor/auto_start_time", QTime(20, 00)).toTime();
+    return vManorAutoStartTime;
 }
 
 int manorTimeCorrection()
 {
-    bool ok = false;
-    int msecs = bSettings->value("Manor/time_correction", 0).toInt(&ok);
-    return (ok && bRangeD(-1000, 1000).contains(msecs)) ? msecs : 0;
+    return vManorTimeCorrection;
 }
 
 QPoint manorButtonPos()
 {
-    return bSettings->value("Manor/button_pos", QPoint(-1, -1)).toPoint();
-}
-
-QImage olympiadMessageMask()
-{
-    QString fn = BDirTools::findResource("olympiad_message.png", BDirTools::UserOnly);
-    QImage img = QImage(fn).createAlphaMask();
-    if (img.width() > 300)
-        img = img.copy(0, 0, 300, img.height());
-    if (img.height() > 12)
-        img = img.copy(0, 0, img.width(), 12);
-    return img;
+    return vManorButtonPos;
 }
 
 bool fishingEquipBeforeStart()
 {
-    return bSettings->value("Fishing/equip_before_start", true).toBool();
+    return vFishingEquipBeforeStart;
 }
 
 int fishingStartDelay()
 {
-    bool ok = false;
-    int seconds = bSettings->value("Fishing/start_delay", 5).toInt(&ok);
-    return (ok && bRangeD(1, 60).contains(seconds)) ? seconds : 5;
+    return vFishingStartDelay;
 }
 
 int fishingPanelNumber()
 {
-    bool ok = false;
-    int n = bSettings->value("Fishing/panel_number", 1).toInt(&ok);
-    return (ok && bRangeD(1, 10).contains(n)) ? n : 1;
+    return vFishingPanelNumber;
 }
 
 int mainPanelNumber()
 {
-    bool ok = false;
-    int n = bSettings->value("Fishing/main_panel_number", 1).toInt(&ok);
-    return (ok && bRangeD(1, 10).contains(n)) ? n : 1;
+    return vMainPanelNumber;
 }
 
 FishingKeyList fishingKeyList()
 {
-    FishingKeyList list;
-    int sz = bSettings->beginReadArray("Fishing/keys");
-    foreach (int i, bRangeD(0, sz - 1))
-    {
-        bSettings->setArrayIndex(i);
-        bool ok = false;
-        int k = bSettings->value("key", 0).toInt(&ok);
-        list << ((ok && bRangeD(0, 12).contains(k)) ? k : 0);
-    }
-    bSettings->endArray();
-    if (list.size() != 9)
-        return FishingKeyList();
-    foreach (int k, list)
-        if (k > 0 && list.count(k) > 1)
-            return FishingKeyList();
-    return list;
+    return vFishingKeyList;
 }
 
-QPoint detectWindowPosition(int delayMsecs)
+QString fishingKey(FishingAction a)
 {
-    init_once(QImage, chatSettingsIcon, QImage())
-    {
-        QString fn = BDirTools::findResource("pixmaps/chat_settings.png", BDirTools::GlobalOnly);
-        chatSettingsIcon = QImage(fn).convertToFormat(QImage::Format_RGB32);
-    }
-    if (chatSettingsIcon.isNull())
-        return QPoint(-1, -1);
-    QString dir = gameDir();
-    if (dir.isEmpty())
-        return QPoint(-1, -1);
-    const QSettings option(dir + "/system/Option.ini", QSettings::IniFormat);
-    int x = option.value("Video/GamePlayViewportX").toInt();
-    int y = option.value("Video/GamePlayViewportY").toInt();
-    if (x <= 0 || y <= 0)
-        return QPoint(-1, -1);
-    if (delayMsecs > 0)
-        BeQt::waitNonBlocking(delayMsecs);
-    QImage img = grabDesktop();
-    QPoint p = positionIn(img, chatSettingsIcon, LeftToRightBottomToTop);
-    if (p.x() < 0 || p.y() < 0)
-        return QPoint(-1, -1);
-    p.rx() -= 5;
-    p.ry() += 66;
-    p.ry() -= y;
-    return p;
+    if (a >= vFishingKeyList.size())
+        return QKeySequence();
+    int k = vFishingKeyList.at(a);
+    if (!k)
+        return QKeySequence();
+    return "F" + QString::number(k);
+}
+
+const QImage *olympiadMessageMask()
+{
+    return &vOlympiadMessageMask;
 }
 
 }

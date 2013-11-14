@@ -87,7 +87,6 @@ bool GeneralSettingsTab::saveSettings()
     Global::setTimerInterval(sboxTimerInterval->value());
     Global::setDetectionDelay(sboxDelay->value());
     Global::setDetectWindowID(cboxDetectWindow->isChecked());
-    MainWindow::reloadInfo(MainWindow::GeneralInfo);
     return true;
 }
 

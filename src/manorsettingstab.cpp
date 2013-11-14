@@ -78,7 +78,7 @@ ManorSettingsTab::ManorSettingsTab()
       flt->addRow(tr("Correction (ms):", "lbl text"), sboxTimeCorrection);
       hlt = new QHBoxLayout;
         lblOlympiadMessageTemplate = new QLabel;
-          lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(Global::olympiadMessageMask()));
+          lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(*Global::olympiadMessageMask()));
         hlt->addWidget(lblOlympiadMessageTemplate);
         btnGrabOlympiadMessage = new QPushButton(tr("Grab message", "btn text"));
           connect(btnGrabOlympiadMessage, SIGNAL(clicked()), this, SLOT(grabOlympiadMessage()));
@@ -128,7 +128,6 @@ bool ManorSettingsTab::saveSettings()
     Global::setManorAutoStartEnabled(cboxStartAuto->isChecked());
     Global::setManorAutoStartTime(tmedtStartAuto->time());
     Global::setManorTimeCorrection(sboxTimeCorrection->value());
-    MainWindow::reloadInfo(MainWindow::ManorInfo);
     return true;
 }
 
@@ -136,21 +135,15 @@ bool ManorSettingsTab::saveSettings()
 
 void ManorSettingsTab::grabOlympiadMessage()
 {
-    QImage img = Global::grabOlympiadMessage();
-    if (img.isNull())
+    if (!Global::grabOlympiadMessage())
         return;
-    if (!Global::setOlympiadMessageTemplate(img))
-        return;
-    lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(Global::olympiadMessageMask()));
-    MainWindow::reloadInfo(MainWindow::OlympiadMessageInfo);
+    lblOlympiadMessageTemplate->setPixmap(QPixmap::fromImage(*Global::olympiadMessageMask()));
 }
 
 void ManorSettingsTab::selectManorButton()
 {
-    QPoint pos = Global::selectManorButtonPos(Global::manorButtonPos());
-    if (pos.x() <= 0 || pos.y() <= 0)
+    if (!Global::selectManorButtonPos())
         return;
-    Global::setManorButtonPos(pos);
+    QPoint pos = Global::manorButtonPos();
     lblManorButtonPos->setText("<b>(" + QString::number(pos.x()) + "; " + QString::number(pos.y()) +")</b>");
-    MainWindow::reloadInfo(MainWindow::ManorButtonInfo);
 }
