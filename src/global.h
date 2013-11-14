@@ -32,6 +32,7 @@ enum FishingAction
 
 bool grabOlympiadMessage();
 bool selectManorButtonPos();
+bool selectCraftButtonPos();
 void emulateKeyPress(const QKeySequence &key);
 void emulateKeyPress(const QString &key);
 void emulateMouseClick(Qt::MouseButton button, int x = -1, int y = -1);
@@ -68,6 +69,8 @@ void setFishingStartDelay(int seconds);
 void setFishingPanelNumber(int n);
 void setMainPanelNumber(int n);
 void setFishingKeyList(const FishingKeyList &list);
+void setMpRegen(int x);
+void setMpConsumption(int x);
 QString gameDir();
 int timerInterval();
 int detectionDelay();
@@ -85,6 +88,9 @@ int fishingPanelNumber();
 int mainPanelNumber();
 FishingKeyList fishingKeyList();
 QString fishingKey(FishingAction a);
+QPoint craftButtonPos();
+int mpRegen();
+int mpConsumption();
 //
 const QImage *olympiadMessageMask();
 

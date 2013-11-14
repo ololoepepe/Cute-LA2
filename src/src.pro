@@ -25,7 +25,8 @@ HEADERS += \
     fishingsettingstab.h \
     timerwidget.h \
     manorwidget.h \
-    fishingwidget.h
+    fishingwidget.h \
+    craftwidget.h
 
 SOURCES += \
     application.cpp \
@@ -37,7 +38,8 @@ SOURCES += \
     fishingsettingstab.cpp \
     timerwidget.cpp \
     manorwidget.cpp \
-    fishingwidget.cpp
+    fishingwidget.cpp \
+    craftwidget.cpp
 
 TRANSLATIONS += \
     ../translations/cute-la2_ru.ts

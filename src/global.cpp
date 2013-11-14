@@ -200,7 +200,7 @@ int vChatRowCount = 4;
 bool vManorAutoStartEnabled = false;
 QTime vManorAutoStartTime;
 int vManorTimeCorrection = 0;
-QPoint vManorButtonPos;
+QPoint vManorButtonPos = QPoint(-1, -1);
 bool vFishingEquipBeforeStart = true;
 int vFishingStartDelay = 5;
 int vFishingPanelNumber = 1;
@@ -214,6 +214,9 @@ QPoint vWindowPos = QPoint(-1, -1);
 QPoint vFishHpPos = QPoint(-1, -1);
 QPoint vTargetClosePos = QPoint(-1, -1);
 QPoint vChatBottomPos = QPoint(-1, -1);
+QPoint vCraftButtonPos = QPoint(-1, -1);
+int vMpRegen = 10;
+int vMpConsumption = 10;
 
 #if defined(Q_OS_WIN)
 UINT modifierToVKey(Qt::Modifier m)
@@ -347,6 +350,19 @@ bool selectManorButtonPos()
     if (QDialog::Accepted != f->result())
         return false;
     vManorButtonPos = f->pos() + QPoint(50, 50);
+    return true;
+}
+
+bool selectCraftButtonPos()
+{
+    Frame *f = new Frame(Frame::SightShape);
+    if (vCraftButtonPos.x() > 0 && vCraftButtonPos.y() > 0)
+        f->move(vCraftButtonPos + QPoint(-50, -50));
+    f->exec();
+    f->deleteLater();
+    if (QDialog::Accepted != f->result())
+        return false;
+    vCraftButtonPos = f->pos() + QPoint(50, 50);
     return true;
 }
 
@@ -756,6 +772,13 @@ void loadSettings()
     if (img.height() > 12)
         img = img.copy(0, 0, img.width(), 12);
     vOlympiadMessageMask = img;
+    vCraftButtonPos = bSettings->value("Craft/button_pos", QPoint(-1, -1)).toPoint();
+    ok = false;
+    int x = bSettings->value("Craft/mp_regeneration", 10).toInt(&ok);
+    vMpRegen = (ok && bRangeD(1, 100).contains(x)) ? x : 10;
+    ok = false;
+    x = bSettings->value("Craft/mp_consumption", 10).toInt(&ok);
+    vMpConsumption= (ok && bRangeD(10, 500).contains(x)) ? x : 10;
 }
 
 void saveSettings()
@@ -782,6 +805,9 @@ void saveSettings()
         bSettings->setValue("key", vFishingKeyList.at(i));
     }
     bSettings->endArray();
+    bSettings->setValue("Craft/button_pos", vCraftButtonPos);
+    bSettings->setValue("Craft/mp_regeneration", vMpRegen);
+    bSettings->setValue("Craft/mp_consumption", vMpConsumption);
 }
 
 void setGameDir(const QString &dir)
@@ -890,6 +916,20 @@ void setFishingKeyList(const FishingKeyList &list)
     vFishingKeyList = list;
 }
 
+void setMpRegen(int x)
+{
+    if (!bRangeD(1, 100).contains(x))
+        return;
+    vMpRegen = x;
+}
+
+void setMpConsumption(int x)
+{
+    if (!bRangeD(10, 500).contains(x))
+        return;
+    vMpConsumption = x;
+}
+
 QString gameDir()
 {
     return vGameDir;
@@ -983,6 +1023,21 @@ QString fishingKey(FishingAction a)
 const QImage *olympiadMessageMask()
 {
     return &vOlympiadMessageMask;
+}
+
+QPoint craftButtonPos()
+{
+    return vCraftButtonPos;
+}
+
+int mpRegen()
+{
+    return vMpRegen;
+}
+
+int mpConsumption()
+{
+    return vMpConsumption;
 }
 
 }

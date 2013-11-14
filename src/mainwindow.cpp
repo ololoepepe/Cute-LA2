@@ -3,6 +3,7 @@
 #include "timerwidget.h"
 #include "manorwidget.h"
 #include "fishingwidget.h"
+#include "craftwidget.h"
 
 #include <BApplication>
 #include <BTranslation>
@@ -72,6 +73,9 @@ MainWindow::MainWindow(QWidget *parent) :
         wgtFishing = new FishingWidget;
           wgtFishing->setEnabled(false);
         twgtBots->addTab(wgtFishing, "");
+        wgtCraft = new CraftWidget;
+          wgtCraft->setEnabled(false);
+        twgtBots->addTab(wgtCraft, "");
       spltr->addWidget(twgtBots);
     setCentralWidget(spltr);
     //File
@@ -120,6 +124,7 @@ void MainWindow::resetInterface(bool enabled)
     twgtBots->widget(0)->setEnabled(enabled);
     wgtManor->setEnabled(enabled);
     wgtFishing->setEnabled(enabled);
+    wgtCraft->setEnabled(enabled);
     QString s = tr("Game area position:", "lbl text") + " ";
     QPoint pos = Global::windowPos();
     if (Global::isGameInterfaceDetected())
@@ -160,6 +165,7 @@ void MainWindow::retranslateUi()
     twgtManor->setTabText(0, tr("Manor", "twgt tab text"));
     twgtManor->setTabText(1, tr("Timer", "twgt tab text"));
     twgtBots->setTabText(0, tr("Fishing", "twgt tab text"));
+    twgtBots->setTabText(1, tr("Craft", "twgt tab text"));
 }
 
 void MainWindow::cboxToggled(bool b)

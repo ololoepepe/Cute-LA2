@@ -50,10 +50,7 @@ private:
           QPushButton *btnDetect;
       QTabWidget *twgtBots;
         QWidget *wgtFishing;
-        QWidget *wgtLeveling;
-          //hlt
-            QPushButton *btnLeveling;
-          QPlainTextEdit *ptedtLeveling;
+        QWidget *wgtCraft;
     //
     QMenu *mmnuFile;
       QAction *mactQuit;
