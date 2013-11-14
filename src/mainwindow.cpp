@@ -128,8 +128,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&timer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
     connect(&manorTimer, SIGNAL(timeout()), this, SLOT(manorTimerTimeout()));
     //
-    trManorTurnOn = BTranslation::translate("MainWindow", "Turn on", "btn text");
-    trManorTurnOff = BTranslation::translate("MainWindow", "Turn off", "btn text");
+    trManorTurnOn = BTranslation::translate("MainWindow", "Activate", "btn text");
+    trManorTurnOff = BTranslation::translate("MainWindow", "Deactivate", "btn text");
     trTimerPause = BTranslation::translate("MainWindow", "Pause", "btn text");
     trTimerUnpause = BTranslation::translate("MainWindow", "Unpause", "btn text");
     trFishingStart = BTranslation::translate("MainWindow", "Start fishing", "btn text");
@@ -520,6 +520,10 @@ void MainWindow::cboxManorStartAutoToggled(bool b)
     manorAutoStartEnabled = b;
     Global::setManorAutoStartEnabled(b);
     cboxManorStartAuto->setChecked(b);
+#if defined(Q_OS_WIN)
+    if (windowID)
+        SwitchToThisWindow((HWND) windowID, FALSE);
+#endif
 }
 
 void MainWindow::btnManorClicked()
