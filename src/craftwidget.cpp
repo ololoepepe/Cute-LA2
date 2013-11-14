@@ -22,7 +22,6 @@ CraftWidget::CraftWidget(QWidget *parent) :
     //
     QVBoxLayout *vlt = new QVBoxLayout(this);
       QHBoxLayout *hlt = new QHBoxLayout;
-        hlt->addStretch();
         btn = new QPushButton;
           connect(btn, SIGNAL(clicked()), this, SLOT(btnClicked()));
         hlt->addWidget(btn);

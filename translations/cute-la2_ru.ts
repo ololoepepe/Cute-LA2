@@ -16,13 +16,13 @@
         <translation>Прекратить крафтить</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="54"/>
+        <location filename="../src/craftwidget.cpp" line="53"/>
         <source>MP regeneration per tick:</source>
         <comment>lbl text</comment>
         <translation>Регенерация MP за тик:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="55"/>
+        <location filename="../src/craftwidget.cpp" line="54"/>
         <source>MP consumption per item:</source>
         <comment>lbl text</comment>
         <translation>Потребление MP на вещь:</translation>
