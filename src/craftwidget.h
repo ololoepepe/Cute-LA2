@@ -3,6 +3,8 @@
 
 class QSpinBox;
 class QPushButton;
+class QLabel;
+class QHBoxLayout;
 
 #include <BTranslation>
 
@@ -20,10 +22,16 @@ private slots:
     void retranslateUi();
     void timeout();
     void btnClicked();
+    void selectButton();
+    void sboxRegenValueChanged(int value);
+    void sboxConsumptionValueChanged(int value);
 private:
     QPushButton *btn;
     QSpinBox *sboxRegen;
     QSpinBox *sboxConsumption;
+    QHBoxLayout *hltButton;
+    QLabel *lblButtonPos;
+    QPushButton *btnSelectButton;
     QTimer timer;
     BTranslation trStart;
     BTranslation trStop;

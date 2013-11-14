@@ -16,16 +16,28 @@
         <translation>Прекратить крафтить</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="53"/>
+        <location filename="../src/craftwidget.cpp" line="64"/>
         <source>MP regeneration per tick:</source>
         <comment>lbl text</comment>
         <translation>Регенерация MP за тик:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="54"/>
+        <location filename="../src/craftwidget.cpp" line="65"/>
         <source>MP consumption per item:</source>
         <comment>lbl text</comment>
         <translation>Потребление MP на вещь:</translation>
+    </message>
+    <message>
+        <location filename="../src/craftwidget.cpp" line="66"/>
+        <source>Craft button:</source>
+        <comment>lbl text</comment>
+        <translation>Кнопка крафта:</translation>
+    </message>
+    <message>
+        <location filename="../src/craftwidget.cpp" line="67"/>
+        <source>Select position</source>
+        <comment>btn text</comment>
+        <translation>Выбрать положение</translation>
     </message>
 </context>
 <context>
