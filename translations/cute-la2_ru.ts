@@ -4,43 +4,49 @@
 <context>
     <name>CraftWidget</name>
     <message>
-        <location filename="../src/craftwidget.cpp" line="20"/>
+        <location filename="../src/craftwidget.cpp" line="22"/>
         <source>Start crafting</source>
         <comment>btn text</comment>
         <translation>Начать крафтить</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="21"/>
+        <location filename="../src/craftwidget.cpp" line="23"/>
         <source>Stop crafting</source>
         <comment>btn text</comment>
         <translation>Прекратить крафтить</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="70"/>
+        <location filename="../src/craftwidget.cpp" line="77"/>
+        <source>Item count:</source>
+        <comment>lbl text</comment>
+        <translation>Количество предметов:</translation>
+    </message>
+    <message>
+        <location filename="../src/craftwidget.cpp" line="78"/>
         <source>Start delay (seconds):</source>
         <comment>lbl text</comment>
         <translation>Задержка перед началом (секунд):</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="71"/>
+        <location filename="../src/craftwidget.cpp" line="79"/>
         <source>MP regeneration per tick:</source>
         <comment>lbl text</comment>
         <translation>Регенерация MP за тик:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="72"/>
+        <location filename="../src/craftwidget.cpp" line="80"/>
         <source>MP consumption per item:</source>
         <comment>lbl text</comment>
         <translation>Потребление MP на вещь:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="73"/>
+        <location filename="../src/craftwidget.cpp" line="81"/>
         <source>Craft button:</source>
         <comment>lbl text</comment>
         <translation>Кнопка крафта:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="74"/>
+        <location filename="../src/craftwidget.cpp" line="82"/>
         <source>Select position</source>
         <comment>btn text</comment>
         <translation>Выбрать положение</translation>

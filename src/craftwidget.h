@@ -28,6 +28,7 @@ private slots:
     void sboxConsumptionValueChanged(int value);
 private:
     QPushButton *btn;
+    QSpinBox *sboxCount;
     QSpinBox *sboxDelay;
     QSpinBox *sboxRegen;
     QSpinBox *sboxConsumption;

@@ -13,6 +13,8 @@
 #include <QFormLayout>
 #include <QLabel>
 
+#include <climits>
+
 CraftWidget::CraftWidget(QWidget *parent) :
     QWidget(parent)
 {
@@ -27,6 +29,11 @@ CraftWidget::CraftWidget(QWidget *parent) :
         hlt->addWidget(btn);
       vlt->addLayout(hlt);
         QFormLayout *flt = new QFormLayout;
+          sboxCount = new QSpinBox;
+            sboxCount->setMinimum(-1);
+            sboxCount->setMaximum(INT_MAX);
+            sboxCount->setValue(-1);
+          flt->addRow(" ", sboxCount);
           sboxDelay = new QSpinBox;
             sboxDelay->setMinimum(1);
             sboxDelay->setMaximum(60);
@@ -67,6 +74,7 @@ int CraftWidget::calculateTimeout()
 
 void CraftWidget::retranslateUi()
 {
+    BApplication::labelForField<QLabel>(sboxCount)->setText(tr("Item count:", "lbl text"));
     BApplication::labelForField<QLabel>(sboxDelay)->setText(tr("Start delay (seconds):", "lbl text"));
     BApplication::labelForField<QLabel>(sboxRegen)->setText(tr("MP regeneration per tick:", "lbl text"));
     BApplication::labelForField<QLabel>(sboxConsumption)->setText(tr("MP consumption per item:", "lbl text"));
@@ -78,7 +86,15 @@ void CraftWidget::retranslateUi()
 void CraftWidget::timeout()
 {
     Global::emulateMouseClick(Qt::LeftButton, Global::craftButtonPos());
-    timer.setInterval(calculateTimeout());
+    if (sboxCount->value())
+    {
+        timer.setInterval(calculateTimeout());
+        sboxCount->setValue(sboxCount->value() - 1);
+    }
+    else
+    {
+        btn->animateClick();
+    }
 }
 
 void CraftWidget::btnClicked()
@@ -91,6 +107,8 @@ void CraftWidget::btnClicked()
     }
     else
     {
+        if (!sboxCount->value())
+            sboxCount->setValue(-1);
         BeQt::waitNonBlocking(Global::craftStartDelay());
         timeout();
         timer.start(calculateTimeout());
