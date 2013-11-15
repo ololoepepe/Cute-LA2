@@ -217,6 +217,7 @@ QPoint vChatBottomPos = QPoint(-1, -1);
 QPoint vCraftButtonPos = QPoint(-1, -1);
 int vMpRegen = 10;
 int vMpConsumption = 10;
+int vCraftStartDelay = 5;
 
 #if defined(Q_OS_WIN)
 UINT modifierToVKey(Qt::Modifier m)
@@ -778,7 +779,10 @@ void loadSettings()
     vMpRegen = (ok && bRangeD(1, 100).contains(x)) ? x : 10;
     ok = false;
     x = bSettings->value("Craft/mp_consumption", 10).toInt(&ok);
-    vMpConsumption= (ok && bRangeD(10, 500).contains(x)) ? x : 10;
+    vMpConsumption = (ok && bRangeD(10, 500).contains(x)) ? x : 10;
+    ok = false;
+    seconds = bSettings->value("Craft/start_delay", 5).toInt(&ok);
+    vCraftStartDelay = (ok && bRangeD(1, 60).contains(seconds)) ? seconds : 5;
 }
 
 void saveSettings()
@@ -808,6 +812,7 @@ void saveSettings()
     bSettings->setValue("Craft/button_pos", vCraftButtonPos);
     bSettings->setValue("Craft/mp_regeneration", vMpRegen);
     bSettings->setValue("Craft/mp_consumption", vMpConsumption);
+    bSettings->setValue("Craft/start_delay", vCraftStartDelay);
 }
 
 void setGameDir(const QString &dir)
@@ -930,6 +935,13 @@ void setMpConsumption(int x)
     vMpConsumption = x;
 }
 
+void setCraftStartDelay(int seconds)
+{
+    if (!bRangeD(1, 60).contains(seconds))
+        return;
+    vCraftStartDelay = seconds;
+}
+
 QString gameDir()
 {
     return vGameDir;
@@ -1038,6 +1050,11 @@ int mpRegen()
 int mpConsumption()
 {
     return vMpConsumption;
+}
+
+int craftStartDelay()
+{
+    return vCraftStartDelay;
 }
 
 }

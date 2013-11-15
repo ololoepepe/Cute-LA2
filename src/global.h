@@ -71,6 +71,7 @@ void setMainPanelNumber(int n);
 void setFishingKeyList(const FishingKeyList &list);
 void setMpRegen(int x);
 void setMpConsumption(int x);
+void setCraftStartDelay(int seconds);
 QString gameDir();
 int timerInterval();
 int detectionDelay();
@@ -91,6 +92,7 @@ QString fishingKey(FishingAction a);
 QPoint craftButtonPos();
 int mpRegen();
 int mpConsumption();
+int craftStartDelay();
 //
 const QImage *olympiadMessageMask();
 

@@ -23,10 +23,12 @@ private slots:
     void timeout();
     void btnClicked();
     void selectButton();
+    void sboxDelayValueChanged(int value);
     void sboxRegenValueChanged(int value);
     void sboxConsumptionValueChanged(int value);
 private:
     QPushButton *btn;
+    QSpinBox *sboxDelay;
     QSpinBox *sboxRegen;
     QSpinBox *sboxConsumption;
     QHBoxLayout *hltButton;

@@ -27,6 +27,12 @@ CraftWidget::CraftWidget(QWidget *parent) :
         hlt->addWidget(btn);
       vlt->addLayout(hlt);
         QFormLayout *flt = new QFormLayout;
+          sboxDelay = new QSpinBox;
+            sboxDelay->setMinimum(1);
+            sboxDelay->setMaximum(60);
+            sboxDelay->setValue(Global::craftStartDelay());
+            connect(sboxDelay, SIGNAL(valueChanged(int)), this, SLOT(sboxDelayValueChanged(int)));
+          flt->addRow(" ", sboxDelay);
           sboxRegen = new QSpinBox;
             sboxRegen->setMinimum(1);
             sboxRegen->setMaximum(100);
@@ -61,6 +67,7 @@ int CraftWidget::calculateTimeout()
 
 void CraftWidget::retranslateUi()
 {
+    BApplication::labelForField<QLabel>(sboxDelay)->setText(tr("Start delay (seconds):", "lbl text"));
     BApplication::labelForField<QLabel>(sboxRegen)->setText(tr("MP regeneration per tick:", "lbl text"));
     BApplication::labelForField<QLabel>(sboxConsumption)->setText(tr("MP consumption per item:", "lbl text"));
     BApplication::labelForField<QLabel>(hltButton)->setText(tr("Craft button:", "lbl text"));
@@ -84,6 +91,8 @@ void CraftWidget::btnClicked()
     }
     else
     {
+        BeQt::waitNonBlocking(Global::craftStartDelay());
+        timeout();
         timer.start(calculateTimeout());
         btn->setText(trStop);
     }
@@ -95,6 +104,11 @@ void CraftWidget::selectButton()
         return;
     QPoint pos = Global::craftButtonPos();
     lblButtonPos->setText("<b>(" + QString::number(pos.x()) + "; " + QString::number(pos.y()) +")</b>");
+}
+
+void CraftWidget::sboxDelayValueChanged(int value)
+{
+    Global::setCraftStartDelay(value);
 }
 
 void CraftWidget::sboxRegenValueChanged(int value)
