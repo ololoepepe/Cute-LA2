@@ -107,10 +107,12 @@ void CraftWidget::btnClicked()
     }
     else
     {
+        btn->setEnabled(false);
+        btn->setText(trStop);
         if (!sboxCount->value())
             sboxCount->setValue(-1);
-        btn->setText(trStop);
         BeQt::waitNonBlocking(Global::craftStartDelay() * BeQt::Second);
+        btn->setEnabled(true);
         timeout();
         timer.start(calculateTimeout());
     }
