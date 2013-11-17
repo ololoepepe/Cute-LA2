@@ -18,6 +18,7 @@
 CraftWidget::CraftWidget(QWidget *parent) :
     QWidget(parent)
 {
+    active = false;
     connect(&timer, SIGNAL(timeout()), this, SLOT(timeout()));
     trStart = BTranslation::translate("CraftWidget", "Start crafting", "btn text");
     trStop = BTranslation::translate("CraftWidget", "Stop crafting", "btn text");
@@ -99,23 +100,23 @@ void CraftWidget::timeout()
 
 void CraftWidget::btnClicked()
 {
-    Global::switchToWindow();
-    if (timer.isActive())
+    active = !active;
+    btn->setText(active ? trStop : trStart);
+    if (!active)
     {
         timer.stop();
-        btn->setText(trStart);
+        Global::switchToWindow();
+        return;
     }
-    else
-    {
-        btn->setEnabled(false);
-        btn->setText(trStop);
-        if (!sboxCount->value())
-            sboxCount->setValue(-1);
-        BeQt::waitNonBlocking(Global::craftStartDelay() * BeQt::Second);
-        btn->setEnabled(true);
-        timeout();
-        timer.start(calculateTimeout());
-    }
+    if (!sboxCount->value())
+        sboxCount->setValue(-1);
+    int delay = Global::craftStartDelay();
+    Global::switchToWindow();
+    BeQt::waitNonBlocking(btn, SIGNAL(clicked()), delay * BeQt::Second);
+    if (!active)
+        return;
+    timeout();
+    timer.start(calculateTimeout());
 }
 
 void CraftWidget::selectButton()

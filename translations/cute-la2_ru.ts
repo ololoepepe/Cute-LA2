@@ -4,49 +4,49 @@
 <context>
     <name>CraftWidget</name>
     <message>
-        <location filename="../src/craftwidget.cpp" line="22"/>
+        <location filename="../src/craftwidget.cpp" line="23"/>
         <source>Start crafting</source>
         <comment>btn text</comment>
         <translation>Начать крафтить</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="23"/>
+        <location filename="../src/craftwidget.cpp" line="24"/>
         <source>Stop crafting</source>
         <comment>btn text</comment>
         <translation>Прекратить крафтить</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="77"/>
+        <location filename="../src/craftwidget.cpp" line="78"/>
         <source>Item count:</source>
         <comment>lbl text</comment>
         <translation>Количество предметов:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="78"/>
+        <location filename="../src/craftwidget.cpp" line="79"/>
         <source>Start delay (seconds):</source>
         <comment>lbl text</comment>
         <translation>Задержка перед началом (секунд):</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="79"/>
+        <location filename="../src/craftwidget.cpp" line="80"/>
         <source>MP regeneration per tick:</source>
         <comment>lbl text</comment>
         <translation>Регенерация MP за тик:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="80"/>
+        <location filename="../src/craftwidget.cpp" line="81"/>
         <source>MP consumption per item:</source>
         <comment>lbl text</comment>
         <translation>Потребление MP на вещь:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="81"/>
+        <location filename="../src/craftwidget.cpp" line="82"/>
         <source>Craft button:</source>
         <comment>lbl text</comment>
         <translation>Кнопка крафта:</translation>
     </message>
     <message>
-        <location filename="../src/craftwidget.cpp" line="82"/>
+        <location filename="../src/craftwidget.cpp" line="83"/>
         <source>Select position</source>
         <comment>btn text</comment>
         <translation>Выбрать положение</translation>
@@ -521,7 +521,7 @@
         <location filename="../src/manorwidget.cpp" line="67"/>
         <source>Deactivate</source>
         <comment>btn text</comment>
-        <translation>Деавтивировать</translation>
+        <translation>Деактивировать</translation>
     </message>
     <message>
         <location filename="../src/manorwidget.cpp" line="75"/>

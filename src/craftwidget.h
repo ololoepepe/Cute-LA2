@@ -36,6 +36,7 @@ private:
     QLabel *lblButtonPos;
     QPushButton *btnSelectButton;
     QTimer timer;
+    bool active;
     BTranslation trStart;
     BTranslation trStop;
 };
