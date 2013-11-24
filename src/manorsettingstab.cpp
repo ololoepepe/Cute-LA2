@@ -71,8 +71,8 @@ ManorSettingsTab::ManorSettingsTab()
         hlt->addWidget(tmedtStartAuto);
       flt->addRow(tr("Activate automatically:", "lbl text"), hlt);
       sboxTimeCorrection = new QSpinBox;
-        sboxTimeCorrection->setMinimum(-1000);
-        sboxTimeCorrection->setMaximum(1000);
+        sboxTimeCorrection->setMinimum(-10000);
+        sboxTimeCorrection->setMaximum(10000);
         sboxTimeCorrection->setSingleStep(1);
         sboxTimeCorrection->setValue(Global::manorTimeCorrection());
       flt->addRow(tr("Correction (ms):", "lbl text"), sboxTimeCorrection);

@@ -730,7 +730,7 @@ void loadSettings()
     vManorAutoStartTime = bSettings->value("Manor/auto_start_time", QTime(20, 00)).toTime();
     ok = false;
     msecs = bSettings->value("Manor/time_correction", 0).toInt(&ok);
-    vManorTimeCorrection = (ok && bRangeD(-1000, 1000).contains(msecs)) ? msecs : 0;
+    vManorTimeCorrection = (ok && bRangeD(-10000, 10000).contains(msecs)) ? msecs : 0;
     vManorButtonPos = bSettings->value("Manor/button_pos", QPoint(-1, -1)).toPoint();
     vFishingEquipBeforeStart = bSettings->value("Fishing/equip_before_start", true).toBool();
     ok = false;
@@ -880,7 +880,7 @@ void setManorAutoStartTime(const QTime &t)
 
 void setManorTimeCorrection(int msecs)
 {
-    if (!bRangeD(-1000, 1000).contains(msecs))
+    if (!bRangeD(-10000, 10000).contains(msecs))
         return;
     vManorTimeCorrection = msecs;
 }
