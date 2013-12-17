@@ -219,7 +219,7 @@
     <message>
         <location filename="../src/fishingwidget.cpp" line="231"/>
         <source>Deciding which skill to use...</source>
-        <translation>Решаем, какое умение сипользовать...</translation>
+        <translation>Решаем, какое умение использовать...</translation>
     </message>
     <message>
         <location filename="../src/fishingwidget.cpp" line="237"/>
