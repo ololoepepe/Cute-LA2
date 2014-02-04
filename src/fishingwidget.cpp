@@ -300,8 +300,9 @@ void FishingWidget::btnClicked()
             if (!wait(1000))
                 return;
             //The following is needed to make fishing possible again (LA2 bug?)
+            //But well, on high levels this is needed to restore HP, or the next monster may kill the character
             Global::emulateKeyPress(Global::fishingKey(Global::SitStand));
-            if (!wait(4000))
+            if (!wait(Global::restTime() * BeQt::Second))
                 return;
             Global::emulateKeyPress(Global::fishingKey(Global::SitStand));
             if (!wait(4000))

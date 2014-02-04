@@ -85,61 +85,67 @@
         <translation>Номер основной панели:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="57"/>
+        <location filename="../src/fishingsettingstab.cpp" line="50"/>
+        <source>Rest time:</source>
+        <comment>lbl text</comment>
+        <translation>Время восстановления:</translation>
+    </message>
+    <message>
+        <location filename="../src/fishingsettingstab.cpp" line="62"/>
         <source>Rod:</source>
         <comment>lbl text</comment>
         <translation>Удочка:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="58"/>
+        <location filename="../src/fishingsettingstab.cpp" line="63"/>
         <source>Bait:</source>
         <comment>lbl text</comment>
         <translation>Наживка:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="59"/>
+        <location filename="../src/fishingsettingstab.cpp" line="64"/>
         <source>Fishing:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="60"/>
+        <location filename="../src/fishingsettingstab.cpp" line="65"/>
         <source>Reeling:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="61"/>
+        <location filename="../src/fishingsettingstab.cpp" line="66"/>
         <source>Pumping:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="62"/>
+        <location filename="../src/fishingsettingstab.cpp" line="67"/>
         <source>Fishing shot:</source>
         <comment>lbl text</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="63"/>
+        <location filename="../src/fishingsettingstab.cpp" line="68"/>
         <source>Attack:</source>
         <comment>lbl text</comment>
         <translation>Атака:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="64"/>
+        <location filename="../src/fishingsettingstab.cpp" line="69"/>
         <source>Sit/stand:</source>
         <comment>lbl text</comment>
         <translation>Сесть/встать:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="65"/>
+        <location filename="../src/fishingsettingstab.cpp" line="70"/>
         <source>Weapon:</source>
         <comment>lbl text</comment>
         <translation>Оружие:</translation>
     </message>
     <message>
-        <location filename="../src/fishingsettingstab.cpp" line="72"/>
+        <location filename="../src/fishingsettingstab.cpp" line="77"/>
         <source>Fishing</source>
         <comment>title</comment>
         <translation>Рыбалка</translation>
@@ -212,7 +218,7 @@
     </message>
     <message>
         <location filename="../src/fishingwidget.cpp" line="224"/>
-        <location filename="../src/fishingwidget.cpp" line="316"/>
+        <location filename="../src/fishingwidget.cpp" line="317"/>
         <source>Cycle finished.</source>
         <translation>Цикл завершен.</translation>
     </message>
@@ -265,17 +271,17 @@
         <translation>Монстр убит!</translation>
     </message>
     <message>
-        <location filename="../src/fishingwidget.cpp" line="312"/>
+        <location filename="../src/fishingwidget.cpp" line="313"/>
         <source>No monster. Waiting a bit...</source>
         <translation>Монстр не появился. Ждем немного...</translation>
     </message>
     <message>
-        <location filename="../src/fishingwidget.cpp" line="318"/>
+        <location filename="../src/fishingwidget.cpp" line="319"/>
         <source>Switching to main panel...</source>
         <translation>Переключаемся на основную панель...</translation>
     </message>
     <message>
-        <location filename="../src/fishingwidget.cpp" line="320"/>
+        <location filename="../src/fishingwidget.cpp" line="321"/>
         <source>Stopped fishing.</source>
         <translation>Закончили рыбачить.</translation>
     </message>

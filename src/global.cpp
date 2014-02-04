@@ -205,6 +205,7 @@ bool vFishingEquipBeforeStart = true;
 int vFishingStartDelay = 5;
 int vFishingPanelNumber = 1;
 int vMainPanelNumber = 1;
+int vRestTime = 30;
 FishingKeyList vFishingKeyList = FishingKeyList() << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0;
 QImage vOlympiadMessageMask;
 #if defined(Q_OS_WIN)
@@ -742,6 +743,9 @@ void loadSettings()
     ok = false;
     n = bSettings->value("Fishing/main_panel_number", 1).toInt(&ok);
     vMainPanelNumber = (ok && bRangeD(1, 10).contains(n)) ? n : 1;
+    ok = false;
+    seconds = bSettings->value("Fishing/rest_time", 30).toInt(&ok);
+    vRestTime = (ok && bRangeD(5, 300).contains(seconds)) ? seconds : 30;
     FishingKeyList list;
     int sz = bSettings->beginReadArray("Fishing/keys");
     foreach (int i, bRangeD(0, sz - 1))
@@ -802,6 +806,7 @@ void saveSettings()
     bSettings->setValue("Fishing/start_delay", vFishingStartDelay);
     bSettings->setValue("Fishing/panel_number", vFishingPanelNumber);
     bSettings->setValue("Fishing/main_panel_number", vMainPanelNumber);
+    bSettings->setValue("Fishing/rest_time", vRestTime);
     bSettings->beginWriteArray("Fishing/keys", 9);
     foreach (int i, bRangeD(0, 8))
     {
@@ -911,6 +916,13 @@ void setMainPanelNumber(int n)
     vMainPanelNumber = n;
 }
 
+void setRestTime(int secs)
+{
+    if (!bRangeD(5, 300).contains(secs))
+        return;
+    vRestTime = secs;
+}
+
 void setFishingKeyList(const FishingKeyList &list)
 {
     if (list.size() != 9)
@@ -1015,6 +1027,11 @@ int fishingPanelNumber()
 int mainPanelNumber()
 {
     return vMainPanelNumber;
+}
+
+int restTime()
+{
+    return vRestTime;
 }
 
 FishingKeyList fishingKeyList()

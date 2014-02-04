@@ -30,6 +30,7 @@ private:
     QSpinBox *sboxDelay;
     QComboBox *cmboxPanel;
     QComboBox *cmboxMainPanel;
+    QSpinBox *sboxRestTime;
     QList<QComboBox *> cmboxes;
 };
 

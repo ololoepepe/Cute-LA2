@@ -43,6 +43,11 @@ FishingSettingsTab::FishingSettingsTab()
             cmboxMainPanel->addItem(QString::number(i));
         cmboxMainPanel->setCurrentIndex(Global::mainPanelNumber() - 1);
       flt->addRow(tr("Main panel number:", "lbl text"), cmboxMainPanel);
+      sboxRestTime = new QSpinBox;
+        sboxRestTime->setMinimum(5);
+        sboxRestTime->setMaximum(300);
+        sboxRestTime->setValue(Global::restTime());
+      flt->addRow(tr("Rest time:", "lbl text"), sboxRestTime);
       Global::FishingKeyList keys = Global::fishingKeyList();
       for (int i = 0; i < 9; ++i)
       {
@@ -85,6 +90,7 @@ bool FishingSettingsTab::hasDefault() const
 bool FishingSettingsTab::restoreDefault()
 {
     sboxDelay->setValue(5);
+    sboxRestTime->setValue(30);
     return true;
 }
 
@@ -94,6 +100,7 @@ bool FishingSettingsTab::saveSettings()
     Global::setFishingStartDelay(sboxDelay->value());
     Global::setFishingPanelNumber(cmboxPanel->currentText().toInt());
     Global::setMainPanelNumber(cmboxMainPanel->currentText().toInt());
+    Global::setRestTime(sboxRestTime->value());
     Global::FishingKeyList list;
     foreach (QComboBox *c, cmboxes)
         list << c->currentText().mid(1).toInt();
