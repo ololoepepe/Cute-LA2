@@ -219,7 +219,7 @@ void FishingWidget::btnClicked()
         if (!pecked)
         {
             logFishing("<font color=red>" + tr("No fish pecked.") + "</font> " + tr("Waiting a bit..."));
-            if (!wait(2000))
+            if (!wait(5000))
                 return;
             logFishing("<font color=green>" + tr("Cycle finished.") + "</font>");
             continue;
