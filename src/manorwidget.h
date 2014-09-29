@@ -1,32 +1,20 @@
 #ifndef MANORWIDGET_H
 #define MANORWIDGET_H
 
+class QCheckBox;
+class QLabel;
+class QPushButton;
+class QTabWidget;
+
 #include <BTranslation>
 
-#include <QWidget>
 #include <QTimer>
 #include <QElapsedTimer>
-
-class QTabWidget;
-class QLabel;
-class QCheckBox;
-class QPushButton;
+#include <QWidget>
 
 class ManorWidget : public QWidget
 {
     Q_OBJECT
-public:
-    explicit ManorWidget(QWidget *parent = 0);
-public:
-    static void resetTimerInterval();
-    static void resetAutoStartEnabled();
-    static void resetAutoStart();
-private slots:
-    void retranslateUi();
-    void timeout();
-    void autoStartTimeout();
-    void cboxToggled(bool b);
-    void btnClicked();
 private:
     static ManorWidget *instance;
 private:
@@ -39,6 +27,18 @@ private:
     qint64 msecs;
     BTranslation trActivate;
     BTranslation trDeactivate;
+public:
+    explicit ManorWidget(QWidget *parent = 0);
+public:
+    static void resetTimerInterval();
+    static void resetAutoStartEnabled();
+    static void resetAutoStart();
+private slots:
+    void retranslateUi();
+    void timeout();
+    void autoStartTimeout();
+    void cboxToggled(bool b);
+    void btnClicked();
 };
 
 #endif // MANORWIDGET_H

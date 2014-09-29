@@ -1,20 +1,20 @@
 #include "timerwidget.h"
+
+#include "application.h"
 #include "global.h"
 
-#include <BApplication>
 #include <BeQt>
 #include <BTranslation>
 
-#include <QString>
-#include <QWidget>
-#include <QTimer>
+#include <QDebug>
 #include <QElapsedTimer>
+#include <QFont>
 #include <QLabel>
 #include <QPushButton>
+#include <QString>
+#include <QTimer>
 #include <QVBoxLayout>
-#include <QFont>
-
-#include <QDebug>
+#include <QWidget>
 
 TimerWidget::TimerWidget(QWidget *parent) :
     QWidget(parent)
@@ -91,15 +91,12 @@ void TimerWidget::btnStartClicked()
 
 void TimerWidget::btnPauseClicked()
 {
-    if (timer.isActive())
-    {
+    if (timer.isActive()) {
         timer.stop();
         msecs += etimer.elapsed();
         etimer.invalidate();
         btnPause->setText(trUnpause);
-    }
-    else
-    {
+    } else {
         timer.start(Global::timerInterval());
         etimer.invalidate();
         etimer.start();

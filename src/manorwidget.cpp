@@ -1,24 +1,25 @@
 #include "manorwidget.h"
+
+#include "application.h"
 #include "global.h"
 
-#include <BTranslation>
-#include <BApplication>
 #include <BeQt>
+#include <BTranslation>
 
-#include <QWidget>
-#include <QTimer>
+#include <QCheckBox>
 #include <QElapsedTimer>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QImage>
+#include <QFont>
 #include <QFuture>
 #include <QFutureWatcher>
-#include <QCheckBox>
+#include <QHBoxLayout>
+#include <QImage>
 #include <QLabel>
-#include <QFont>
 #include <QPushButton>
-#include <QTime>
 #include <QtConcurrentMap>
+#include <QTime>
+#include <QTimer>
+#include <QVBoxLayout>
+#include <QWidget>
 
 class MyBool
 {
@@ -116,14 +117,14 @@ void ManorWidget::retranslateUi()
 void ManorWidget::autoStartTimeout()
 {
     if (btn->isEnabled() && !timer.isActive() && Global::manorAutoStartEnabled()
-            && QTime::currentTime() >= Global::manorAutoStartTime())
+            && QTime::currentTime() >= Global::manorAutoStartTime()) {
         btn->animateClick();
+    }
 }
 
 void ManorWidget::timeout()
 {
-    if (!etimer.isValid())
-    {
+    if (!etimer.isValid()) {
         QPoint pos = Global::chatBottomPos() + QPoint(0, -12) + QPoint(0, -15 * (Global::chatRowCount() - 1));
         int w = Global::olympiadMessageMask()->width();
         QImage s = Global::grabDesktop(pos, w, 15 * (Global::chatRowCount() - 1) + 12);
@@ -132,8 +133,7 @@ void ManorWidget::timeout()
         p.width = w;
         p.mask = Global::olympiadMessageMask();
         QList<DetectParameters> list;
-        foreach (int i, bRangeD(0, Global::chatRowCount()))
-        {
+        foreach (int i, bRangeD(0, Global::chatRowCount())) {
             p.lineNumber = i;
             list << p;
         }
@@ -141,8 +141,7 @@ void ManorWidget::timeout()
         QFutureWatcher<MyBool> fw;
         fw.setFuture(f);
         BeQt::waitNonBlocking(&fw, SIGNAL(finished()));
-        if (f.result())
-        {
+        if (f.result()) {
             if (cbox->isChecked())
                 cbox->setChecked(false);
             btn->setEnabled(false);
@@ -152,12 +151,9 @@ void ManorWidget::timeout()
             timer.setInterval(Global::manorTimerInterval());
             timeout();
         }
-    }
-    else
-    {
+    } else {
         qint64 r = msecs - etimer.elapsed();
-        if (r > 0)
-        {
+        if (r > 0) {
             QString m = QString::number(r / (BeQt::Minute));
             if (m.length() < 2)
                 m.prepend("0");
@@ -168,9 +164,7 @@ void ManorWidget::timeout()
             QString ms = QString::number(r % BeQt::Second);
             ms.prepend(QString().fill('0', 3 - ms.length()));
             lbl->setText(m + ":" + s + ":" + ms);
-        }
-        else
-        {
+        } else {
             Global::emulateMouseClick(Qt::LeftButton, Global::manorButtonPos());
             timer.stop();
             etimer.invalidate();
@@ -184,13 +178,10 @@ void ManorWidget::timeout()
 void ManorWidget::cboxToggled(bool b)
 {
     Global::setManorAutoStartEnabled(b);
-    if (b)
-    {
+    if (b) {
         autoStartTimeout();
         autoStartTimer.start(BeQt::Minute);
-    }
-    else
-    {
+    } else {
         autoStartTimer.stop();
     }
     Global::switchToWindow();
@@ -198,13 +189,10 @@ void ManorWidget::cboxToggled(bool b)
 
 void ManorWidget::btnClicked()
 {
-    if (timer.isActive())
-    {
+    if (timer.isActive()) {
         timer.stop();
         lbl->setText(tr("Ready", "lbl text"));
-    }
-    else
-    {
+    } else {
         lbl->setText(tr("Activated", "lbl text"));
         timer.start();
     }

@@ -1,4 +1,5 @@
 #include "generalsettingstab.h"
+
 #include "application.h"
 #include "global.h"
 #include "mainwindow.h"
@@ -6,17 +7,17 @@
 #include <BAbstractSettingsTab>
 #include <BLocaleComboBox>
 
-#include <QObject>
-#include <QFormLayout>
-#include <QString>
-#include <QIcon>
-#include <QLocale>
-#include <QHBoxLayout>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QFileDialog>
-#include <QSpinBox>
 #include <QCheckBox>
+#include <QFileDialog>
+#include <QFormLayout>
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QLineEdit>
+#include <QLocale>
+#include <QObject>
+#include <QPushButton>
+#include <QSpinBox>
+#include <QString>
 
 /*============================================================================
 ================================ GeneralSettingsTab ==========================
@@ -28,7 +29,8 @@ GeneralSettingsTab::GeneralSettingsTab() :
     BAbstractSettingsTab()
 {
     QFormLayout *flt = new QFormLayout(this);
-    mlcmbox = new BLocaleComboBox(true, this);
+    mlcmbox = new BLocaleComboBox(this);
+      mlcmbox->setAvailableLocales(Application::availableLocales(true));
       mlcmbox->setCurrentLocale(Application::locale());
     flt->addRow("Language (" + tr("language", "lbl text") + "):", mlcmbox);
     QHBoxLayout *hlt = new QHBoxLayout;
@@ -57,6 +59,11 @@ GeneralSettingsTab::GeneralSettingsTab() :
 }
 
 /*============================== Public methods ============================*/
+
+QString GeneralSettingsTab::id() const
+{
+    return "general";
+}
 
 QString GeneralSettingsTab::title() const
 {

@@ -5,16 +5,29 @@
 
 #include <BTranslation>
 
-#include <QWidget>
 #include <QImage>
+#include <QWidget>
 
-class QPushButton;
-class QPlainTextEdit;
 class QEventLoop;
+class QPlainTextEdit;
+class QPushButton;
 
 class FishingWidget : public QWidget
 {
     Q_OBJECT
+private:
+    static FishingWidget *instance;
+private:
+    QPushButton *btn;
+    QPlainTextEdit *ptedt;
+    Global::FishingKeyList keys;
+    QImage targetClose;
+    bool active;
+    bool fishing;
+    bool mustExit;
+    QEventLoop *loop;
+    BTranslation trStart;
+    BTranslation trStop;
 public:
     explicit FishingWidget(QWidget *parent = 0);
 public:
@@ -30,19 +43,6 @@ private:
 private slots:
     void retranslateUi();
     void btnClicked();
-private:
-    static FishingWidget *instance;
-private:
-    QPushButton *btn;
-    QPlainTextEdit *ptedt;
-    Global::FishingKeyList keys;
-    QImage targetClose;
-    bool active;
-    bool fishing;
-    bool mustExit;
-    QEventLoop *loop;
-    BTranslation trStart;
-    BTranslation trStop;
 };
 
 #endif // FISHINGWIDGET_H

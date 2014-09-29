@@ -1,17 +1,19 @@
 #include "craftwidget.h"
+
+#include "application.h"
 #include "global.h"
 
+#include <BGuiTools>
 #include <BTranslation>
-#include <BApplication>
 
-#include <QWidget>
-#include <QTimer>
+#include <QFormLayout>
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QPushButton>
 #include <QSpinBox>
+#include <QTimer>
 #include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QFormLayout>
-#include <QLabel>
+#include <QWidget>
 
 #include <climits>
 
@@ -70,16 +72,19 @@ CraftWidget::CraftWidget(QWidget *parent) :
 
 int CraftWidget::calculateTimeout()
 {
-    return (Global::mpConsumption() / Global::mpRegen()) * 3 * BeQt::Second;
+    double d = double(Global::mpConsumption()) / double(Global::mpRegen());
+    if (d < 0.1)
+        d = 0.1;
+    return int(d) * 3 * BeQt::Second;
 }
 
 void CraftWidget::retranslateUi()
 {
-    BApplication::labelForField<QLabel>(sboxCount)->setText(tr("Item count:", "lbl text"));
-    BApplication::labelForField<QLabel>(sboxDelay)->setText(tr("Start delay (seconds):", "lbl text"));
-    BApplication::labelForField<QLabel>(sboxRegen)->setText(tr("MP regeneration per tick:", "lbl text"));
-    BApplication::labelForField<QLabel>(sboxConsumption)->setText(tr("MP consumption per item:", "lbl text"));
-    BApplication::labelForField<QLabel>(hltButton)->setText(tr("Craft button:", "lbl text"));
+    BGuiTools::labelForField<QLabel>(sboxCount)->setText(tr("Item count:", "lbl text"));
+    BGuiTools::labelForField<QLabel>(sboxDelay)->setText(tr("Start delay (seconds):", "lbl text"));
+    BGuiTools::labelForField<QLabel>(sboxRegen)->setText(tr("MP regeneration per tick:", "lbl text"));
+    BGuiTools::labelForField<QLabel>(sboxConsumption)->setText(tr("MP consumption per item:", "lbl text"));
+    BGuiTools::labelForField<QLabel>(hltButton)->setText(tr("Craft button:", "lbl text"));
     btnSelectButton->setText(tr("Select position", "btn text"));
     btn->setText(timer.isActive() ? trStop : trStart);
 }
@@ -87,13 +92,10 @@ void CraftWidget::retranslateUi()
 void CraftWidget::timeout()
 {
     Global::emulateMouseClick(Qt::LeftButton, Global::craftButtonPos());
-    if (sboxCount->value())
-    {
+    if (sboxCount->value()) {
         timer.setInterval(calculateTimeout());
         sboxCount->setValue(sboxCount->value() - 1);
-    }
-    else
-    {
+    } else {
         btn->animateClick();
     }
 }
@@ -102,8 +104,7 @@ void CraftWidget::btnClicked()
 {
     active = !active;
     btn->setText(active ? trStop : trStart);
-    if (!active)
-    {
+    if (!active) {
         timer.stop();
         Global::switchToWindow();
         return;

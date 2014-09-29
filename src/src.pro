@@ -3,18 +3,16 @@ TARGET = cute-la2
 
 CONFIG += release
 
-QT = core concurrent network gui widgets
 BEQT = core network widgets
 
 isEmpty(BEQT_PREFIX) {
-    #TODO: Add MacOS support
     mac|unix {
-        BEQT_PREFIX=/usr/share/cute-la2
+        BEQT_PREFIX=/usr/share/beqt
     } else:win32 {
-        BEQT_PREFIX=$$(systemdrive)/PROGRA~1/Cute-LA2
+        BEQT_PREFIX=$$(systemdrive)/PROGRA~1/BeQt
     }
 }
-include($${BEQT_PREFIX}/depend.pri)
+include($${BEQT_PREFIX}/share/beqt/depend.pri)
 
 HEADERS += \
     application.h \
@@ -78,24 +76,15 @@ contains(CLA2_CONFIG, builtin_resources) {
 
 !contains(CLA2_CONFIG, no_install) {
 
-#mac {
-    #isEmpty(PREFIX):PREFIX=/Library
-    #TODO: Add ability to create bundles
-#} else:unix:!mac {
-#TODO: Add MacOS support
+
 mac|unix {
     isEmpty(PREFIX):PREFIX=/usr
-    equals(PREFIX, "/")|equals(PREFIX, "/usr")|equals(PREFIX, "/usr/local") {
-        isEmpty(BINARY_INSTALLS_PATH):BINARY_INSTALLS_PATH=$${PREFIX}/bin
-        isEmpty(RESOURCES_INSTALLS_PATH):RESOURCES_INSTALLS_PATH=$${PREFIX}/share/cute-la2
-    } else {
-        isEmpty(BINARY_INSTALLS_PATH):BINARY_INSTALLS_PATH=$${PREFIX}
-        isEmpty(RESOURCES_INSTALLS_PATH):RESOURCES_INSTALLS_PATH=$${PREFIX}
-    }
 } else:win32 {
     isEmpty(PREFIX):PREFIX=$$(systemdrive)/PROGRA~1/Cute-LA2
-    isEmpty(BINARY_INSTALLS_PATH):BINARY_INSTALLS_PATH=$${PREFIX}
 }
+
+isEmpty(BINARY_INSTALLS_PATH):BINARY_INSTALLS_PATH=$${PREFIX}/bin
+isEmpty(RESOURCES_INSTALLS_PATH):RESOURCES_INSTALLS_PATH=$${PREFIX}/share/cute-la2
 
 ##############################################################################
 ################################ Binaries ####################################

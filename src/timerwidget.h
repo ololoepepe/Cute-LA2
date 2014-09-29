@@ -6,22 +6,13 @@ class QPushButton;
 
 #include <BTranslation>
 
-#include <QWidget>
-#include <QTimer>
 #include <QElapsedTimer>
+#include <QTimer>
+#include <QWidget>
 
 class TimerWidget : public QWidget
 {
     Q_OBJECT
-public:
-    explicit TimerWidget(QWidget *parent = 0);
-public:
-    static void resetTimerInterval();
-private slots:
-    void retranslateUi();
-    void timeout();
-    void btnStartClicked();
-    void btnPauseClicked();
 private:
     static TimerWidget *instance;
 private:
@@ -33,6 +24,15 @@ private:
     qint64 msecs;
     BTranslation trPause;
     BTranslation trUnpause;
+public:
+    explicit TimerWidget(QWidget *parent = 0);
+public:
+    static void resetTimerInterval();
+private slots:
+    void retranslateUi();
+    void timeout();
+    void btnStartClicked();
+    void btnPauseClicked();
 };
 
 #endif // TIMERWIDGET_H

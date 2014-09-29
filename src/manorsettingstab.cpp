@@ -1,39 +1,25 @@
 #include "manorsettingstab.h"
+
+#include "application.h"
 #include "global.h"
 #include "mainwindow.h"
 
 #include <BAbstractSettingsTab>
-#include <BPasswordWidget>
 #include <BDirTools>
 
-#include <QObject>
-#include <QVariantMap>
-#include <QString>
-#include <QIcon>
 #include <QCheckBox>
-#include <QLineEdit>
+#include <QDebug>
 #include <QFormLayout>
-#include <QVariant>
-#include <QByteArray>
-#include <QSettings>
 #include <QHBoxLayout>
-#include <QPushButton>
-#include <QMessageBox>
-#include <QVBoxLayout>
-#include <QGroupBox>
-#include <QComboBox>
-#include <QToolButton>
-#include <QHBoxLayout>
-#include <QSpinBox>
-#include <QFileDialog>
-#include <QImage>
+#include <QIcon>
 #include <QLabel>
+#include <QObject>
 #include <QPixmap>
-#include <QCheckBox>
+#include <QPushButton>
+#include <QSpinBox>
+#include <QString>
 #include <QTime>
 #include <QTimeEdit>
-
-#include <QDebug>
 
 /*============================================================================
 ================================ ManorSettingsTab ============================
@@ -97,6 +83,11 @@ ManorSettingsTab::ManorSettingsTab()
 
 /*============================== Public methods ============================*/
 
+QString ManorSettingsTab::id() const
+{
+    return "manor";
+}
+
 QString ManorSettingsTab::title() const
 {
     return tr("Manor", "title");
@@ -104,7 +95,7 @@ QString ManorSettingsTab::title() const
 
 QIcon ManorSettingsTab::icon() const
 {
-    return BApplication::icon("harvester");
+    return Application::icon("harvester");
 }
 
 bool ManorSettingsTab::hasDefault() const

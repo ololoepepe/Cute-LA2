@@ -1,43 +1,21 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-class QLabel;
-class QPushButton;
-class QPlainTextEdit;
 class QAction;
-class QMenu;
-class QTabWidget;
 class QCheckBox;
 class QCloseEvent;
-class QString;
-class QEventLoop;
-class QWidget;
+class QLabel;
+class QMenu;
+class QPushButton;
 class QSplitter;
-
-#include "global.h"
-
-#include <BTranslation>
+class QTabWidget;
+class QWidget;
 
 #include <QMainWindow>
-#include <QImage>
-#include <QTimer>
-#include <QElapsedTimer>
-#include <QPoint>
-#include <QTime>
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-public:
-    explicit MainWindow(QWidget *parent = 0);
-protected:
-    void closeEvent(QCloseEvent *e);
-private:
-    void resetInterface(bool enabled);
-private slots:
-    void retranslateUi();
-    void cboxToggled(bool b);
-    void btnDetectClicked();
 private:
     QSplitter *spltr;
       QTabWidget *twgtManor;
@@ -56,6 +34,16 @@ private:
       QAction *mactQuit;
     QMenu *mmnuEdit;
     QMenu *mmnuHelp;
+public:
+    explicit MainWindow(QWidget *parent = 0);
+protected:
+    void closeEvent(QCloseEvent *e);
+private:
+    void resetInterface(bool enabled);
+private slots:
+    void retranslateUi();
+    void cboxToggled(bool b);
+    void btnDetectClicked();
 };
 
 #endif // MAINWINDOW_H

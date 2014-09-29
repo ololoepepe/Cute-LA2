@@ -64,10 +64,8 @@ private:
 Frame::Frame(Shape s)
 {
     pressed = false;
-    switch (s)
-    {
-    case FrameShape:
-    {
+    switch (s) {
+    case FrameShape: {
         QHBoxLayout *hlt = new QHBoxLayout(this);
           hlt->setContentsMargins(0, 0, 0, 0);
           hlt->setSpacing(0);
@@ -106,8 +104,7 @@ Frame::Frame(Shape s)
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
         break;
     }
-    case SightShape:
-    {
+    case SightShape: {
         QVBoxLayout *vlt = new QVBoxLayout(this);
           vlt->setContentsMargins(0, 0, 0, 0);
           QHBoxLayout *hlt = new QHBoxLayout;
@@ -157,8 +154,9 @@ Frame::Frame(Shape s)
         setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
         break;
     }
-    default:
+    default: {
         break;
+    }
     }
 }
 
@@ -223,8 +221,7 @@ int vCraftStartDelay = 5;
 #if defined(Q_OS_WIN)
 UINT modifierToVKey(Qt::Modifier m)
 {
-    switch (m)
-    {
+    switch (m) {
     case Qt::SHIFT:
         return VK_SHIFT;
     case Qt::CTRL:
@@ -238,8 +235,7 @@ UINT modifierToVKey(Qt::Modifier m)
 
 UINT keyToVKey(int key)
 {
-    switch (key)
-    {
+    switch (key) {
     case Qt::Key_Backspace:
         return VK_BACK;
     case Qt::Key_Tab:
@@ -299,8 +295,7 @@ UINT keyToVKey(int key)
 
 void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
 {
-    if (m & DownOnly)
-    {
+    if (m & DownOnly) {
         INPUT input;
         input.type = INPUT_KEYBOARD;
         input.ki.time = 0;
@@ -311,8 +306,7 @@ void emulateKeyPress(UINT key, KeyPressMode m = DownAndUp)
         SendInput(1, &input, sizeof(INPUT));
     }
     Sleep(1);
-    if (m & UpOnly)
-    {
+    if (m & UpOnly) {
         INPUT input;
         input.type = INPUT_KEYBOARD;
         input.ki.time = 0;
@@ -335,7 +329,7 @@ bool grabOlympiadMessage()
     QImage img = grabDesktop(f->pos() + QPoint(4, 4), 186, 15);
     QRgb rr = getMainColor(img);
     img = cutExtraSpace(removeNoise(img, &rr), &rr);
-    QString fn = BApplication::location(BApplication::DataPath, BApplication::UserResources) + "/olympiad_message.png";
+    QString fn = BApplication::location(BApplication::DataPath, BApplication::UserResource) + "/olympiad_message.png";
     bool b = img.save(fn, "png");
     if (b)
         vOlympiadMessageMask = img.createAlphaMask();
@@ -372,30 +366,23 @@ void emulateKeyPress(const QKeySequence &key)
 {
     typedef QList<Qt::Modifier> ModifierList;
     init_once(ModifierList, modifiers, ModifierList())
-    {
         modifiers << Qt::SHIFT << Qt::META << Qt::CTRL << Qt::ALT;
-    }
     if (!key.count())
         return;
 #if defined(Q_OS_WIN)
-    foreach (int i, bRangeD(0, key.count() - 1))
-    {
+    foreach (int i, bRangeD(0, key.count() - 1)) {
         int k = key[(uint) i];
         int kk = k;
-        foreach (Qt::Modifier m, modifiers)
-        {
-            if (m & k)
-            {
+        foreach (Qt::Modifier m, modifiers) {
+            if (m & k) {
                 kk &= ~m;
                 emulateKeyPress(modifierToVKey(m), DownOnly);
                 Sleep(10);
             }
         }
         emulateKeyPress(keyToVKey(kk));
-        foreach (Qt::Modifier m, modifiers)
-        {
-            if (m & k)
-            {
+        foreach (Qt::Modifier m, modifiers) {
+            if (m & k) {
                 Sleep(10);
                 emulateKeyPress(modifierToVKey(m), UpOnly);
             }
@@ -421,8 +408,7 @@ void emulateMouseClick(Qt::MouseButton button, int x, int y)
         QCursor::setPos(pos);
 #if defined(Q_OS_WIN)
     Sleep(10);
-    switch (button)
-    {
+    switch (button) {
     case Qt::LeftButton:
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
         break;
@@ -435,8 +421,7 @@ void emulateMouseClick(Qt::MouseButton button, int x, int y)
     default:
         return;
     }
-    switch (button)
-    {
+    switch (button) {
     case Qt::LeftButton:
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         break;
@@ -475,18 +460,15 @@ QImage grabDesktop(const QPoint &pos, int w, int h)
 QRgb getMainColor(const QImage &img)
 {
     QSet<QRgb> set;
-    for (int x = 0; x < img.width(); ++x)
-    {
-        for (int y = 0; y < img.height(); ++y)
-        {
+    for (int x = 0; x < img.width(); ++x) {
+        for (int y = 0; y < img.height(); ++y) {
             QRgb r = img.pixel(x, y);
             if (!set.contains(r))
                 set.insert(r);
         }
     }
     QMap<QRgb, int> map;
-    foreach (QRgb r, set.values())
-    {
+    foreach (QRgb r, set.values()) {
         int weight = 0;
         foreach (QRgb rr, set.values())
             weight += qAbs(qRed(r) - qRed(rr)) + qAbs(qGreen(r) - qGreen(rr)) + qAbs(qBlue(r) - qBlue(rr));
@@ -494,10 +476,8 @@ QRgb getMainColor(const QImage &img)
     }
     int weight = 0;
     QRgb rr = 0;
-    foreach (QRgb r, map.keys())
-    {
-        if (map.value(r) > weight)
-        {
+    foreach (QRgb r, map.keys()) {
+        if (map.value(r) > weight) {
             weight = map.value(r);
             rr = r;
         }
@@ -509,10 +489,8 @@ QImage removeNoise(const QImage &src, QRgb *mainColor)
 {
     QRgb rr = mainColor ? *mainColor : getMainColor(src);
     QImage img = src.convertToFormat(QImage::Format_ARGB32);
-    for (int x = 0; x < img.width(); ++x)
-    {
-        for (int y = 0; y < img.height(); ++y)
-        {
+    for (int x = 0; x < img.width(); ++x) {
+        for (int y = 0; y < img.height(); ++y) {
             if (img.pixel(x, y) != rr)
                 img.setPixel(x, y, qRgba(0, 0, 0, 0));
         }
@@ -527,70 +505,54 @@ QImage cutExtraSpace(const QImage &img, QRgb *mainColor)
     int oddRight = 0;
     int oddTop = 0;
     int oddBottom = 0;
-    for (int x = 0; x < img.width(); ++x)
-    {
+    for (int x = 0; x < img.width(); ++x) {
         bool ok = true;
-        for (int y = 0; y < img.height(); ++y)
-        {
-            if (img.pixel(x, y) == rr)
-            {
+        for (int y = 0; y < img.height(); ++y) {
+            if (img.pixel(x, y) == rr) {
                 ok = false;
                 break;
             }
         }
-        if (!ok)
-        {
+        if (!ok) {
             oddLeft = x;
             break;
         }
     }
-    for (int x = img.width() - 1; x >= 0; --x)
-    {
+    for (int x = img.width() - 1; x >= 0; --x) {
         bool ok = true;
-        for (int y = 0; y < img.height(); ++y)
-        {
-            if (img.pixel(x, y) == rr)
-            {
+        for (int y = 0; y < img.height(); ++y) {
+            if (img.pixel(x, y) == rr) {
                 ok = false;
                 break;
             }
         }
-        if (!ok)
-        {
+        if (!ok) {
             oddRight = img.width() - x - 1;
             break;
         }
     }
-    for (int y = 0; y < img.height(); ++y)
-    {
+    for (int y = 0; y < img.height(); ++y) {
         bool ok = true;
-        for (int x = 0; x < img.width(); ++x)
-        {
-            if (img.pixel(x, y) == rr)
-            {
+        for (int x = 0; x < img.width(); ++x) {
+            if (img.pixel(x, y) == rr) {
                 ok = false;
                 break;
             }
         }
-        if (!ok)
-        {
+        if (!ok) {
             oddTop = y;
             break;
         }
     }
-    for (int y = img.height() - 1; y >= 0; --y)
-    {
+    for (int y = img.height() - 1; y >= 0; --y) {
         bool ok = true;
-        for (int x = 0; x < img.width(); ++x)
-        {
-            if (img.pixel(x, y) == rr)
-            {
+        for (int x = 0; x < img.width(); ++x) {
+            if (img.pixel(x, y) == rr) {
                 ok = false;
                 break;
             }
         }
-        if (!ok)
-        {
+        if (!ok) {
             oddBottom = img.height() - y - 1;
             break;
         }
@@ -604,10 +566,8 @@ QPoint positionIn(const QImage &search, const QImage &templ)
         return (search == templ) ? QPoint(0, 0) : QPoint(-1, -1);
     if (search.height() < templ.height() || search.width() < templ.width())
         return QPoint(-1, -1);
-    for (int x = 0; x <= search.width() - templ.width(); ++x)
-    {
-        for (int y = search.height() - templ.height(); y >= 0; --y)
-        {
+    for (int x = 0; x <= search.width() - templ.width(); ++x) {
+        for (int y = search.height() - templ.height(); y >= 0; --y) {
             if (search.copy(x, y, templ.width(), templ.height()) == templ)
                 return QPoint(x, y);
         }
@@ -617,21 +577,18 @@ QPoint positionIn(const QImage &search, const QImage &templ)
 
 bool detectGameInterface()
 {
-    init_once(QImage, chatSettingsIcon, QImage())
-    {
+    init_once(QImage, chatSettingsIcon, QImage()) {
         QString fn = BDirTools::findResource("pixmaps/chat_settings.png", BDirTools::GlobalOnly);
         chatSettingsIcon = QImage(fn).convertToFormat(QImage::Format_RGB32);
     }
     static const QPoint FishHPOffset = QPoint(13, 236);
     static const QPoint TargetCloseOffset = QPoint(-25, 6);
     static const QPoint ChatOffset = QPoint(24, -55);
-    if (chatSettingsIcon.isNull())
-    {
+    if (chatSettingsIcon.isNull()) {
         vWindowPos = QPoint(-1, -1);
         return false;
     }
-    if (vGameDir.isEmpty())
-    {
+    if (vGameDir.isEmpty()) {
         vWindowPos = QPoint(-1, -1);
         return false;
     }
@@ -645,8 +602,7 @@ bool detectGameInterface()
     int targetY = info.value("TargetStatusWnd/posY").toInt();
     int targetW = info.value("TargetStatusWnd/width").toInt();
     int targetH = info.value("TargetStatusWnd/height").toInt();
-    if (x < 0 || y < 0 || fishX <= 0 || fishY <= 0 || targetX < 0 || targetY < 0 || targetW <= 0 || targetH <= 0)
-    {
+    if (x < 0 || y < 0 || fishX <= 0 || fishY <= 0 || targetX < 0 || targetY < 0 || targetW <= 0 || targetH <= 0) {
         vWindowPos = QPoint(-1, -1);
         return false;
     }
@@ -654,8 +610,7 @@ bool detectGameInterface()
         BeQt::waitNonBlocking(vDetectionDelay * BeQt::Second);
     QImage img = grabDesktop();
     QPoint p = positionIn(img, chatSettingsIcon);
-    if (p.x() < 0 || p.y() < 0)
-    {
+    if (p.x() < 0 || p.y() < 0) {
         vWindowPos = QPoint(-1, -1);
         return false;
     }
@@ -748,21 +703,17 @@ void loadSettings()
     vRestTime = (ok && bRangeD(5, 300).contains(seconds)) ? seconds : 30;
     FishingKeyList list;
     int sz = bSettings->beginReadArray("Fishing/keys");
-    foreach (int i, bRangeD(0, sz - 1))
-    {
+    foreach (int i, bRangeD(0, sz - 1)) {
         bSettings->setArrayIndex(i);
         ok = false;
         int k = bSettings->value("key", 0).toInt(&ok);
         list << ((ok && bRangeD(0, 12).contains(k)) ? k : 0);
     }
     bSettings->endArray();
-    if (list.size() == 9)
-    {
+    if (list.size() == 9) {
         bool b = true;
-        foreach (int k, list)
-        {
-            if (k > 0 && list.count(k) > 1)
-            {
+        foreach (int k, list) {
+            if (k > 0 && list.count(k) > 1) {
                 b = false;
                 break;
             }
@@ -808,8 +759,7 @@ void saveSettings()
     bSettings->setValue("Fishing/main_panel_number", vMainPanelNumber);
     bSettings->setValue("Fishing/rest_time", vRestTime);
     bSettings->beginWriteArray("Fishing/keys", 9);
-    foreach (int i, bRangeD(0, 8))
-    {
+    foreach (int i, bRangeD(0, 8)) {
         bSettings->setArrayIndex(i);
         bSettings->setValue("key", vFishingKeyList.at(i));
     }
@@ -927,9 +877,10 @@ void setFishingKeyList(const FishingKeyList &list)
 {
     if (list.size() != 9)
         return;
-    foreach (int k, list)
+    foreach (int k, list) {
         if (!bRangeD(0, 12).contains(k) || (k > 0 && list.count(k) > 1))
             return;
+    }
     vFishingKeyList = list;
 }
 

@@ -1,30 +1,20 @@
 #ifndef FISHINGSETTINGSTAB_H
 #define FISHINGSETTINGSTAB_H
 
-class QString;
-class QIcon;
-class QComboBox;
-class QSpinBox;
 class QCheckBox;
+class QComboBox;
+class QIcon;
+class QSpinBox;
+class QString;
 
 #include <BAbstractSettingsTab>
 
-#include <QObject>
 #include <QList>
+#include <QObject>
 
 class FishingSettingsTab : public BAbstractSettingsTab
 {
     Q_OBJECT
-public:
-    explicit FishingSettingsTab();
-public:
-    QString title() const;
-    QIcon icon() const;
-    bool hasDefault() const;
-    bool restoreDefault();
-    bool saveSettings();
-private slots:
-    void cmboxCurrentIndexChanged(int index);
 private:
     QCheckBox *cboxEquip;
     QSpinBox *sboxDelay;
@@ -32,6 +22,17 @@ private:
     QComboBox *cmboxMainPanel;
     QSpinBox *sboxRestTime;
     QList<QComboBox *> cmboxes;
+public:
+    explicit FishingSettingsTab();
+public:
+    QString id() const;
+    QString title() const;
+    QIcon icon() const;
+    bool hasDefault() const;
+    bool restoreDefault();
+    bool saveSettings();
+private slots:
+    void cmboxCurrentIndexChanged(int index);
 };
 
 #endif // FISHINGSETTINGSTAB_H

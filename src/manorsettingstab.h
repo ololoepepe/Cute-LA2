@@ -3,20 +3,20 @@
 
 class BPasswordWidget;
 
-class QString;
-class QIcon;
-class QLineEdit;
-class QSpinBox;
-class QPushButton;
-class QLabel;
 class QCheckBox;
+class QIcon;
+class QLabel;
+class QLineEdit;
+class QPushButton;
+class QSpinBox;
+class QString;
 class QTimeEdit;
 
 #include <BAbstractSettingsTab>
 
 #include <QObject>
-#include <QVariantMap>
 #include <QStringList>
+#include <QVariantMap>
 
 /*============================================================================
 ================================ ManorSettingsTab ============================
@@ -25,17 +25,6 @@ class QTimeEdit;
 class ManorSettingsTab : public BAbstractSettingsTab
 {
     Q_OBJECT
-public:
-    explicit ManorSettingsTab();
-public:
-    QString title() const;
-    QIcon icon() const;
-    bool hasDefault() const;
-    bool restoreDefault();
-    bool saveSettings();
-private slots:
-    void grabOlympiadMessage();
-    void selectManorButton();
 private:
     QSpinBox *sboxOlympiadCheckInterval;
     QSpinBox *sboxTimerInterval;
@@ -47,6 +36,18 @@ private:
     QPushButton *btnGrabOlympiadMessage;
     QLabel *lblManorButtonPos;
     QPushButton *btnSelectManorButton;
+public:
+    explicit ManorSettingsTab();
+public:
+    QString id() const;
+    QString title() const;
+    QIcon icon() const;
+    bool hasDefault() const;
+    bool restoreDefault();
+    bool saveSettings();
+private slots:
+    void grabOlympiadMessage();
+    void selectManorButton();
 private:
     Q_DISABLE_COPY(ManorSettingsTab)
 };

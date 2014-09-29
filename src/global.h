@@ -6,9 +6,9 @@
 #include <QImage>
 #include <QList>
 
+class QKeySequence;
 class QPoint;
 class QString;
-class QKeySequence;
 class QTime;
 class QWidget;
 

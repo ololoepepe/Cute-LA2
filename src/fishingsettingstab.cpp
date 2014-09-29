@@ -1,20 +1,20 @@
 #include "fishingsettingstab.h"
+
 #include "application.h"
 #include "global.h"
 #include "mainwindow.h"
 
 #include <BAbstractSettingsTab>
 
-#include <QObject>
-#include <QFormLayout>
-#include <QString>
-#include <QIcon>
-#include <QComboBox>
-#include <QStringList>
 #include <QCheckBox>
-#include <QSpinBox>
-
+#include <QComboBox>
 #include <QDebug>
+#include <QFormLayout>
+#include <QIcon>
+#include <QObject>
+#include <QSpinBox>
+#include <QString>
+#include <QStringList>
 
 /*============================== Public constructors =======================*/
 
@@ -49,8 +49,7 @@ FishingSettingsTab::FishingSettingsTab()
         sboxRestTime->setValue(Global::restTime());
       flt->addRow(tr("Rest time:", "lbl text"), sboxRestTime);
       Global::FishingKeyList keys = Global::fishingKeyList();
-      for (int i = 0; i < 9; ++i)
-      {
+      for (int i = 0; i < 9; ++i) {
           QComboBox *cmbox = new QComboBox;
             cmbox->addItem("---");
             cmbox->addItems(list);
@@ -71,6 +70,11 @@ FishingSettingsTab::FishingSettingsTab()
 }
 
 /*============================== Public methods ============================*/
+
+QString FishingSettingsTab::id() const
+{
+    return "fishing";
+}
 
 QString FishingSettingsTab::title() const
 {
@@ -115,10 +119,8 @@ void FishingSettingsTab::cmboxCurrentIndexChanged(int index)
     QString s = cmbox->currentText();
     if (s == "---")
         return;
-    foreach (QComboBox *c, cmboxes)
-    {
-        if (c != cmbox && s == c->currentText())
-        {
+    foreach (QComboBox *c, cmboxes) {
+        if (c != cmbox && s == c->currentText()) {
             c->blockSignals(true);
             c->setCurrentIndex(0);
             c->blockSignals(false);

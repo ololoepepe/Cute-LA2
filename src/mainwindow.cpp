@@ -1,45 +1,32 @@
 #include "mainwindow.h"
-#include "global.h"
-#include "timerwidget.h"
-#include "manorwidget.h"
-#include "fishingwidget.h"
+
+#include "application.h"
 #include "craftwidget.h"
+#include "fishingwidget.h"
+#include "global.h"
+#include "manorwidget.h"
+#include "timerwidget.h"
 
-#include <BApplication>
-#include <BTranslation>
-#include <BDirTools>
+#include <BGuiTools>
 
-#include <QMainWindow>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QPushButton>
-#include <QCheckBox>
-#include <QTimer>
-#include <QFont>
-#include <QElapsedTimer>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QPixmap>
-#include <QImage>
-#include <QPlainTextEdit>
-#include <QMenu>
 #include <QAction>
-#include <QKeySequence>
-#include <QMenuBar>
-#include <QTabWidget>
-#include <QSplitter>
-#include <QPoint>
-#include <QSettings>
+#include <QCheckBox>
 #include <QCloseEvent>
-#include <QMessageBox>
-#include <QFuture>
-#include <QFutureWatcher>
-#include <QtConcurrentMap>
-#include <QTime>
-
 #include <QDebug>
+#include <QHBoxLayout>
+#include <QKeySequence>
+#include <QLabel>
+#include <QMainWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QPoint>
+#include <QPushButton>
+#include <QSettings>
+#include <QSplitter>
+#include <QTabWidget>
+#include <QVBoxLayout>
+#include <QWidget>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
@@ -87,19 +74,19 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(mactQuit, SIGNAL(triggered()), this, SLOT(close()));
     //Edit
     mmnuEdit = menuBar()->addMenu("");
-    QAction *act = BApplication::createStandardAction(BApplication::SettingsAction);
+    QAction *act = BGuiTools::createStandardAction(BGuiTools::SettingsAction);
     act->setShortcut(QKeySequence("Ctrl+P"));
     mmnuEdit->addAction(act);
     //Help
     mmnuHelp = menuBar()->addMenu("");
-    mmnuHelp->addAction( BApplication::createStandardAction(BApplication::HomepageAction) );
+    mmnuHelp->addAction(BGuiTools::createStandardAction(BGuiTools::HomepageAction));
     mmnuHelp->addSeparator();
-    act = BApplication::createStandardAction(BApplication::HelpContentsAction);
+    act = BGuiTools::createStandardAction(BGuiTools::HelpContentsAction);
     act->setShortcut(QKeySequence("F1"));
     mmnuHelp->addAction(act);
-    mmnuHelp->addAction(BApplication::createStandardAction(BApplication::WhatsThisAction));
+    mmnuHelp->addAction(BGuiTools::createStandardAction(BGuiTools::WhatsThisAction));
     mmnuHelp->addSeparator();
-    mmnuHelp->addAction(BApplication::createStandardAction(BApplication::AboutAction));
+    mmnuHelp->addAction(BGuiTools::createStandardAction(BGuiTools::AboutAction));
     //
     retranslateUi();
     connect(bApp, SIGNAL(languageChanged()), this, SLOT(retranslateUi()));
@@ -179,8 +166,7 @@ void MainWindow::cboxToggled(bool b)
 
 void MainWindow::btnDetectClicked()
 {
-    if (Global::isGameInterfaceDetected())
-    {
+    if (Global::isGameInterfaceDetected()) {
         QMessageBox msg;
         msg.setWindowTitle(tr("Confirmation", "msgbox windowTitle"));
         msg.setIcon(QMessageBox::Question);

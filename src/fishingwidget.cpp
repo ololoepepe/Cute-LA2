@@ -1,20 +1,21 @@
 #include "fishingwidget.h"
+
+#include "application.h"
 #include "global.h"
 
-#include <BTranslation>
 #include <BDirTools>
-#include <BApplication>
+#include <BTranslation>
 
-#include <QWidget>
-#include <QImage>
-#include <QPushButton>
-#include <QPlainTextEdit>
-#include <QString>
-#include <QKeySequence>
-#include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QImage>
+#include <QKeySequence>
+#include <QPlainTextEdit>
 #include <QPoint>
+#include <QPushButton>
+#include <QString>
 #include <QTimer>
+#include <QVBoxLayout>
+#include <QWidget>
 
 enum BasicColor
 {
@@ -26,10 +27,8 @@ enum BasicColor
 static int colorWeight(const QImage &img, int color)
 {
     int weight = 0;
-    for (int x = 0; x < img.width(); ++x)
-    {
-        for (int y = 0; y < img.height(); ++y)
-        {
+    for (int x = 0; x < img.width(); ++x) {
+        for (int y = 0; y < img.height(); ++y) {
             if (Red & color)
                 weight += qRed(img.pixel(x, y));
             if (Green & color)
@@ -90,8 +89,7 @@ bool FishingWidget::testPecked(bool anyHp)
     QImage s = Global::grabDesktop(Global::fishHpPos(), 1, 11);
     if (colorWeight(s, Blue) >= 1400)
         return true;
-    if (anyHp)
-    {
+    if (anyHp) {
         if (colorWeight(s, Red) < 600)
             return false;
         s = Global::grabDesktop(Global::fishHpPos() + QPoint(150, -232), 1, 12);
@@ -109,9 +107,10 @@ bool FishingWidget::testTarget()
 int FishingWidget::getFishHp()
 {
     QImage s = Global::grabDesktop(Global::fishHpPos(), 230, 11);
-    for (int i = 0; i < 230; ++i)
+    for (int i = 0; i < 230; ++i) {
         if (colorWeight(s.copy(i, 0, 1, 11), Red) >= 600)
             return i;
+    }
     return 230;
 }
 
@@ -171,15 +170,12 @@ void FishingWidget::btnClicked()
     logFishing(tr("Preparing to fish. Waiting for") + " " + QString::number(delay) + " " + tr("seconds..."));
     Global::switchToWindow();
     waitMsecs(delay * BeQt::Second, loop);
-    if (mustExit)
-    {
+    if (mustExit) {
         fishing = false;
         return;
-    }
-    else
+    } else
         loop = 0;
-    if (!active)
-    {
+    if (!active) {
         fishing = false;
         return logFishing(tr("Fishing cancelled."));
     }
@@ -187,8 +183,7 @@ void FishingWidget::btnClicked()
     Global::emulateKeyPress("Alt+F" + QString::number(Global::fishingPanelNumber()));
     if (!wait(1000))
         return;
-    if (Global::fishingEquipBeforeStart())
-    {
+    if (Global::fishingEquipBeforeStart()) {
         logFishing(tr("Equipping fishing gear..."));
         Global::emulateKeyPress(Global::fishingKey(Global::EquipRod));
         if (!wait(1000))
@@ -197,27 +192,23 @@ void FishingWidget::btnClicked()
         if (!wait(1000))
             return;
     }
-    while (active)
-    {
+    while (active) {
         logFishing("<font color=blue>" + tr("Starting fishing...") + "</font>");
         Global::emulateKeyPress(Global::fishingKey(Global::UseFishing));
         volatile bool pecked = false;
         logFishing(tr("Waiting for a fish to peck..."));
         if (!wait(5000))
             return;
-        for (int i = 0; i < 150; ++i)
-        {
+        for (int i = 0; i < 150; ++i) {
             if (!wait(100))
                 return;
-            if (testPecked(false))
-            {
+            if (testPecked(false)) {
                 logFishing("<font color=blue>" + tr("A fish pecked!") + "</font>");
                 pecked = true;
                 break;
             }
         }
-        if (!pecked)
-        {
+        if (!pecked) {
             logFishing("<font color=red>" + tr("No fish pecked.") + "</font> " + tr("Waiting a bit..."));
             if (!wait(5000))
                 return;
@@ -226,50 +217,38 @@ void FishingWidget::btnClicked()
         }
         if (!wait(1000))
             return;
-        while (testPecked())
-        {
+        while (testPecked()) {
             logFishing(tr("Deciding which skill to use..."));
             int prevHP = getFishHp();
             if (!wait(500))
                 return;
-            if (!testPecked())
-            {
+            if (!testPecked()) {
                 logFishing(tr("No need to use skills."));
                 break;
             }
-            if (getFishHp() > prevHP)
-            {
+            if (getFishHp() > prevHP) {
                 logFishing("<font color=magenta>" + tr("Using Reeling...") + "</font>");
                 useReeling();
                 if (!wait(1500))
                     return;
-            }
-            else
-            {
+            } else {
                 prevHP = getFishHp();
                 if (!wait(500))
                     return;
-                if (!testPecked())
-                {
+                if (!testPecked()) {
                     logFishing(tr("No need to use skills."));
                     break;
                 }
-                if (getFishHp() > prevHP)
-                {
+                if (getFishHp() > prevHP) {
                     logFishing("<font color=magenta>" + tr("Using Reeling...") + "</font>");
                     useReeling();
                     if (!wait(1500))
                         return;
-                }
-                else
-                {
-                    if (testPecked(false))
-                    {
+                } else {
+                    if (testPecked(false)) {
                         logFishing("<font color=orange>" + tr("Using Pumping...") + "</font>");
                         usePumping();
-                    }
-                    else
-                    {
+                    } else {
                         logFishing(tr("No need to use skills."));
                     }
                     if (!wait(1000))
@@ -281,8 +260,7 @@ void FishingWidget::btnClicked()
                    + tr("Waiting for a possible attack..."));
         if (!wait(2000))
             return;
-        if (testTarget())
-        {
+        if (testTarget()) {
             logFishing("<font color=blue>" + tr("A monster attacks!") + "</font> "
                        + tr("Equipping arms and counterattacking..."));
             Global::emulateKeyPress(Global::fishingKey(Global::EquipWeapon) + ","
@@ -307,9 +285,7 @@ void FishingWidget::btnClicked()
             Global::emulateKeyPress(Global::fishingKey(Global::SitStand));
             if (!wait(4000))
                 return;
-        }
-        else
-        {
+        } else {
             logFishing(tr("No monster. Waiting a bit..."));
         }
         if (!wait(2000))
