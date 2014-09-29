@@ -31,11 +31,13 @@ private:
         QWidget *wgtCraft;
     //
     QMenu *mmnuFile;
-      QAction *mactQuit;
     QMenu *mmnuEdit;
     QMenu *mmnuHelp;
+    bool mquit;
 public:
     explicit MainWindow(QWidget *parent = 0);
+public slots:
+    void quit();
 protected:
     void closeEvent(QCloseEvent *e);
 private:

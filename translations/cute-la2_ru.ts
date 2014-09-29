@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
+    <name>Application</name>
+    <message>
+        <location filename="../src/application.cpp" line="105"/>
+        <source>Show/Hide</source>
+        <comment>act text</comment>
+        <translation>Показать/скрыть</translation>
+    </message>
+    <message>
+        <location filename="../src/application.cpp" line="106"/>
+        <source>Quit</source>
+        <comment>act text</comment>
+        <translation>Выход</translation>
+    </message>
+</context>
+<context>
     <name>CraftWidget</name>
     <message>
         <location filename="../src/craftwidget.cpp" line="25"/>
@@ -362,91 +377,85 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="144"/>
-        <source>Quit</source>
-        <comment>act text</comment>
-        <translation>Выход</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="143"/>
+        <location filename="../src/mainwindow.cpp" line="152"/>
         <source>File</source>
         <comment>mnu title</comment>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="115"/>
+        <location filename="../src/mainwindow.cpp" line="124"/>
         <source>Game area position:</source>
         <comment>lbl text</comment>
         <translation>Координаты игровой области:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="120"/>
+        <location filename="../src/mainwindow.cpp" line="129"/>
         <source>Not detected</source>
         <comment>lbl text</comment>
         <translation>Не обнаружено</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="145"/>
+        <location filename="../src/mainwindow.cpp" line="153"/>
         <source>Edit</source>
         <comment>mnu title</comment>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="149"/>
+        <location filename="../src/mainwindow.cpp" line="157"/>
         <source>Stay on top</source>
         <comment>cbox text</comment>
         <translation>Поверх других окон</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="150"/>
+        <location filename="../src/mainwindow.cpp" line="158"/>
         <source>Detect game interface</source>
         <comment>btn text</comment>
         <translation>Обнаружить игровой интерфейс</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="152"/>
+        <location filename="../src/mainwindow.cpp" line="160"/>
         <source>Manor</source>
         <comment>twgt tab text</comment>
         <translation>Манор</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="153"/>
+        <location filename="../src/mainwindow.cpp" line="161"/>
         <source>Timer</source>
         <comment>twgt tab text</comment>
         <translation>Таймер</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="154"/>
+        <location filename="../src/mainwindow.cpp" line="162"/>
         <source>Fishing</source>
         <comment>twgt tab text</comment>
         <translation>Рыбалка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="155"/>
+        <location filename="../src/mainwindow.cpp" line="163"/>
         <source>Craft</source>
         <comment>twgt tab text</comment>
         <translation>Крафт</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="171"/>
+        <location filename="../src/mainwindow.cpp" line="179"/>
         <source>Confirmation</source>
         <comment>msgbox windowTitle</comment>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="173"/>
+        <location filename="../src/mainwindow.cpp" line="181"/>
         <source>The game interface is already detected. Do you want to detect it again?</source>
         <comment>msgbox text</comment>
         <translation>Игровой интерфейс уже обнаружен. Хотите запустить обнаружение повторно?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="180"/>
+        <location filename="../src/mainwindow.cpp" line="188"/>
         <source>Detecting game interface...</source>
         <comment>lbl text</comment>
         <translation>Обнаружение игрового интерфейса...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="146"/>
+        <location filename="../src/mainwindow.cpp" line="154"/>
         <source>Help</source>
         <comment>mnuTitle</comment>
         <translation>Справка</translation>

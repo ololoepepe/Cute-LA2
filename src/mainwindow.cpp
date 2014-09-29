@@ -31,6 +31,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
+    mquit = false;
+    //
     spltr = new QSplitter(Qt::Vertical);
     spltr->setObjectName("splitter");
       QWidget *wgt = new QWidget;
@@ -67,11 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setCentralWidget(spltr);
     //File
     mmnuFile = menuBar()->addMenu("");
-    mactQuit = mmnuFile->addAction("");
-    mactQuit->setMenuRole(QAction::QuitRole);
-    mactQuit->setIcon(BApplication::icon("exit"));
-    mactQuit->setShortcut(QKeySequence("Ctrl+Q"));
-    connect(mactQuit, SIGNAL(triggered()), this, SLOT(close()));
+    mmnuFile->addAction(Application::actionQuit());
     //Edit
     mmnuEdit = menuBar()->addMenu("");
     QAction *act = BGuiTools::createStandardAction(BGuiTools::SettingsAction);
@@ -96,14 +94,25 @@ MainWindow::MainWindow(QWidget *parent) :
     cboxOnTop->setChecked(bSettings->value("GUI/stay_on_top").toBool());
 }
 
+void MainWindow::quit()
+{
+    mquit = true;
+    close();
+}
+
 void MainWindow::closeEvent(QCloseEvent *e)
 {
-    FishingWidget::quitLoop();
-    bSettings->setValue("GUI/main_window_geometry", saveGeometry());
-    bSettings->setValue("GUI/main_window_state", saveState());
-    bSettings->setValue("GUI/splitter_state", spltr->saveState());
-    bSettings->setValue("GUI/stay_on_top", cboxOnTop->isChecked());
-    return QMainWindow::closeEvent(e);
+    if (mquit) {
+        FishingWidget::quitLoop();
+        bSettings->setValue("GUI/main_window_geometry", saveGeometry());
+        bSettings->setValue("GUI/main_window_state", saveState());
+        bSettings->setValue("GUI/splitter_state", spltr->saveState());
+        bSettings->setValue("GUI/stay_on_top", cboxOnTop->isChecked());
+        return QMainWindow::closeEvent(e);
+    } else {
+        e->ignore();
+        hide();
+    }
 }
 
 void MainWindow::resetInterface(bool enabled)
@@ -141,7 +150,6 @@ void MainWindow::retranslateUi()
     setWindowTitle("Cute LA2");
     //menus
     mmnuFile->setTitle(tr("File", "mnu title"));
-    mactQuit->setText(tr("Quit", "act text"));
     mmnuEdit->setTitle(tr("Edit", "mnu title"));
     mmnuHelp->setTitle(tr("Help", "mnuTitle"));
     //

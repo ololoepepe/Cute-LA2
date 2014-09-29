@@ -12,9 +12,12 @@
 #include <BDirTools>
 #include <BGuiTools>
 
+#include <QAction>
 #include <QDebug>
 #include <QList>
+#include <QMenu>
 #include <QObject>
+#include <QSystemTrayIcon>
 #include <QTimer>
 
 /*============================================================================
@@ -52,8 +55,23 @@ Application::Application(int &argc, char **argv, const QString &applicationName,
     aboutDialogInstance()->setupWithApplicationData();
     setHelpBrowserDefaultGeometry(BGuiTools::centerOnScreenGeometry(1000, 800, 100, 50));
     Global::loadSettings();
+    mtray = trayIcon();
+    mtray->setIcon(icon("cute-la2"));
+    mtray->setToolTip(applicationName);
+    connect(mtray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+            this, SLOT(trayActivated(QSystemTrayIcon::ActivationReason)));
+    mmnu = new QMenu;
+    mmnu->addSeparator();
+    mactShowHide = mmnu->addAction("", this, SLOT(actShowHideTriggered()));
+    mactQuit = mmnu->addAction(icon("exit"), "", this, SLOT(actQuitTriggered()));
+    mactQuit->setMenuRole(QAction::QuitRole);
+    mactQuit->setShortcut(QKeySequence("Ctrl+Q"));
+    mtray->setContextMenu(mmnu);
+    mtray->show();
     mmainWindow = new MainWindow;
     QTimer::singleShot(0, mmainWindow, SLOT(show()));
+    connect(this, SIGNAL(languageChanged()), this, SLOT(retranslateUi()));
+    retranslateUi();
 }
 
 Application::~Application()
@@ -66,6 +84,11 @@ Application::~Application()
 #endif
 }
 
+QAction *Application::actionQuit()
+{
+    return bApp->mactQuit;
+}
+
 /*============================== Protected methods =========================*/
 
 QList<BAbstractSettingsTab *> Application::createSettingsTabs() const
@@ -75,4 +98,30 @@ QList<BAbstractSettingsTab *> Application::createSettingsTabs() const
     list << new ManorSettingsTab;
     list << new FishingSettingsTab;
     return list;
+}
+
+void Application::retranslateUi()
+{
+    mactShowHide->setText(tr("Show/Hide", "act text"));
+    mactQuit->setText(tr("Quit", "act text"));
+}
+
+void Application::actShowHideTriggered()
+{
+    if (mmainWindow->isVisible())
+        mmainWindow->hide();
+    else
+        mmainWindow->show();
+}
+
+void Application::actQuitTriggered()
+{
+    mmainWindow->quit();
+}
+
+void Application::trayActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    if (QSystemTrayIcon::Trigger != reason)
+        return;
+    mmnu->popup(QCursor::pos());
 }
