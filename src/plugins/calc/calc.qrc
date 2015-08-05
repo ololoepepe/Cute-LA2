@@ -1,0 +1,648 @@
+<RCC>
+    <qresource prefix="/calc">
+        <file>changelog/ChangeLog.txt</file>
+        <file>changelog/ChangeLog_ru.txt</file>
+        <file>copying/COPYING.txt</file>
+        <file>description/DESCRIPTION.txt</file>
+        <file>description/DESCRIPTION_ru.txt</file>
+        <file>infos/authors.beqt-info</file>
+        <file>infos/translators.beqt-info</file>
+        <file>pixmaps/main_developer_photo.png</file>
+        <file>data/classes/Abyss Walker.conf</file>
+        <file>data/base-mp.conf</file>
+        <file>data/stat-mod.conf</file>
+        <file>data/base-stat.conf</file>
+        <file>data/tattoos/STR1CON1.conf</file>
+        <file>data/tattoos/STR1CON2.conf</file>
+        <file>data/tattoos/STR1CON3.conf</file>
+        <file>data/tattoos/STR1DEX1.conf</file>
+        <file>data/tattoos/STR1DEX2.conf</file>
+        <file>data/tattoos/STR1DEX3.conf</file>
+        <file>data/tattoos/CON1DEX1.conf</file>
+        <file>data/tattoos/CON1DEX2.conf</file>
+        <file>data/tattoos/CON1DEX3.conf</file>
+        <file>data/tattoos/CON1STR1.conf</file>
+        <file>data/tattoos/CON1STR2.conf</file>
+        <file>data/tattoos/CON1STR3.conf</file>
+        <file>data/tattoos/CON2DEX2.conf</file>
+        <file>data/tattoos/CON2DEX3.conf</file>
+        <file>data/tattoos/CON2DEX4.conf</file>
+        <file>data/tattoos/CON2STR2.conf</file>
+        <file>data/tattoos/CON2STR3.conf</file>
+        <file>data/tattoos/CON2STR4.conf</file>
+        <file>data/tattoos/CON3DEX3.conf</file>
+        <file>data/tattoos/CON3DEX4.conf</file>
+        <file>data/tattoos/CON3DEX5.conf</file>
+        <file>data/tattoos/CON3STR3.conf</file>
+        <file>data/tattoos/CON3STR4.conf</file>
+        <file>data/tattoos/CON3STR5.conf</file>
+        <file>data/tattoos/CON4DEX4.conf</file>
+        <file>data/tattoos/CON4DEX5.conf</file>
+        <file>data/tattoos/CON4DEX6.conf</file>
+        <file>data/tattoos/CON4STR4.conf</file>
+        <file>data/tattoos/CON4STR5.conf</file>
+        <file>data/tattoos/CON4STR6.conf</file>
+        <file>data/tattoos/DEX1CON1.conf</file>
+        <file>data/tattoos/DEX1CON2.conf</file>
+        <file>data/tattoos/DEX1CON3.conf</file>
+        <file>data/tattoos/DEX1STR1.conf</file>
+        <file>data/tattoos/DEX1STR2.conf</file>
+        <file>data/tattoos/DEX1STR3.conf</file>
+        <file>data/tattoos/DEX2CON2.conf</file>
+        <file>data/tattoos/DEX2CON3.conf</file>
+        <file>data/tattoos/DEX2CON4.conf</file>
+        <file>data/tattoos/DEX2STR2.conf</file>
+        <file>data/tattoos/DEX2STR3.conf</file>
+        <file>data/tattoos/DEX2STR4.conf</file>
+        <file>data/tattoos/DEX3CON3.conf</file>
+        <file>data/tattoos/DEX3CON4.conf</file>
+        <file>data/tattoos/DEX3CON5.conf</file>
+        <file>data/tattoos/DEX3STR3.conf</file>
+        <file>data/tattoos/DEX3STR4.conf</file>
+        <file>data/tattoos/DEX3STR5.conf</file>
+        <file>data/tattoos/DEX4CON4.conf</file>
+        <file>data/tattoos/DEX4CON5.conf</file>
+        <file>data/tattoos/DEX4CON6.conf</file>
+        <file>data/tattoos/DEX4STR4.conf</file>
+        <file>data/tattoos/DEX4STR5.conf</file>
+        <file>data/tattoos/DEX4STR6.conf</file>
+        <file>data/tattoos/INT1MEN1.conf</file>
+        <file>data/tattoos/INT1MEN2.conf</file>
+        <file>data/tattoos/INT1MEN3.conf</file>
+        <file>data/tattoos/INT1WIT1.conf</file>
+        <file>data/tattoos/INT1WIT2.conf</file>
+        <file>data/tattoos/INT1WIT3.conf</file>
+        <file>data/tattoos/INT2MEN2.conf</file>
+        <file>data/tattoos/INT2MEN3.conf</file>
+        <file>data/tattoos/INT2MEN4.conf</file>
+        <file>data/tattoos/INT2WIT2.conf</file>
+        <file>data/tattoos/INT2WIT3.conf</file>
+        <file>data/tattoos/INT2WIT4.conf</file>
+        <file>data/tattoos/INT3MEN3.conf</file>
+        <file>data/tattoos/INT3MEN4.conf</file>
+        <file>data/tattoos/INT3MEN5.conf</file>
+        <file>data/tattoos/INT3WIT3.conf</file>
+        <file>data/tattoos/INT3WIT4.conf</file>
+        <file>data/tattoos/INT3WIT5.conf</file>
+        <file>data/tattoos/INT4MEN4.conf</file>
+        <file>data/tattoos/INT4MEN5.conf</file>
+        <file>data/tattoos/INT4MEN6.conf</file>
+        <file>data/tattoos/INT4WIT4.conf</file>
+        <file>data/tattoos/INT4WIT5.conf</file>
+        <file>data/tattoos/INT4WIT6.conf</file>
+        <file>data/tattoos/MEN1INT1.conf</file>
+        <file>data/tattoos/MEN1INT2.conf</file>
+        <file>data/tattoos/MEN1INT3.conf</file>
+        <file>data/tattoos/MEN1WIT1.conf</file>
+        <file>data/tattoos/MEN1WIT2.conf</file>
+        <file>data/tattoos/MEN1WIT3.conf</file>
+        <file>data/tattoos/MEN2INT2.conf</file>
+        <file>data/tattoos/MEN2INT3.conf</file>
+        <file>data/tattoos/MEN2INT4.conf</file>
+        <file>data/tattoos/MEN2WIT2.conf</file>
+        <file>data/tattoos/MEN2WIT3.conf</file>
+        <file>data/tattoos/MEN2WIT4.conf</file>
+        <file>data/tattoos/MEN3INT3.conf</file>
+        <file>data/tattoos/MEN3INT4.conf</file>
+        <file>data/tattoos/MEN3INT5.conf</file>
+        <file>data/tattoos/MEN3WIT3.conf</file>
+        <file>data/tattoos/MEN3WIT4.conf</file>
+        <file>data/tattoos/MEN3WIT5.conf</file>
+        <file>data/tattoos/MEN4INT4.conf</file>
+        <file>data/tattoos/MEN4INT5.conf</file>
+        <file>data/tattoos/MEN4INT6.conf</file>
+        <file>data/tattoos/MEN4WIT4.conf</file>
+        <file>data/tattoos/MEN4WIT5.conf</file>
+        <file>data/tattoos/MEN4WIT6.conf</file>
+        <file>data/tattoos/STR2CON2.conf</file>
+        <file>data/tattoos/STR2CON3.conf</file>
+        <file>data/tattoos/STR2CON4.conf</file>
+        <file>data/tattoos/STR2DEX2.conf</file>
+        <file>data/tattoos/STR2DEX3.conf</file>
+        <file>data/tattoos/STR2DEX4.conf</file>
+        <file>data/tattoos/STR3CON3.conf</file>
+        <file>data/tattoos/STR3CON4.conf</file>
+        <file>data/tattoos/STR3CON5.conf</file>
+        <file>data/tattoos/STR3DEX3.conf</file>
+        <file>data/tattoos/STR3DEX4.conf</file>
+        <file>data/tattoos/STR3DEX5.conf</file>
+        <file>data/tattoos/STR4CON4.conf</file>
+        <file>data/tattoos/STR4CON5.conf</file>
+        <file>data/tattoos/STR4CON6.conf</file>
+        <file>data/tattoos/STR4DEX4.conf</file>
+        <file>data/tattoos/STR4DEX5.conf</file>
+        <file>data/tattoos/STR4DEX6.conf</file>
+        <file>data/tattoos/WIT1INT1.conf</file>
+        <file>data/tattoos/WIT1INT2.conf</file>
+        <file>data/tattoos/WIT1INT3.conf</file>
+        <file>data/tattoos/WIT1MEN1.conf</file>
+        <file>data/tattoos/WIT1MEN2.conf</file>
+        <file>data/tattoos/WIT1MEN3.conf</file>
+        <file>data/tattoos/WIT2INT2.conf</file>
+        <file>data/tattoos/WIT2INT3.conf</file>
+        <file>data/tattoos/WIT2INT4.conf</file>
+        <file>data/tattoos/WIT2MEN2.conf</file>
+        <file>data/tattoos/WIT2MEN3.conf</file>
+        <file>data/tattoos/WIT2MEN4.conf</file>
+        <file>data/tattoos/WIT3INT3.conf</file>
+        <file>data/tattoos/WIT3INT4.conf</file>
+        <file>data/tattoos/WIT3INT5.conf</file>
+        <file>data/tattoos/WIT3MEN3.conf</file>
+        <file>data/tattoos/WIT3MEN4.conf</file>
+        <file>data/tattoos/WIT3MEN5.conf</file>
+        <file>data/tattoos/WIT4INT4.conf</file>
+        <file>data/tattoos/WIT4INT5.conf</file>
+        <file>data/tattoos/WIT4INT6.conf</file>
+        <file>data/tattoos/WIT4MEN4.conf</file>
+        <file>data/tattoos/WIT4MEN5.conf</file>
+        <file>data/tattoos/WIT4MEN6.conf</file>
+        <file>data/classes/Bishop.conf</file>
+        <file>data/classes/Cleric.conf</file>
+        <file>data/classes/Dark Avenger.conf</file>
+        <file>data/classes/Gladiator.conf</file>
+        <file>data/classes/Hawkeye.conf</file>
+        <file>data/classes/Human Fighter.conf</file>
+        <file>data/classes/Human Knight.conf</file>
+        <file>data/classes/Human Mystic.conf</file>
+        <file>data/classes/Necromancer.conf</file>
+        <file>data/classes/Paladin.conf</file>
+        <file>data/classes/Prophet.conf</file>
+        <file>data/classes/Rogue.conf</file>
+        <file>data/classes/Sorcerer.conf</file>
+        <file>data/classes/Treasure Hunter.conf</file>
+        <file>data/classes/Warlock.conf</file>
+        <file>data/classes/Warlord.conf</file>
+        <file>data/classes/Warrior.conf</file>
+        <file>data/classes/Wizard.conf</file>
+        <file>data/classes/Artisan.conf</file>
+        <file>data/classes/Assassin.conf</file>
+        <file>data/classes/Bladedancer.conf</file>
+        <file>data/classes/Bounty Hunter.conf</file>
+        <file>data/classes/Dark Fighter.conf</file>
+        <file>data/classes/Dark Mystic.conf</file>
+        <file>data/classes/Dark Wizard.conf</file>
+        <file>data/classes/Destroyer.conf</file>
+        <file>data/classes/Dwarven Fighter.conf</file>
+        <file>data/classes/Elemental Summoner.conf</file>
+        <file>data/classes/Elven Elder.conf</file>
+        <file>data/classes/Elven Fighter.conf</file>
+        <file>data/classes/Elven Knight.conf</file>
+        <file>data/classes/Elven Mystic.conf</file>
+        <file>data/classes/Elven Oracle.conf</file>
+        <file>data/classes/Elven Scout.conf</file>
+        <file>data/classes/Elven Wizard.conf</file>
+        <file>data/classes/Monk.conf</file>
+        <file>data/classes/Orc Fighter.conf</file>
+        <file>data/classes/Orc Mystic.conf</file>
+        <file>data/classes/Orc Raider.conf</file>
+        <file>data/classes/Orc Shaman.conf</file>
+        <file>data/classes/Overlord.conf</file>
+        <file>data/classes/Palus Knight.conf</file>
+        <file>data/classes/Phantom Ranger.conf</file>
+        <file>data/classes/Phantom Summoner.conf</file>
+        <file>data/classes/Plainswalker.conf</file>
+        <file>data/classes/Scavenger.conf</file>
+        <file>data/classes/Shillien Elder.conf</file>
+        <file>data/classes/Shillien Knight.conf</file>
+        <file>data/classes/Shillien Oracle.conf</file>
+        <file>data/classes/Silver Ranger.conf</file>
+        <file>data/classes/Spellhowler.conf</file>
+        <file>data/classes/Spellsinger.conf</file>
+        <file>data/classes/Swordsinger.conf</file>
+        <file>data/classes/Temple Knight.conf</file>
+        <file>data/classes/Tyrant.conf</file>
+        <file>data/classes/Warcryer.conf</file>
+        <file>data/classes/Warsmith.conf</file>
+        <file>data/weapons/Akat Long Bow.conf</file>
+        <file>data/weapons/Angel Slayer.conf</file>
+        <file>data/weapons/Apprentice Adventurer's Bone Club.conf</file>
+        <file>data/weapons/Apprentice Adventurer's Bow.conf</file>
+        <file>data/weapons/Apprentice Adventurer's Cestus.conf</file>
+        <file>data/weapons/Apprentice Adventurer's Knife.conf</file>
+        <file>data/weapons/Apprentice Adventurer's Long Sword.conf</file>
+        <file>data/weapons/Apprentice Adventurer's Staff.conf</file>
+        <file>data/weapons/Apprentice's Rod.conf</file>
+        <file>data/weapons/Apprentice's Spellbook.conf</file>
+        <file>data/weapons/Apprentice's Wand.conf</file>
+        <file>data/weapons/Arcana Mace.conf</file>
+        <file>data/weapons/Arthro Nail.conf</file>
+        <file>data/weapons/Artisan's Sword.conf</file>
+        <file>data/weapons/Artisan's Sword*Artisan's Sword.conf</file>
+        <file>data/weapons/Artisan's Sword*Crimson Sword.conf</file>
+        <file>data/weapons/Artisan's Sword*Elven Long Sword.conf</file>
+        <file>data/weapons/Artisan's Sword*Elven Sword.conf</file>
+        <file>data/weapons/Artisan's Sword*Knight's Sword.conf</file>
+        <file>data/weapons/Artisan's Sword*Sword of Revolution.conf</file>
+        <file>data/weapons/Art of Battle Axe.conf</file>
+        <file>data/weapons/Assassin Knife.conf</file>
+        <file>data/weapons/Atuba Hammer.conf</file>
+        <file>data/weapons/Atuba Mace.conf</file>
+        <file>data/weapons/Bagh-Nakh.conf</file>
+        <file>data/weapons/Basalt Battlehammer.conf</file>
+        <file>data/weapons/Bastard Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Artisan's Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Bastard Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Crimson Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Elven Long Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Elven Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Knight's Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Spinebone Sword.conf</file>
+        <file>data/weapons/Bastard Sword*Sword of Revolution.conf</file>
+        <file>data/weapons/Battle Axe.conf</file>
+        <file>data/weapons/Bec de Corbin.conf</file>
+        <file>data/weapons/Bellion Cestus.conf</file>
+        <file>data/weapons/Berserker Blade.conf</file>
+        <file>data/weapons/Bich'Hwa.conf</file>
+        <file>data/weapons/Big Hammer.conf</file>
+        <file>data/weapons/Blood of Saints.conf</file>
+        <file>data/weapons/Blood Saber.conf</file>
+        <file>data/weapons/Blood Tornado.conf</file>
+        <file>data/weapons/Bloody Orchid.conf</file>
+        <file>data/weapons/Body Slasher.conf</file>
+        <file>data/weapons/Bonebreaker.conf</file>
+        <file>data/weapons/Bone Club.conf</file>
+        <file>data/weapons/Bone Dagger.conf</file>
+        <file>data/weapons/Bone Staff.conf</file>
+        <file>data/weapons/Bow.conf</file>
+        <file>data/weapons/Bow of Peril.conf</file>
+        <file>data/weapons/Branch of Life.conf</file>
+        <file>data/weapons/Branch of the Mother Tree.conf</file>
+        <file>data/weapons/Brandish.conf</file>
+        <file>data/weapons/Broadsword.conf</file>
+        <file>data/weapons/Buffalo's Horn.conf</file>
+        <file>data/weapons/Butcher's Sword.conf</file>
+        <file>data/weapons/Buzdygan.conf</file>
+        <file>data/weapons/Caliburs.conf</file>
+        <file>data/weapons/Caliburs*Caliburs (Critical Damage).conf</file>
+        <file>data/weapons/Caliburs*Samurai Long Sword (Haste).conf</file>
+        <file>data/weapons/Caliburs*Sword of Delusion (Focus).conf</file>
+        <file>data/weapons/Caliburs*Sword of Limit (Health).conf</file>
+        <file>data/weapons/Caliburs*Sword of Nightmare (Haste).conf</file>
+        <file>data/weapons/Caliburs*Tsurugi (Guidance).conf</file>
+        <file>data/weapons/Carnage Bow.conf</file>
+        <file>data/weapons/Cedar Staff.conf</file>
+        <file>data/weapons/Cestus.conf</file>
+        <file>data/weapons/Chakram.conf</file>
+        <file>data/weapons/Chrono Campana.conf</file>
+        <file>data/weapons/Chrono Cithara.conf</file>
+        <file>data/weapons/Chrono Darbuka.conf</file>
+        <file>data/weapons/Chrono Maracas.conf</file>
+        <file>data/weapons/Chrono Unitus.conf</file>
+        <file>data/weapons/Claymore.conf</file>
+        <file>data/weapons/Club.conf</file>
+        <file>data/weapons/Club of Nature.conf</file>
+        <file>data/weapons/Composition Bow.conf</file>
+        <file>data/weapons/Conjurer's Knife.conf</file>
+        <file>data/weapons/Crafted Dagger.conf</file>
+        <file>data/weapons/Crescent Moon Bow.conf</file>
+        <file>data/weapons/Crimson Sword.conf</file>
+        <file>data/weapons/Crimson Sword*Crimson Sword.conf</file>
+        <file>data/weapons/Crimson Sword*Elven Long Sword (Guidance).conf</file>
+        <file>data/weapons/Crimson Sword*Elven Sword.conf</file>
+        <file>data/weapons/Crimson Sword*Sword of Revolution.conf</file>
+        <file>data/weapons/Crucifix of Blessing.conf</file>
+        <file>data/weapons/Crucifix of Blood.conf</file>
+        <file>data/weapons/Crystal Dagger.conf</file>
+        <file>data/weapons/Crystallized Ice Bow.conf</file>
+        <file>data/weapons/Crystal Staff.conf</file>
+        <file>data/weapons/Cursed Dagger.conf</file>
+        <file>data/weapons/Cursed Maingauche.conf</file>
+        <file>data/weapons/Cursed Staff.conf</file>
+        <file>data/weapons/Cybellin's Dagger.conf</file>
+        <file>data/weapons/Dagger.conf</file>
+        <file>data/weapons/Dagger of Mana.conf</file>
+        <file>data/weapons/Damascus*Damascus (Guidance).conf</file>
+        <file>data/weapons/Dark Elven Bow.conf</file>
+        <file>data/weapons/Dark Elven Dagger.conf</file>
+        <file>data/weapons/Dark Elven Long Bow.conf</file>
+        <file>data/weapons/Dark Legion's Edge.conf</file>
+        <file>data/weapons/Dark Screamer.conf</file>
+        <file>data/weapons/Dasparion's Staff.conf</file>
+        <file>data/weapons/Deadman's Glory.conf</file>
+        <file>data/weapons/Deadman's Staff.conf</file>
+        <file>data/weapons/Demon Fangs.conf</file>
+        <file>data/weapons/Demon Splinter.conf</file>
+        <file>data/weapons/Demon's Staff.conf</file>
+        <file>data/weapons/Demon's Sword.conf</file>
+        <file>data/weapons/Destroyer Hammer.conf</file>
+        <file>data/weapons/Dirk.conf</file>
+        <file>data/weapons/Divine Tome.conf</file>
+        <file>data/weapons/Doom Crusher.conf</file>
+        <file>data/weapons/Doom Dagger.conf</file>
+        <file>data/weapons/Doom Hammer.conf</file>
+        <file>data/weapons/Draconic Bow.conf</file>
+        <file>data/weapons/Dragon Grinder.conf</file>
+        <file>data/weapons/Dragon Hunter Axe.conf</file>
+        <file>data/weapons/Dragon Slayer.conf</file>
+        <file>data/weapons/Dwarven Hammer.conf</file>
+        <file>data/weapons/Dwarven Mace.conf</file>
+        <file>data/weapons/Dwarven Pike.conf</file>
+        <file>data/weapons/Dwarven Trident.conf</file>
+        <file>data/weapons/Dwarven War Hammer.conf</file>
+        <file>data/weapons/Ecliptic Axe.conf</file>
+        <file>data/weapons/Ecliptic Sword.conf</file>
+        <file>data/weapons/Eldritch Dagger.conf</file>
+        <file>data/weapons/Elemental Bow.conf</file>
+        <file>data/weapons/Elemental Sword.conf</file>
+        <file>data/weapons/Elven Bow.conf</file>
+        <file>data/weapons/Elven Long Sword.conf</file>
+        <file>data/weapons/Elven Long Sword*Elven Long Sword (Haste).conf</file>
+        <file>data/weapons/Elven Sword.conf</file>
+        <file>data/weapons/Elven Sword*Elven Long Sword (Critical Damage).conf</file>
+        <file>data/weapons/Elven Sword*Elven Sword.conf</file>
+        <file>data/weapons/Elven Sword*Sword of Revolution.conf</file>
+        <file>data/weapons/Elysian Axe.conf</file>
+        <file>data/weapons/Eminence Bow.conf</file>
+        <file>data/weapons/Falchion.conf</file>
+        <file>data/weapons/Fist Blade.conf</file>
+        <file>data/weapons/Fist of Butcher.conf</file>
+        <file>data/weapons/Flamberge.conf</file>
+        <file>data/weapons/Flaming Dragon Skull.conf</file>
+        <file>data/weapons/Forest Bow.conf</file>
+        <file>data/weapons/Forgotten Blade.conf</file>
+        <file>data/weapons/Fox Claw Gloves.conf</file>
+        <file>data/weapons/Gallint's Oak Wand.conf</file>
+        <file>data/weapons/Gastraphetes.conf</file>
+        <file>data/weapons/Ghost Staff.conf</file>
+        <file>data/weapons/Ghoul's Staff.conf</file>
+        <file>data/weapons/Gladius.conf</file>
+        <file>data/weapons/Glaive.conf</file>
+        <file>data/weapons/Goat Head Staff.conf</file>
+        <file>data/weapons/Grace Dagger.conf</file>
+        <file>data/weapons/Great Axe.conf</file>
+        <file>data/weapons/Great Pata.conf</file>
+        <file>data/weapons/Great Sword.conf</file>
+        <file>data/weapons/Guardian Sword.conf</file>
+        <file>data/weapons/Guild Member's Club.conf</file>
+        <file>data/weapons/Halberd.conf</file>
+        <file>data/weapons/Hand Axe.conf</file>
+        <file>data/weapons/Handmade Sword.conf</file>
+        <file>data/weapons/Heathen's Book.conf</file>
+        <file>data/weapons/Heavens Divider.conf</file>
+        <file>data/weapons/Heavy Bone Club.conf</file>
+        <file>data/weapons/Heavy Chisel.conf</file>
+        <file>data/weapons/Heavy Doom Axe.conf</file>
+        <file>data/weapons/Heavy Doom Hammer.conf</file>
+        <file>data/weapons/Heavy Mace.conf</file>
+        <file>data/weapons/Heavy Sword.conf</file>
+        <file>data/weapons/Heavy War Axe.conf</file>
+        <file>data/weapons/Hell Knife.conf</file>
+        <file>data/weapons/Homunkulus's Sword.conf</file>
+        <file>data/weapons/Horn of Glory.conf</file>
+        <file>data/weapons/Hunting Bow.conf</file>
+        <file>data/weapons/Ice Storm Hammer.conf</file>
+        <file>data/weapons/Imperial Staff.conf</file>
+        <file>data/weapons/Infernal Master.conf</file>
+        <file>data/weapons/Infinity Axe.conf</file>
+        <file>data/weapons/Infinity Blade.conf</file>
+        <file>data/weapons/Infinity Bow.conf</file>
+        <file>data/weapons/Infinity Cleaver.conf</file>
+        <file>data/weapons/Infinity Crusher.conf</file>
+        <file>data/weapons/Infinity Fang.conf</file>
+        <file>data/weapons/Infinity Rod.conf</file>
+        <file>data/weapons/Infinity Scepter.conf</file>
+        <file>data/weapons/Infinity Spear.conf</file>
+        <file>data/weapons/Infinity Stinger.conf</file>
+        <file>data/weapons/Infinity Wing.conf</file>
+        <file>data/weapons/Iron Gloves.conf</file>
+        <file>data/weapons/Iron Hammer.conf</file>
+        <file>data/weapons/Journeyman's Staff.conf</file>
+        <file>data/weapons/Kaim Vanul's Bones.conf</file>
+        <file>data/weapons/Karik Horn.conf</file>
+        <file>data/weapons/Katana.conf</file>
+        <file>data/weapons/Katana*Caliburs (Guidance).conf</file>
+        <file>data/weapons/Katana*Katana (Haste).conf</file>
+        <file>data/weapons/Katana*Raid Sword (Critical Damage).conf</file>
+        <file>data/weapons/Katana*Samurai Long Sword (Critical Damage).conf</file>
+        <file>data/weapons/Katana*Spirit Sword (Guidance).conf</file>
+        <file>data/weapons/Katana*Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Katana*Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Katana*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Katana*Tsurugi (Haste).conf</file>
+        <file>data/weapons/Keshanberk.conf</file>
+        <file>data/weapons/Keshanberk*Damascus (Health).conf</file>
+        <file>data/weapons/Keshanberk*Keshanberk (Haste).conf</file>
+        <file>data/weapons/Knife.conf</file>
+        <file>data/weapons/Knight's Sword.conf</file>
+        <file>data/weapons/Knight's Sword*Crimson Sword.conf</file>
+        <file>data/weapons/Knight's Sword*Elven Long Sword.conf</file>
+        <file>data/weapons/Knight's Sword*Elven Sword.conf</file>
+        <file>data/weapons/Knight's Sword*Knight's Sword.conf</file>
+        <file>data/weapons/Knuckle Duster.conf</file>
+        <file>data/weapons/Kris.conf</file>
+        <file>data/weapons/Kukuri.conf</file>
+        <file>data/weapons/Lance.conf</file>
+        <file>data/weapons/Light Crossbow.conf</file>
+        <file>data/weapons/Long Bow.conf</file>
+        <file>data/weapons/Long Spear.conf</file>
+        <file>data/weapons/Long Sword.conf</file>
+        <file>data/weapons/Mace.conf</file>
+        <file>data/weapons/Mace of Judgment.conf</file>
+        <file>data/weapons/Mace of Miracle.conf</file>
+        <file>data/weapons/Mace of Prayer.conf</file>
+        <file>data/weapons/Mace of the Underworld.conf</file>
+        <file>data/weapons/Mage Staff.conf</file>
+        <file>data/weapons/Maingauche.conf</file>
+        <file>data/weapons/Meteor Shower.conf</file>
+        <file>data/weapons/Mithril Dagger.conf</file>
+        <file>data/weapons/Morning Star.conf</file>
+        <file>data/weapons/Mysterious Sword.conf</file>
+        <file>data/weapons/Mystic Knife.conf</file>
+        <file>data/weapons/Mystic Staff.conf</file>
+        <file>data/weapons/Neti's Bow.conf</file>
+        <file>data/weapons/Neti's Dagger.conf</file>
+        <file>data/weapons/Nirvana Axe.conf</file>
+        <file>data/weapons/Noble Elven Bow.conf</file>
+        <file>data/weapons/Old Knight's Sword.conf</file>
+        <file>data/weapons/Orcish Glaive.conf</file>
+        <file>data/weapons/Orcish Poleaxe.conf</file>
+        <file>data/weapons/Orcish Sword.conf</file>
+        <file>data/weapons/Pa'agrian Sword.conf</file>
+        <file>data/weapons/Paagrio Axe.conf</file>
+        <file>data/weapons/Paagrio Hammer.conf</file>
+        <file>data/weapons/Paradia Staff.conf</file>
+        <file>data/weapons/Pike.conf</file>
+        <file>data/weapons/Pipette Knife.conf</file>
+        <file>data/weapons/Poniard Dagger.conf</file>
+        <file>data/weapons/Priest Mace.conf</file>
+        <file>data/weapons/Priest Sword.conf</file>
+        <file>data/weapons/Proof of Revenge.conf</file>
+        <file>data/weapons/Raid Sword.conf</file>
+        <file>data/weapons/Raid Sword*Caliburs (Guidance).conf</file>
+        <file>data/weapons/Raid Sword*Raid Sword (Haste).conf</file>
+        <file>data/weapons/Raid Sword*Samurai Long Sword (Focus).conf</file>
+        <file>data/weapons/Raid Sword*Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Raid Sword*Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Raid Sword*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Raid Sword*Tsurugi (Haste).conf</file>
+        <file>data/weapons/Red Sunset Staff.conf</file>
+        <file>data/weapons/Red Sunset Sword.conf</file>
+        <file>data/weapons/Relic of the Saints.conf</file>
+        <file>data/weapons/Rusted Bronze Sword.conf</file>
+        <file>data/weapons/Saber.conf</file>
+        <file>data/weapons/Saber*Artisan's Sword.conf</file>
+        <file>data/weapons/Saber*Bastard Sword.conf</file>
+        <file>data/weapons/Saber*Crimson Sword.conf</file>
+        <file>data/weapons/Saber*Elven Long Sword.conf</file>
+        <file>data/weapons/Saber*Elven Sword.conf</file>
+        <file>data/weapons/Saber*Knight's Sword.conf</file>
+        <file>data/weapons/Saber*Saber.conf</file>
+        <file>data/weapons/Saber*Spinebone Sword.conf</file>
+        <file>data/weapons/Saber*Sword of Revolution.conf</file>
+        <file>data/weapons/Sage's Staff.conf</file>
+        <file>data/weapons/Saint Spear.conf</file>
+        <file>data/weapons/Samurai Longsword.conf</file>
+        <file>data/weapons/Samurai Long Sword*Samurai Long Sword (Haste).conf</file>
+        <file>data/weapons/Scallop Jamadhar.conf</file>
+        <file>data/weapons/Scalpel.conf</file>
+        <file>data/weapons/Scorpion.conf</file>
+        <file>data/weapons/Scroll of Wisdom.conf</file>
+        <file>data/weapons/Scythe.conf</file>
+        <file>data/weapons/Shamshir.conf</file>
+        <file>data/weapons/Shamshir*Caliburs (Guidance).conf</file>
+        <file>data/weapons/Shamshir*Katana (Critical Damage).conf</file>
+        <file>data/weapons/Shamshir*Raid Sword (Health).conf</file>
+        <file>data/weapons/Shamshir*Samurai Long Sword (Guidance).conf</file>
+        <file>data/weapons/Shamshir*Shamshir (Guidance).conf</file>
+        <file>data/weapons/Shamshir*Spirit Sword (Health).conf</file>
+        <file>data/weapons/Shamshir*Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Shamshir*Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Shamshir*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Shamshir*Tsurugi (Haste).conf</file>
+        <file>data/weapons/Shillien Knife.conf</file>
+        <file>data/weapons/Shining Knife.conf</file>
+        <file>data/weapons/Short Bow.conf</file>
+        <file>data/weapons/Short Spear.conf</file>
+        <file>data/weapons/Short Sword.conf</file>
+        <file>data/weapons/Sickle.conf</file>
+        <file>data/weapons/Silver Axe.conf</file>
+        <file>data/weapons/Silversmith Hammer.conf</file>
+        <file>data/weapons/Single-Edged Jamadhar.conf</file>
+        <file>data/weapons/Skull Breaker.conf</file>
+        <file>data/weapons/Skull Graver.conf</file>
+        <file>data/weapons/Soul Bow.conf</file>
+        <file>data/weapons/Soulfire Dirk.conf</file>
+        <file>data/weapons/Soul Seperator.conf</file>
+        <file>data/weapons/Spell Breaker.conf</file>
+        <file>data/weapons/Spiked Club.conf</file>
+        <file>data/weapons/Spiked Gloves.conf</file>
+        <file>data/weapons/Spinebone Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Artisan's Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Crimson Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Elven Long Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Elven Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Knight's Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Spinebone Sword.conf</file>
+        <file>data/weapons/Spinebone Sword*Sword of Revolution.conf</file>
+        <file>data/weapons/Spirit Sword.conf</file>
+        <file>data/weapons/Spirit Sword*Caliburs (Guidance).conf</file>
+        <file>data/weapons/Spirit Sword*Raid Sword (Focus).conf</file>
+        <file>data/weapons/Spirit Sword*Samurai Long Sword (Health).conf</file>
+        <file>data/weapons/Spirit Sword*Spirit Sword (Health).conf</file>
+        <file>data/weapons/Spirit Sword*Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Spirit Sword*Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Spirit Sword*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Spirit Sword*Tsurugi (Haste).conf</file>
+        <file>data/weapons/Spiritual Eye.conf</file>
+        <file>data/weapons/Sprite's Staff.conf</file>
+        <file>data/weapons/Squire's Sword.conf</file>
+        <file>data/weapons/Staff of Evil Spirit.conf</file>
+        <file>data/weapons/Staff of Life.conf</file>
+        <file>data/weapons/Staff of Magic.conf</file>
+        <file>data/weapons/Staff of Mana.conf</file>
+        <file>data/weapons/Staff of Sentinel.conf</file>
+        <file>data/weapons/Star Buster.conf</file>
+        <file>data/weapons/Stick of Eternity.conf</file>
+        <file>data/weapons/Stick of Faith.conf</file>
+        <file>data/weapons/Stiletto.conf</file>
+        <file>data/weapons/Stormbringer.conf</file>
+        <file>data/weapons/Stormbringer*Caliburs (Guidance).conf</file>
+        <file>data/weapons/Stormbringer*Katana (Health).conf</file>
+        <file>data/weapons/Stormbringer*Raid Sword (Haste).conf</file>
+        <file>data/weapons/Stormbringer*Samurai Long Sword (Guidance).conf</file>
+        <file>data/weapons/Stormbringer*Shamshir (Critical Damage).conf</file>
+        <file>data/weapons/Stormbringer*Spirit Sword (Focus).conf</file>
+        <file>data/weapons/Stormbringer*Stormbringer (Guidance).conf</file>
+        <file>data/weapons/Stormbringer*Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Stormbringer*Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Stormbringer*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Stormbringer*Tsurugi (Haste).conf</file>
+        <file>data/weapons/Strengthened Bow.conf</file>
+        <file>data/weapons/Strengthened Long Bow.conf</file>
+        <file>data/weapons/Sword Breaker.conf</file>
+        <file>data/weapons/Sword of Binding.conf</file>
+        <file>data/weapons/Sword of Damascus.conf</file>
+        <file>data/weapons/Sword of Delusion.conf</file>
+        <file>data/weapons/Sword of Delusion*Samurai Long Sword (Critical Damage).conf</file>
+        <file>data/weapons/Sword of Delusion*Sword of Delusion (Guidance).conf</file>
+        <file>data/weapons/Sword of Delusion*Sword of Nightmare (Critical Damage).conf</file>
+        <file>data/weapons/Sword of Delusion*Tsurugi (Health).conf</file>
+        <file>data/weapons/Sword of Limit.conf</file>
+        <file>data/weapons/Sword of Limit*Samurai Long Sword (Guidance).conf</file>
+        <file>data/weapons/Sword of Limit*Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Sword of Limit*Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Sword of Limit*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Sword of Limit*Tsurugi (Haste).conf</file>
+        <file>data/weapons/Sword of Magic.conf</file>
+        <file>data/weapons/Sword of Miracles.conf</file>
+        <file>data/weapons/Sword of Mystic.conf</file>
+        <file>data/weapons/Sword of Nightmare.conf</file>
+        <file>data/weapons/Sword of Nightmare*Samurai Long Sword (Health).conf</file>
+        <file>data/weapons/Sword of Nightmare*Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Sword of Nightmare*Tsurugi (Health).conf</file>
+        <file>data/weapons/Sword of Occult.conf</file>
+        <file>data/weapons/Sword of Reflection.conf</file>
+        <file>data/weapons/Sword of Revolution.conf</file>
+        <file>data/weapons/Sword of Revolution*Elven Long Sword (Focus).conf</file>
+        <file>data/weapons/Sword of Revolution*Sword of Revolution (Health).conf</file>
+        <file>data/weapons/Sword of Sentinel.conf</file>
+        <file>data/weapons/Sword of Solidarity.conf</file>
+        <file>data/weapons/Sword of Valhalla.conf</file>
+        <file>data/weapons/Sword of Watershadow.conf</file>
+        <file>data/weapons/Sword of Whispering Death.conf</file>
+        <file>data/weapons/Talins Spear.conf</file>
+        <file>data/weapons/Tallum Blade.conf</file>
+        <file>data/weapons/Tallum Blade*Dark Legion's Edge (HP;CP).conf</file>
+        <file>data/weapons/Tallum Glaive.conf</file>
+        <file>data/weapons/Tarbar.conf</file>
+        <file>data/weapons/Tears of Eva.conf</file>
+        <file>data/weapons/Tempation of Abyss.conf</file>
+        <file>data/weapons/Throwing Knife.conf</file>
+        <file>data/weapons/Titan Hammer.conf</file>
+        <file>data/weapons/Titan Sword.conf</file>
+        <file>data/weapons/Tomahawk.conf</file>
+        <file>data/weapons/Tome of Blood.conf</file>
+        <file>data/weapons/Training Gloves.conf</file>
+        <file>data/weapons/Traveler's Bastard Sword.conf</file>
+        <file>data/weapons/Traveler's Dark Elven Bow.conf</file>
+        <file>data/weapons/Traveler's Jamadhar.conf</file>
+        <file>data/weapons/Traveler's Long Bow.conf</file>
+        <file>data/weapons/Traveler's Mace.conf</file>
+        <file>data/weapons/Traveler's Pike.conf</file>
+        <file>data/weapons/Traveler's Poniard Dagger.conf</file>
+        <file>data/weapons/Traveler's Spellbook.conf</file>
+        <file>data/weapons/Traveler's Staff.conf</file>
+        <file>data/weapons/Traveler's Tomahawk.conf</file>
+        <file>data/weapons/Trident.conf</file>
+        <file>data/weapons/Tsurugi.conf</file>
+        <file>data/weapons/Tsurugi*Samurai Long Sword (Focus).conf</file>
+        <file>data/weapons/Tsurugi*Tsurugi (Focus).conf</file>
+        <file>data/weapons/Two-Handed Sword.conf</file>
+        <file>data/weapons/Viper's Fang.conf</file>
+        <file>data/weapons/Voodoo Doll.conf</file>
+        <file>data/weapons/Wand of Adept.conf</file>
+        <file>data/weapons/War Axe.conf</file>
+        <file>data/weapons/War Hammer.conf</file>
+        <file>data/weapons/War Pick.conf</file>
+        <file>data/weapons/Widow Maker.conf</file>
+        <file>data/weapons/Willow Staff.conf</file>
+        <file>data/weapons/Winged Spear.conf</file>
+        <file>data/weapons/Wizard's Tear.conf</file>
+        <file>data/weapons/Work Hammer.conf</file>
+        <file>data/weapons/Yaksa Mace.conf</file>
+        <file>data/weapons/Zweihander.conf</file>
+        <file>data/weapons/Triple-Edged Jamadhar.conf</file>
+        <file>data/weapons/Conjuror's Staff.conf</file>
+        <file>data/enchant-bonus.conf</file>
+    </qresource>
+</RCC>
