@@ -227,12 +227,6 @@
         <file>data/weapons/Arcana Mace.conf</file>
         <file>data/weapons/Arthro Nail.conf</file>
         <file>data/weapons/Artisan's Sword.conf</file>
-        <file>data/weapons/Artisan's Sword*Artisan's Sword.conf</file>
-        <file>data/weapons/Artisan's Sword*Crimson Sword.conf</file>
-        <file>data/weapons/Artisan's Sword*Elven Long Sword.conf</file>
-        <file>data/weapons/Artisan's Sword*Elven Sword.conf</file>
-        <file>data/weapons/Artisan's Sword*Knight's Sword.conf</file>
-        <file>data/weapons/Artisan's Sword*Sword of Revolution.conf</file>
         <file>data/weapons/Art of Battle Axe.conf</file>
         <file>data/weapons/Assassin Knife.conf</file>
         <file>data/weapons/Atuba Hammer.conf</file>
@@ -240,14 +234,6 @@
         <file>data/weapons/Bagh-Nakh.conf</file>
         <file>data/weapons/Basalt Battlehammer.conf</file>
         <file>data/weapons/Bastard Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Artisan's Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Bastard Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Crimson Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Elven Long Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Elven Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Knight's Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Spinebone Sword.conf</file>
-        <file>data/weapons/Bastard Sword*Sword of Revolution.conf</file>
         <file>data/weapons/Battle Axe.conf</file>
         <file>data/weapons/Bec de Corbin.conf</file>
         <file>data/weapons/Bellion Cestus.conf</file>
@@ -273,12 +259,6 @@
         <file>data/weapons/Butcher's Sword.conf</file>
         <file>data/weapons/Buzdygan.conf</file>
         <file>data/weapons/Caliburs.conf</file>
-        <file>data/weapons/Caliburs*Caliburs (Critical Damage).conf</file>
-        <file>data/weapons/Caliburs*Samurai Long Sword (Haste).conf</file>
-        <file>data/weapons/Caliburs*Sword of Delusion (Focus).conf</file>
-        <file>data/weapons/Caliburs*Sword of Limit (Health).conf</file>
-        <file>data/weapons/Caliburs*Sword of Nightmare (Haste).conf</file>
-        <file>data/weapons/Caliburs*Tsurugi (Guidance).conf</file>
         <file>data/weapons/Carnage Bow.conf</file>
         <file>data/weapons/Cedar Staff.conf</file>
         <file>data/weapons/Cestus.conf</file>
@@ -296,10 +276,6 @@
         <file>data/weapons/Crafted Dagger.conf</file>
         <file>data/weapons/Crescent Moon Bow.conf</file>
         <file>data/weapons/Crimson Sword.conf</file>
-        <file>data/weapons/Crimson Sword*Crimson Sword.conf</file>
-        <file>data/weapons/Crimson Sword*Elven Long Sword (Guidance).conf</file>
-        <file>data/weapons/Crimson Sword*Elven Sword.conf</file>
-        <file>data/weapons/Crimson Sword*Sword of Revolution.conf</file>
         <file>data/weapons/Crucifix of Blessing.conf</file>
         <file>data/weapons/Crucifix of Blood.conf</file>
         <file>data/weapons/Crystal Dagger.conf</file>
@@ -311,7 +287,6 @@
         <file>data/weapons/Cybellin's Dagger.conf</file>
         <file>data/weapons/Dagger.conf</file>
         <file>data/weapons/Dagger of Mana.conf</file>
-        <file>data/weapons/Damascus*Damascus (Guidance).conf</file>
         <file>data/weapons/Dark Elven Bow.conf</file>
         <file>data/weapons/Dark Elven Dagger.conf</file>
         <file>data/weapons/Dark Elven Long Bow.conf</file>
@@ -346,11 +321,7 @@
         <file>data/weapons/Elemental Sword.conf</file>
         <file>data/weapons/Elven Bow.conf</file>
         <file>data/weapons/Elven Long Sword.conf</file>
-        <file>data/weapons/Elven Long Sword*Elven Long Sword (Haste).conf</file>
         <file>data/weapons/Elven Sword.conf</file>
-        <file>data/weapons/Elven Sword*Elven Long Sword (Critical Damage).conf</file>
-        <file>data/weapons/Elven Sword*Elven Sword.conf</file>
-        <file>data/weapons/Elven Sword*Sword of Revolution.conf</file>
         <file>data/weapons/Elysian Axe.conf</file>
         <file>data/weapons/Eminence Bow.conf</file>
         <file>data/weapons/Falchion.conf</file>
@@ -410,24 +381,9 @@
         <file>data/weapons/Kaim Vanul's Bones.conf</file>
         <file>data/weapons/Karik Horn.conf</file>
         <file>data/weapons/Katana.conf</file>
-        <file>data/weapons/Katana*Caliburs (Guidance).conf</file>
-        <file>data/weapons/Katana*Katana (Haste).conf</file>
-        <file>data/weapons/Katana*Raid Sword (Critical Damage).conf</file>
-        <file>data/weapons/Katana*Samurai Long Sword (Critical Damage).conf</file>
-        <file>data/weapons/Katana*Spirit Sword (Guidance).conf</file>
-        <file>data/weapons/Katana*Sword of Delusion (Health).conf</file>
-        <file>data/weapons/Katana*Sword of Limit (Critical Damage).conf</file>
-        <file>data/weapons/Katana*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Katana*Tsurugi (Haste).conf</file>
         <file>data/weapons/Keshanberk.conf</file>
-        <file>data/weapons/Keshanberk*Damascus (Health).conf</file>
-        <file>data/weapons/Keshanberk*Keshanberk (Haste).conf</file>
         <file>data/weapons/Knife.conf</file>
         <file>data/weapons/Knight's Sword.conf</file>
-        <file>data/weapons/Knight's Sword*Crimson Sword.conf</file>
-        <file>data/weapons/Knight's Sword*Elven Long Sword.conf</file>
-        <file>data/weapons/Knight's Sword*Elven Sword.conf</file>
-        <file>data/weapons/Knight's Sword*Knight's Sword.conf</file>
         <file>data/weapons/Knuckle Duster.conf</file>
         <file>data/weapons/Kris.conf</file>
         <file>data/weapons/Kukuri.conf</file>
@@ -468,47 +424,20 @@
         <file>data/weapons/Priest Sword.conf</file>
         <file>data/weapons/Proof of Revenge.conf</file>
         <file>data/weapons/Raid Sword.conf</file>
-        <file>data/weapons/Raid Sword*Caliburs (Guidance).conf</file>
-        <file>data/weapons/Raid Sword*Raid Sword (Haste).conf</file>
-        <file>data/weapons/Raid Sword*Samurai Long Sword (Focus).conf</file>
-        <file>data/weapons/Raid Sword*Sword of Delusion (Health).conf</file>
-        <file>data/weapons/Raid Sword*Sword of Limit (Critical Damage).conf</file>
-        <file>data/weapons/Raid Sword*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Raid Sword*Tsurugi (Haste).conf</file>
         <file>data/weapons/Red Sunset Staff.conf</file>
         <file>data/weapons/Red Sunset Sword.conf</file>
         <file>data/weapons/Relic of the Saints.conf</file>
         <file>data/weapons/Rusted Bronze Sword.conf</file>
         <file>data/weapons/Saber.conf</file>
-        <file>data/weapons/Saber*Artisan's Sword.conf</file>
-        <file>data/weapons/Saber*Bastard Sword.conf</file>
-        <file>data/weapons/Saber*Crimson Sword.conf</file>
-        <file>data/weapons/Saber*Elven Long Sword.conf</file>
-        <file>data/weapons/Saber*Elven Sword.conf</file>
-        <file>data/weapons/Saber*Knight's Sword.conf</file>
-        <file>data/weapons/Saber*Saber.conf</file>
-        <file>data/weapons/Saber*Spinebone Sword.conf</file>
-        <file>data/weapons/Saber*Sword of Revolution.conf</file>
         <file>data/weapons/Sage's Staff.conf</file>
         <file>data/weapons/Saint Spear.conf</file>
         <file>data/weapons/Samurai Longsword.conf</file>
-        <file>data/weapons/Samurai Long Sword*Samurai Long Sword (Haste).conf</file>
         <file>data/weapons/Scallop Jamadhar.conf</file>
         <file>data/weapons/Scalpel.conf</file>
         <file>data/weapons/Scorpion.conf</file>
         <file>data/weapons/Scroll of Wisdom.conf</file>
         <file>data/weapons/Scythe.conf</file>
         <file>data/weapons/Shamshir.conf</file>
-        <file>data/weapons/Shamshir*Caliburs (Guidance).conf</file>
-        <file>data/weapons/Shamshir*Katana (Critical Damage).conf</file>
-        <file>data/weapons/Shamshir*Raid Sword (Health).conf</file>
-        <file>data/weapons/Shamshir*Samurai Long Sword (Guidance).conf</file>
-        <file>data/weapons/Shamshir*Shamshir (Guidance).conf</file>
-        <file>data/weapons/Shamshir*Spirit Sword (Health).conf</file>
-        <file>data/weapons/Shamshir*Sword of Delusion (Health).conf</file>
-        <file>data/weapons/Shamshir*Sword of Limit (Critical Damage).conf</file>
-        <file>data/weapons/Shamshir*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Shamshir*Tsurugi (Haste).conf</file>
         <file>data/weapons/Shillien Knife.conf</file>
         <file>data/weapons/Shining Knife.conf</file>
         <file>data/weapons/Short Bow.conf</file>
@@ -527,22 +456,7 @@
         <file>data/weapons/Spiked Club.conf</file>
         <file>data/weapons/Spiked Gloves.conf</file>
         <file>data/weapons/Spinebone Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Artisan's Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Crimson Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Elven Long Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Elven Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Knight's Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Spinebone Sword.conf</file>
-        <file>data/weapons/Spinebone Sword*Sword of Revolution.conf</file>
         <file>data/weapons/Spirit Sword.conf</file>
-        <file>data/weapons/Spirit Sword*Caliburs (Guidance).conf</file>
-        <file>data/weapons/Spirit Sword*Raid Sword (Focus).conf</file>
-        <file>data/weapons/Spirit Sword*Samurai Long Sword (Health).conf</file>
-        <file>data/weapons/Spirit Sword*Spirit Sword (Health).conf</file>
-        <file>data/weapons/Spirit Sword*Sword of Delusion (Health).conf</file>
-        <file>data/weapons/Spirit Sword*Sword of Limit (Critical Damage).conf</file>
-        <file>data/weapons/Spirit Sword*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Spirit Sword*Tsurugi (Haste).conf</file>
         <file>data/weapons/Spiritual Eye.conf</file>
         <file>data/weapons/Sprite's Staff.conf</file>
         <file>data/weapons/Squire's Sword.conf</file>
@@ -556,45 +470,20 @@
         <file>data/weapons/Stick of Faith.conf</file>
         <file>data/weapons/Stiletto.conf</file>
         <file>data/weapons/Stormbringer.conf</file>
-        <file>data/weapons/Stormbringer*Caliburs (Guidance).conf</file>
-        <file>data/weapons/Stormbringer*Katana (Health).conf</file>
-        <file>data/weapons/Stormbringer*Raid Sword (Haste).conf</file>
-        <file>data/weapons/Stormbringer*Samurai Long Sword (Guidance).conf</file>
-        <file>data/weapons/Stormbringer*Shamshir (Critical Damage).conf</file>
-        <file>data/weapons/Stormbringer*Spirit Sword (Focus).conf</file>
-        <file>data/weapons/Stormbringer*Stormbringer (Guidance).conf</file>
-        <file>data/weapons/Stormbringer*Sword of Delusion (Health).conf</file>
-        <file>data/weapons/Stormbringer*Sword of Limit (Critical Damage).conf</file>
-        <file>data/weapons/Stormbringer*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Stormbringer*Tsurugi (Haste).conf</file>
         <file>data/weapons/Strengthened Bow.conf</file>
         <file>data/weapons/Strengthened Long Bow.conf</file>
         <file>data/weapons/Sword Breaker.conf</file>
         <file>data/weapons/Sword of Binding.conf</file>
         <file>data/weapons/Sword of Damascus.conf</file>
         <file>data/weapons/Sword of Delusion.conf</file>
-        <file>data/weapons/Sword of Delusion*Samurai Long Sword (Critical Damage).conf</file>
-        <file>data/weapons/Sword of Delusion*Sword of Delusion (Guidance).conf</file>
-        <file>data/weapons/Sword of Delusion*Sword of Nightmare (Critical Damage).conf</file>
-        <file>data/weapons/Sword of Delusion*Tsurugi (Health).conf</file>
         <file>data/weapons/Sword of Limit.conf</file>
-        <file>data/weapons/Sword of Limit*Samurai Long Sword (Guidance).conf</file>
-        <file>data/weapons/Sword of Limit*Sword of Delusion (Health).conf</file>
-        <file>data/weapons/Sword of Limit*Sword of Limit (Critical Damage).conf</file>
-        <file>data/weapons/Sword of Limit*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Sword of Limit*Tsurugi (Haste).conf</file>
         <file>data/weapons/Sword of Magic.conf</file>
         <file>data/weapons/Sword of Miracles.conf</file>
         <file>data/weapons/Sword of Mystic.conf</file>
         <file>data/weapons/Sword of Nightmare.conf</file>
-        <file>data/weapons/Sword of Nightmare*Samurai Long Sword (Health).conf</file>
-        <file>data/weapons/Sword of Nightmare*Sword of Nightmare (Focus).conf</file>
-        <file>data/weapons/Sword of Nightmare*Tsurugi (Health).conf</file>
         <file>data/weapons/Sword of Occult.conf</file>
         <file>data/weapons/Sword of Reflection.conf</file>
         <file>data/weapons/Sword of Revolution.conf</file>
-        <file>data/weapons/Sword of Revolution*Elven Long Sword (Focus).conf</file>
-        <file>data/weapons/Sword of Revolution*Sword of Revolution (Health).conf</file>
         <file>data/weapons/Sword of Sentinel.conf</file>
         <file>data/weapons/Sword of Solidarity.conf</file>
         <file>data/weapons/Sword of Valhalla.conf</file>
@@ -602,7 +491,6 @@
         <file>data/weapons/Sword of Whispering Death.conf</file>
         <file>data/weapons/Talins Spear.conf</file>
         <file>data/weapons/Tallum Blade.conf</file>
-        <file>data/weapons/Tallum Blade*Dark Legion's Edge (HP;CP).conf</file>
         <file>data/weapons/Tallum Glaive.conf</file>
         <file>data/weapons/Tarbar.conf</file>
         <file>data/weapons/Tears of Eva.conf</file>
@@ -625,8 +513,6 @@
         <file>data/weapons/Traveler's Tomahawk.conf</file>
         <file>data/weapons/Trident.conf</file>
         <file>data/weapons/Tsurugi.conf</file>
-        <file>data/weapons/Tsurugi*Samurai Long Sword (Focus).conf</file>
-        <file>data/weapons/Tsurugi*Tsurugi (Focus).conf</file>
         <file>data/weapons/Two-Handed Sword.conf</file>
         <file>data/weapons/Viper's Fang.conf</file>
         <file>data/weapons/Voodoo Doll.conf</file>
@@ -644,5 +530,119 @@
         <file>data/weapons/Triple-Edged Jamadhar.conf</file>
         <file>data/weapons/Conjuror's Staff.conf</file>
         <file>data/enchant-bonus.conf</file>
+        <file>data/weapons/Artisan's Sword+Artisan's Sword.conf</file>
+        <file>data/weapons/Artisan's Sword+Crimson Sword.conf</file>
+        <file>data/weapons/Artisan's Sword+Elven Long Sword.conf</file>
+        <file>data/weapons/Artisan's Sword+Elven Sword.conf</file>
+        <file>data/weapons/Artisan's Sword+Knight's Sword.conf</file>
+        <file>data/weapons/Artisan's Sword+Sword of Revolution.conf</file>
+        <file>data/weapons/Bastard Sword+Artisan's Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Bastard Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Crimson Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Elven Long Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Elven Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Knight's Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Spinebone Sword.conf</file>
+        <file>data/weapons/Bastard Sword+Sword of Revolution.conf</file>
+        <file>data/weapons/Caliburs+Caliburs (Critical Damage).conf</file>
+        <file>data/weapons/Caliburs+Samurai Long Sword (Haste).conf</file>
+        <file>data/weapons/Caliburs+Sword of Delusion (Focus).conf</file>
+        <file>data/weapons/Caliburs+Sword of Limit (Health).conf</file>
+        <file>data/weapons/Caliburs+Sword of Nightmare (Haste).conf</file>
+        <file>data/weapons/Caliburs+Tsurugi (Guidance).conf</file>
+        <file>data/weapons/Crimson Sword+Crimson Sword.conf</file>
+        <file>data/weapons/Crimson Sword+Elven Long Sword (Guidance).conf</file>
+        <file>data/weapons/Crimson Sword+Elven Sword.conf</file>
+        <file>data/weapons/Crimson Sword+Sword of Revolution.conf</file>
+        <file>data/weapons/Damascus+Damascus (Guidance).conf</file>
+        <file>data/weapons/Elven Long Sword+Elven Long Sword (Haste).conf</file>
+        <file>data/weapons/Elven Sword+Elven Long Sword (Critical Damage).conf</file>
+        <file>data/weapons/Elven Sword+Elven Sword.conf</file>
+        <file>data/weapons/Elven Sword+Sword of Revolution.conf</file>
+        <file>data/weapons/Katana+Caliburs (Guidance).conf</file>
+        <file>data/weapons/Katana+Katana (Haste).conf</file>
+        <file>data/weapons/Katana+Raid Sword (Critical Damage).conf</file>
+        <file>data/weapons/Katana+Samurai Long Sword (Critical Damage).conf</file>
+        <file>data/weapons/Katana+Spirit Sword (Guidance).conf</file>
+        <file>data/weapons/Katana+Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Katana+Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Katana+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Katana+Tsurugi (Haste).conf</file>
+        <file>data/weapons/Keshanberk+Damascus (Health).conf</file>
+        <file>data/weapons/Keshanberk+Keshanberk (Haste).conf</file>
+        <file>data/weapons/Knight's Sword+Crimson Sword.conf</file>
+        <file>data/weapons/Knight's Sword+Elven Long Sword.conf</file>
+        <file>data/weapons/Knight's Sword+Elven Sword.conf</file>
+        <file>data/weapons/Knight's Sword+Knight's Sword.conf</file>
+        <file>data/weapons/Raid Sword+Caliburs (Guidance).conf</file>
+        <file>data/weapons/Raid Sword+Raid Sword (Haste).conf</file>
+        <file>data/weapons/Raid Sword+Samurai Long Sword (Focus).conf</file>
+        <file>data/weapons/Raid Sword+Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Raid Sword+Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Raid Sword+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Raid Sword+Tsurugi (Haste).conf</file>
+        <file>data/weapons/Saber+Artisan's Sword.conf</file>
+        <file>data/weapons/Saber+Bastard Sword.conf</file>
+        <file>data/weapons/Saber+Crimson Sword.conf</file>
+        <file>data/weapons/Saber+Elven Long Sword.conf</file>
+        <file>data/weapons/Saber+Elven Sword.conf</file>
+        <file>data/weapons/Saber+Knight's Sword.conf</file>
+        <file>data/weapons/Saber+Saber.conf</file>
+        <file>data/weapons/Saber+Spinebone Sword.conf</file>
+        <file>data/weapons/Saber+Sword of Revolution.conf</file>
+        <file>data/weapons/Samurai Long Sword+Samurai Long Sword (Haste).conf</file>
+        <file>data/weapons/Shamshir+Caliburs (Guidance).conf</file>
+        <file>data/weapons/Shamshir+Katana (Critical Damage).conf</file>
+        <file>data/weapons/Shamshir+Raid Sword (Health).conf</file>
+        <file>data/weapons/Shamshir+Samurai Long Sword (Guidance).conf</file>
+        <file>data/weapons/Shamshir+Shamshir (Guidance).conf</file>
+        <file>data/weapons/Shamshir+Spirit Sword (Health).conf</file>
+        <file>data/weapons/Shamshir+Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Shamshir+Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Shamshir+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Shamshir+Tsurugi (Haste).conf</file>
+        <file>data/weapons/Spinebone Sword+Artisan's Sword.conf</file>
+        <file>data/weapons/Spinebone Sword+Crimson Sword.conf</file>
+        <file>data/weapons/Spinebone Sword+Elven Long Sword.conf</file>
+        <file>data/weapons/Spinebone Sword+Elven Sword.conf</file>
+        <file>data/weapons/Spinebone Sword+Knight's Sword.conf</file>
+        <file>data/weapons/Spinebone Sword+Spinebone Sword.conf</file>
+        <file>data/weapons/Spinebone Sword+Sword of Revolution.conf</file>
+        <file>data/weapons/Spirit Sword+Caliburs (Guidance).conf</file>
+        <file>data/weapons/Spirit Sword+Raid Sword (Focus).conf</file>
+        <file>data/weapons/Spirit Sword+Samurai Long Sword (Health).conf</file>
+        <file>data/weapons/Spirit Sword+Spirit Sword (Health).conf</file>
+        <file>data/weapons/Spirit Sword+Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Spirit Sword+Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Spirit Sword+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Spirit Sword+Tsurugi (Haste).conf</file>
+        <file>data/weapons/Stormbringer+Caliburs (Guidance).conf</file>
+        <file>data/weapons/Stormbringer+Katana (Health).conf</file>
+        <file>data/weapons/Stormbringer+Raid Sword (Haste).conf</file>
+        <file>data/weapons/Stormbringer+Samurai Long Sword (Guidance).conf</file>
+        <file>data/weapons/Stormbringer+Shamshir (Critical Damage).conf</file>
+        <file>data/weapons/Stormbringer+Spirit Sword (Focus).conf</file>
+        <file>data/weapons/Stormbringer+Stormbringer (Guidance).conf</file>
+        <file>data/weapons/Stormbringer+Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Stormbringer+Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Stormbringer+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Stormbringer+Tsurugi (Haste).conf</file>
+        <file>data/weapons/Sword of Delusion+Samurai Long Sword (Critical Damage).conf</file>
+        <file>data/weapons/Sword of Delusion+Sword of Delusion (Guidance).conf</file>
+        <file>data/weapons/Sword of Delusion+Sword of Nightmare (Critical Damage).conf</file>
+        <file>data/weapons/Sword of Delusion+Tsurugi (Health).conf</file>
+        <file>data/weapons/Sword of Limit+Samurai Long Sword (Guidance).conf</file>
+        <file>data/weapons/Sword of Limit+Sword of Delusion (Health).conf</file>
+        <file>data/weapons/Sword of Limit+Sword of Limit (Critical Damage).conf</file>
+        <file>data/weapons/Sword of Limit+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Sword of Limit+Tsurugi (Haste).conf</file>
+        <file>data/weapons/Sword of Nightmare+Samurai Long Sword (Health).conf</file>
+        <file>data/weapons/Sword of Nightmare+Sword of Nightmare (Focus).conf</file>
+        <file>data/weapons/Sword of Nightmare+Tsurugi (Health).conf</file>
+        <file>data/weapons/Sword of Revolution+Elven Long Sword (Focus).conf</file>
+        <file>data/weapons/Sword of Revolution+Sword of Revolution (Health).conf</file>
+        <file>data/weapons/Tallum Blade+Dark Legion's Edge (HP;CP).conf</file>
+        <file>data/weapons/Tsurugi+Samurai Long Sword (Focus).conf</file>
+        <file>data/weapons/Tsurugi+Tsurugi (Focus).conf</file>
     </qresource>
 </RCC>
